@@ -1,0 +1,17 @@
+backend:
+  name: github
+  repo: boxadesign/netlify-cms
+  branch: master
+publish_mode: editorial_workflow
+collections:
+  - name: "pages" # Used in routes, e.g., /admin/collections/pages
+    label: "Pages" # Used in the UI
+    folder: "_pages" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: "{{slug}}"
+    fields: # The fields for each document, usually in front matter
+      - {label: "Layout", name: "layout", widget: "hidden", default: "pages"}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Publish Date", name: "date", widget: "datetime"}
+      - {label: "Featured Image", name: "thumbnail", widget: "image"}
+      - {label: "Body", name: "body", widget: "markdown"}

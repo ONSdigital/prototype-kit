@@ -85,21 +85,6 @@ export default function(mode) {
               options: {
                 name: '[path][name].html'
               }
-            },
-            {
-              loader: path.resolve('./lib/nunjucks-html-loader.js'),
-              options: {
-                searchPaths: [
-                  `${__dirname}/src`,
-                  `${__dirname}/src/prototypes`,
-                  `${__dirname}/node_modules/@ons/design-system`
-                ],
-                layoutPath: 'prototypes',
-                defaultLayout: 'page-templates/_template.njk',
-                context: {
-                  devMode
-                }
-              }
             }
           ]
         },
