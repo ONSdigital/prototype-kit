@@ -1,5 +1,4 @@
 import * as path from 'path';
-import * as fs from 'fs';
 import glob from 'glob';
 import { NoEmitOnErrorsPlugin, NamedModulesPlugin } from 'webpack';
 import ProgressBarPlugin from 'progress-bar-webpack-plugin';
@@ -12,36 +11,6 @@ import postcssPlugins from './postcss.config';
 
 const OUT_DIR = 'build';
 
-
-function formDirectory(startPath, scripts) {
-  if (!fs.existsSync(startPath)) {
-    return;
-  }
-
-  const files = fs.readdirSync(startPath);
-
-  files.forEach(file => {
-    const filePath = path.join(startPath, file);
-    const statistics = fs.lstatSync(filePath);
-
-    if(statistics.isDirectory()) {
-      formDirectory(filePath, scripts);
-    } else if (file === 'index.js') {
-      const path = startPath.replace('src/', '');
-      scripts[`${path}/${file.replace('.js', '')}`] = `./${path}/${file}`;
-    }
-  });
-}
-
-function generateScriptEntries() {
-  const scripts = {};
-
-  formDirectory('./src/prototypes', scripts);
-
-  return scripts;
-}
-
-
 export default function(mode) {
   const devMode = mode === 'development';
 
@@ -51,8 +20,8 @@ export default function(mode) {
     mode,
     
     entry: {
-      // ...generateScriptEntries(),
-      // styles: glob.sync('./**/*.scss', { cwd: 'src', ignore: './**/_*.scss' }),
+      'scripts/custom-scripts': ['./scripts/custom-scripts.js'],
+      'custom-styles': ['./styles/custom-styles.scss'],
       html: glob.sync('./pages/**/*.md', { cwd: 'src' })
     },
 
@@ -78,30 +47,31 @@ export default function(mode) {
       rules: [
         // Templates
         {
-          test: /.md$/,
+          test: /\.md$/,
           loaders: [
             {
               loader: 'file-loader',
               options: {
-                name: '[path][name].html'
+                name: '[path][name].html',
+                context: 'src/pages'
               }
-            }
+            },
+            {
+              loader: path.resolve('./lib/nunjucks-html-loader.js'),
+              options: {
+                searchPaths: [
+                  `${__dirname}/src`,
+                  `${__dirname}/src/templates`,
+                  `${__dirname}/node_modules/@ons/design-system`
+                ],
+                layoutPath: 'layouts',
+                defaultLayout: 'page-templates/_template.njk',	
+                context: {
+                  devMode
+                }
+              }
+            },
           ]
-        },
-        {	
-          loader: path.resolve('./lib/nunjucks-html-loader.js'),	
-          options: {	
-            searchPaths: [	
-              `${__dirname}/src`,	
-              `${__dirname}/src/templates`,	
-              `${__dirname}/node_modules/@ons/design-system`	
-            ],	
-            layoutPath: 'layouts',	
-            defaultLayout: 'page-templates/_template.njk',	
-            context: {	
-              devMode	
-            }	
-          }
         },
         // Styles
         {
@@ -172,7 +142,7 @@ export default function(mode) {
       }),
 
       new FixStyleOnlyEntriesPlugin({
-        extensions: ['scss', 'njk', 'html'],
+        extensions: ['scss', 'md'],
         silent: true
       }),
 
@@ -181,35 +151,35 @@ export default function(mode) {
           {
             context: '../node_modules/@ons/design-system/',
             from: {
-              glob: '**/css/**/*',
+              glob: 'css',
               dot: true
             }
           },
           {
             context: '../node_modules/@ons/design-system/',
             from: {
-              glob: '**/scripts/**/*',
+              glob: 'scripts',
               dot: true
             }
           },
           {
             context: '../node_modules/@ons/design-system/',
             from: {
-              glob: '**/fonts/**/*',
+              glob: 'fonts',
               dot: true
             }
           },
           {
             context: '../node_modules/@ons/design-system/',
             from: {
-              glob: '**/img/**/*',
+              glob: 'img',
               dot: true
             }
           },
           {
             context: '../node_modules/@ons/design-system/',
             from: {
-              glob: '**/favicons/**/*',
+              glob: 'favicons',
               dot: true
             }
           }
