@@ -669,37 +669,13 @@
     log-update "^2.3.0"
     strip-ansi "^3.0.1"
 
-"@ons/design-system/0.1.17@npm:@ons/design-system@0.1.17":
+"@ons/design-system@^0.1.17":
   version "0.1.17"
   resolved "https://registry.yarnpkg.com/@ons/design-system/-/design-system-0.1.17.tgz#e3a8ce7e4392ab19bd9be4cf44c26c164f4c832b"
   integrity sha512-9yXuqH2dG8y3hZVqspcRfdFL/zZjpCuaIu42aPUZS2EoWkFxEZn7tWqHKTOqKIbMp4eXNfExCf7m0AtEWbk1AA==
   dependencies:
     a11y-dialog "^5.2.0"
     abortcontroller-polyfill "^1.2.3"
-    core-js "^2.6.0"
-    mdn-polyfills "^5.14.0"
-    normalize-scss "^7.0.1"
-    throttle-typescript "^1.0.1"
-    whatwg-fetch "^3.0.0"
-
-"@ons/design-system/0.1.5@npm:@ons/design-system@0.1.5":
-  version "0.1.5"
-  resolved "https://registry.yarnpkg.com/@ons/design-system/-/design-system-0.1.5.tgz#84f2599431f6db53f3ef49b23b149f003f63e761"
-  integrity sha512-FEjIObDpLgbzWgZ45B7BwRI/fryrAltd28EF86EtL0Lw7r/dsBR5SEZnBV0zCfmE/SEiS8onc9WxXYyxfC8frA==
-  dependencies:
-    a11y-dialog "^5.2.0"
-    core-js "^2.6.0"
-    mdn-polyfills "^5.14.0"
-    normalize-scss "^7.0.1"
-    throttle-typescript "^1.0.1"
-    whatwg-fetch "^3.0.0"
-
-"@ons/design-system/0.1.6@npm:@ons/design-system@0.1.6":
-  version "0.1.6"
-  resolved "https://registry.yarnpkg.com/@ons/design-system/-/design-system-0.1.6.tgz#d1a36749d1ace7fc78d98e5a8721af8955e9124a"
-  integrity sha512-47nG0sykORUh6d/y82q8xuh6HUBDCUCzxMxWjVKKFZGUiu4PZNKYeBd5333GMbtyj/rfg0k4DWYJH0FZPz79OQ==
-  dependencies:
-    a11y-dialog "^5.2.0"
     core-js "^2.6.0"
     mdn-polyfills "^5.14.0"
     normalize-scss "^7.0.1"
@@ -2119,9 +2095,9 @@ core-js@^2.5.7:
   integrity sha512-l00tmFFZOBHtYhN4Cz7k32VM7vTn3rE2ANjQDxdEN6zmXZ/xq1jQuutnmHvMG1ZJ7xd72+TA5YpUK8wz3rWsfQ==
 
 core-js@^2.6.0:
-  version "2.6.4"
-  resolved "https://registry.yarnpkg.com/core-js/-/core-js-2.6.4.tgz#b8897c062c4d769dd30a0ac5c73976c47f92ea0d"
-  integrity sha512-05qQ5hXShcqGkPZpXEFLIpxayZscVD2kuMBZewxiIPPEagukO4mqgPA9CWhUvFBJfy3ODdK2p9xyHh7FTU9/7A==
+  version "2.6.5"
+  resolved "https://registry.yarnpkg.com/core-js/-/core-js-2.6.5.tgz#44bc8d249e7fb2ff5d00e0341a7ffb94fbf67895"
+  integrity sha512-klh/kDpwX8hryYL14M9w/xei6vrv6sE8gTHDG7/T/+SEovB/G4ejwcfE/CBzO6Edsu+OETZMZ3wcX/EjUkrl5A==
 
 core-util-is@1.0.2, core-util-is@~1.0.0:
   version "1.0.2"
@@ -5207,9 +5183,9 @@ mdn-data@~1.1.0:
   integrity sha512-FSYbp3lyKjyj3E7fMl6rYvUdX0FBXaluGqlFoYESWQlyUTq8R+wp0rkFxoYFqZlHCvsUXGjyJmLQSnXToYhOSA==
 
 mdn-polyfills@^5.14.0:
-  version "5.15.0"
-  resolved "https://registry.yarnpkg.com/mdn-polyfills/-/mdn-polyfills-5.15.0.tgz#ee0812604b1f922a6b83ee879e3466483b394bb1"
-  integrity sha512-xnHoz63bS0IpyRwmSFAUEHnx8g2nuC7TbavgtoJYVStg2i32gHnD9o8orjMuQsvltANt+2xPHWGeKgyXWCZV3g==
+  version "5.16.0"
+  resolved "https://registry.yarnpkg.com/mdn-polyfills/-/mdn-polyfills-5.16.0.tgz#f44a0c37a47158e1b1c748ac03d9c1be63ad89f7"
+  integrity sha512-1rMxLgeYCwW4a8sUvoyLY7wCdKgMVQdS6me52D0a5lvuTUEAn3Mhi5gFN+9kI0jfea1TUepq72K1AgmbIt2ffw==
 
 media-typer@0.3.0:
   version "0.3.0"

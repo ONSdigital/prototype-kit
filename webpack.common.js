@@ -51,9 +51,9 @@ export default function(mode) {
     mode,
     
     entry: {
-      ...generateScriptEntries(),
-      styles: glob.sync('./**/*.scss', { cwd: 'src', ignore: './**/_*.scss' }),
-      html: glob.sync('./**/*.{njk,html}', { cwd: 'src', ignore: './**/_*.{njk,html}' })
+      // ...generateScriptEntries(),
+      // styles: glob.sync('./**/*.scss', { cwd: 'src', ignore: './**/_*.scss' }),
+      html: glob.sync('./pages/**/*.md', { cwd: 'src' })
     },
 
     output: {
@@ -63,7 +63,7 @@ export default function(mode) {
     },
 
     resolve: {
-      extensions: ['.js', '.njk', '.html', '.scss'],
+      extensions: ['.js', '.scss', '.md'],
       modules: ['./node_modules'],
       alias: {
         helpers: path.resolve(__dirname, './src/helpers')
@@ -78,7 +78,7 @@ export default function(mode) {
       rules: [
         // Templates
         {
-          test: /\.(njk|html)$/,
+          test: /.md$/,
           loaders: [
             {
               loader: 'file-loader',
@@ -87,6 +87,21 @@ export default function(mode) {
               }
             }
           ]
+        },
+        {	
+          loader: path.resolve('./lib/nunjucks-html-loader.js'),	
+          options: {	
+            searchPaths: [	
+              `${__dirname}/src`,	
+              `${__dirname}/src/templates`,	
+              `${__dirname}/node_modules/@ons/design-system`	
+            ],	
+            layoutPath: 'layouts',	
+            defaultLayout: 'page-templates/_template.njk',	
+            context: {	
+              devMode	
+            }	
+          }
         },
         // Styles
         {
@@ -162,7 +177,7 @@ export default function(mode) {
       }),
 
       new CopyWebpackPlugin(
-        [
+        [     
           {
             context: '../node_modules/@ons/design-system/',
             from: {
