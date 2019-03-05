@@ -149,6 +149,14 @@ export default function(mode) {
       new CopyWebpackPlugin(
         [     
           {
+            from: '../src/admin/index.html',
+            to: '../build/admin/index.html'
+          },          
+          {
+            from: '../src/admin/config.yml',
+            to: '../build/admin/config.yml'
+          },
+          {
             context: '../node_modules/@ons/design-system/',
             from: {
               glob: 'css',

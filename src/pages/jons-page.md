@@ -1,5 +1,4 @@
 ---
-layout: pages
 title: Jon's page
 date: 2019-03-05T14:17:16.389Z
 thumbnail: >-
