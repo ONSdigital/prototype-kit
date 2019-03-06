@@ -1,4 +1,6 @@
+{% extends "page-templates/_template.njk" %}
 {% set page = { 
+    "serviceTitle": "Census 2021 prototype",
     "footer": {
         "OGLLink": {
             "pre": 'All content is available under the',
@@ -8,3 +10,7 @@
         }
     }
 } %}
+{% block content %}
+<h2 class="u-fs-l">{{ data.title }}</h2>
+{{ body | safe }}
+{% endblock %}
