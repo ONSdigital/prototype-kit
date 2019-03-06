@@ -8,9 +8,21 @@
             "url": 'https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/',
             "post": ', except where otherwise stated'
         }
+    },
+    "navigation": {
+        "id": "main-nav",
+        "classes": "nav--inline nav--light nav--header nav--h-m js-main-nav",
+        "ariaLabel": "Main menu",
+        "ariraListLabel": "Navigation menu",
+        "currentPath": pageInfo.path,
+        "items": helpers.navigationHelper({ 
+            "pages": pageInfo.siteMap,
+            "ignorePaths": ["/"]
+        })
     }
 } %}
 {% block content %}
 <h2 class="u-fs-l">{{ data.title }}</h2>
+<div class="u-mb-s"><img src="{{ data.thumbnail }}"></div>
 {{ body | safe }}
 {% endblock %}

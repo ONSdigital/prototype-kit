@@ -156,6 +156,13 @@ export default function(mode) {
             to: '../build/admin/config.yml'
           },
           {
+            context: '../src/',
+            from: {
+              glob: 'images',
+              dot: true
+            }
+          },
+          {
             context: '../node_modules/@ons/design-system/',
             from: {
               glob: 'css',

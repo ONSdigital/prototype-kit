@@ -3,7 +3,7 @@ backend:
   repo: boxadesign/netlify-cms
   branch: master
 publish_mode: editorial_workflow
-media_folder: "src/images"
+media_folder: "images"
 collections:
   - name: "pages" # Used in routes, e.g., /admin/collections/pages
     label: "Pages" # Used in the UI
