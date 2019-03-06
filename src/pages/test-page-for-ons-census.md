@@ -1,5 +1,5 @@
 ---
-layout: src/views/layouts/_page
+layout: _page
 title: Test page for ONS Census
 date: 2019-03-06T10:53:05.417Z
 thumbnail: /src/images/ux-surveys-article.jpg
