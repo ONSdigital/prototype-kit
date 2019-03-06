@@ -63,7 +63,7 @@ export default function(mode) {
                   `${__dirname}/src`,
                   `${__dirname}/node_modules/@ons/design-system`
                 ],
-                layoutPath: `views/layouts`,
+                layoutPath: 'views/layouts',
                 defaultLayout: 'page-templates/_template.njk',	
                 context: {
                   devMode
