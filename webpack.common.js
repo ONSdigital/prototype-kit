@@ -61,7 +61,6 @@ export default function(mode) {
               options: {
                 searchPaths: [
                   `${__dirname}/src`,
-                  `${__dirname}/src/templates`,
                   `${__dirname}/node_modules/@ons/design-system`
                 ],
                 layoutPath: `${__dirname}/src/views/layouts`,
