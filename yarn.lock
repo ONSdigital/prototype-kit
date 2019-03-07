@@ -669,12 +669,11 @@
     log-update "^2.3.0"
     strip-ansi "^3.0.1"
 
-"@ons/design-system@^0.1.17":
-  version "0.1.17"
-  resolved "https://registry.yarnpkg.com/@ons/design-system/-/design-system-0.1.17.tgz#e3a8ce7e4392ab19bd9be4cf44c26c164f4c832b"
-  integrity sha512-9yXuqH2dG8y3hZVqspcRfdFL/zZjpCuaIu42aPUZS2EoWkFxEZn7tWqHKTOqKIbMp4eXNfExCf7m0AtEWbk1AA==
+"@ons/design-system@^0.3.0":
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/@ons/design-system/-/design-system-0.3.0.tgz#4030fae5107c9186418d98090aa116370fdaf9ed"
+  integrity sha512-rH9O/uq4LwaMD1AZLNm5dRwQ75EQGQIlRZoGhSzZW2byv4jRdax4w0p2DBILenCX6uuQomJiZFxQkwoBbr1zgQ==
   dependencies:
-    a11y-dialog "^5.2.0"
     abortcontroller-polyfill "^1.2.3"
     core-js "^2.6.0"
     mdn-polyfills "^5.14.0"
@@ -888,11 +887,6 @@ a-sync-waterfall@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/a-sync-waterfall/-/a-sync-waterfall-1.0.1.tgz#75b6b6aa72598b497a125e7a2770f14f4c8a1fa7"
   integrity sha512-RYTOHHdWipFUliRFMCS4X2Yn2X8M87V/OpSqWzKKOGhzqyUxzyVmhHDH9sAvG+ZuQf/TAOFsLCpMw09I1ufUnA==
-
-a11y-dialog@^5.2.0:
-  version "5.2.0"
-  resolved "https://registry.yarnpkg.com/a11y-dialog/-/a11y-dialog-5.2.0.tgz#bc3f9ccb7154a840bffd61b9385edbd093f7f209"
-  integrity sha512-vymlarVdoDKNwQPq513D5IANZu7fdOiWjQJG0FuEFI77RfJUGrxpfI6puwXy7hxKmVTSf4bNq6ZgCb+EikIl8g==
 
 abbrev@1:
   version "1.1.1"

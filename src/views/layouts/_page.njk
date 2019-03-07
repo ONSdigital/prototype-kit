@@ -1,6 +1,6 @@
 {% extends "page-templates/_template.njk" %}
 {% set page = { 
-    "serviceTitle": "Census 2021 prototype",
+    "title": "Census 2021 prototype",
     "footer": {
         "OGLLink": {
             "pre": 'All content is available under the',
@@ -14,12 +14,32 @@
         "classes": "nav--inline nav--light nav--header nav--h-m js-main-nav",
         "ariaLabel": "Main menu",
         "ariraListLabel": "Navigation menu",
-        "currentPath": pageInfo.path
-        
+        "currentPath": pageInfo.url,
+        "items": helpers.navigationHelper({ 
+            "pages": pageInfo.siteMap,
+            "ignoreURLs": ["/"],
+            "devMode": devMode
+        })
     }
 } %}
 {% block content %}
 <h2 class="u-fs-l">{{ data.title }}</h2>
 <div class="u-mb-s"><img src="{{ data.thumbnail }}"></div>
 {{ body | safe }}
+
+{% if pageInfo.children %}
+    {% from "components/details/_macro.njk" import onsDetails %}
+
+    {% for faq in pageInfo.children %}
+        {{
+            onsDetails({
+                "id": pageInfo.title + "-" + loop.index,
+                "buttonOpen": "Open",
+                "closeButton": "Close",
+                "title": faq.title,
+                "content": faq.body
+            })
+        }}
+    {% endfor %}
+{% endif %}
 {% endblock %}
