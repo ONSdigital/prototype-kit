@@ -21,6 +21,7 @@ collections:
     create: true
     slug: "{{slug}}"
     fields:
+      - {label: "Layout", name: "layout", widget: "hidden", default: "_page"}
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: 'Parent', name: "parent", widget: "relation", collection: "pages", searchFields: ["title"], valueField: "title", required: false, default: "FAQs"}

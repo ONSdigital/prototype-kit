@@ -14,7 +14,7 @@
         "classes": "nav--inline nav--light nav--header nav--h-m js-main-nav",
         "ariaLabel": "Main menu",
         "ariraListLabel": "Navigation menu",
-        "currentPath": pageInfo.url,
+        "currentPath": pageInfo.url + '.html',
         "items": helpers.navigationHelper({ 
             "pages": pageInfo.siteMap,
             "ignoreURLs": ["/"],
@@ -23,23 +23,24 @@
     }
 } %}
 {% block content %}
+
+{% if pageInfo.children or pageInfo.parent %}
+    {% from "components/section-navigation/_macro.njk" import onsSectionNavigation %}
+    {{ 
+        onsSectionNavigation({
+            "ariaLabel": "Section menu",
+            "ariraListLabel": "Navigation menu",
+            "currentPath": pageInfo.parent.url + '.html',
+            "items": helpers.navigationHelper({ 
+                "pages": pageInfo.children,
+                "ignoreURLs": ["/"],
+                "devMode": devMode
+            })
+        })
+    }}
+{% endif %}
 <h2 class="u-fs-l">{{ data.title }}</h2>
 <div class="u-mb-s"><img src="{{ data.thumbnail }}"></div>
 {{ body | safe }}
 
-{% if pageInfo.children %}
-    {% from "components/details/_macro.njk" import onsDetails %}
-
-    {% for faq in pageInfo.children %}
-        {{
-            onsDetails({
-                "id": pageInfo.title + "-" + loop.index,
-                "buttonOpen": "Open",
-                "closeButton": "Close",
-                "title": faq.title,
-                "content": faq.body
-            })
-        }}
-    {% endfor %}
-{% endif %}
 {% endblock %}

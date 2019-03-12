@@ -1,6 +1,6 @@
 ---
 layout: _page
-title: Test page for ONS Census
+title: About
 date: 2019-03-06T10:53:05.417Z
 thumbnail: >-
   https://raw.githubusercontent.com/boxadesign/netlify-cms/master/src/images/ux-surveys-article.jpg

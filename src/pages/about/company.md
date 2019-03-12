@@ -1,7 +1,7 @@
 ---
 layout: _page
-title: Why?
+title: Company
 date: 2019-03-07T14:07:39.705Z
-parent: FAQs
+parent: About
 ---
 Because
