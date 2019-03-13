@@ -1,5 +1,5 @@
 files:
   - source: /src/pages/
     ignore:
-      - /src/pages/cy/
-    translation: /src/pages/%two_letters_code%/
+      - /src/pages/%two_letters_code%/
+    translation: /src/pages/%two_letters_code%/%original_file_name%_%two_letters_code%
