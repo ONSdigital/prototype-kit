@@ -1,10 +1,7 @@
 backend:
-  name: git-gateway
+  name: github
   repo: boxadesign/netlify-cms
   branch: master
-accept_roles: #optional - accepts all users if left out
-    - admin
-    - editor
 publish_mode: editorial_workflow
 media_folder: "images"
 collections:
