@@ -150,10 +150,6 @@ export default function(mode) {
           {
             from: '../src/admin/index.html',
             to: '../build/admin/index.html'
-          },             
-          {
-            from: '../src/admin/signup.html',
-            to: '../build/admin/signup.html'
           },          
           {
             from: '../src/admin/config.yml',
