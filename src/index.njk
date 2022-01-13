@@ -15,19 +15,19 @@ version: 0.5.0
     }
 } %}
 {% block content %}
-{% set groups = helpers.navigationHelper({ 
-    "pages": pageInfo.siteMap[0].children,
-    "ignorePaths": ["/"]
-}) %}
-{% for group in groups %}
-    <section>
-        <h1 class="u-fs-m">{{ group.title }}</h1>
-        {{ 
-            onsList({
-                "classes": "list--bare",
-                "items": group.items
-            })
-        }}
-    </section>
-{% endfor %}
+    {% set groups = helpers.navigationHelper({ 
+        "pages": prototypeListing,
+        "ignorePaths": ["/"]
+    }) %}
+    {% for group in groups %}
+        <section>
+            <h1 class="u-fs-m">{{ group.title }}</h1>
+            {{ 
+                onsList({
+                    "classes": "list--bare",
+                    "items": group.items
+                })
+            }}
+        </section>
+    {% endfor %}
 {% endblock %}
