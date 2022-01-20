@@ -1,3 +1,14 @@
-.header__main {
-  background: #333;
+@import '../../../node_modules/@ons/design-system/44.0.0/scss/vars/_index.scss';
+@import '../../../node_modules/@ons/design-system/44.0.0/scss/helpers/_index.scss';
+@import '../../../node_modules/@ons/design-system/44.0.0/scss/base/_index.scss';
+@import '../../../node_modules/@ons/design-system/44.0.0/scss/utilities/_index.scss';
+
+.ons-summary__item:not(:last-child) {
+  border-bottom: 1px solid $color-borders !important;
+}
+
+.js-summary {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
 }

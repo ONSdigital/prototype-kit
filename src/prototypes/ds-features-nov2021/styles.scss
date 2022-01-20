@@ -1,0 +1,44 @@
+@import '../../../node_modules/@ons/design-system/44.0.0/scss/vars/_index.scss';
+@import '../../../node_modules/@ons/design-system/44.0.0/scss/helpers/_index.scss';
+@import '../../../node_modules/@ons/design-system/44.0.0/scss/base/_index.scss';
+@import '../../../node_modules/@ons/design-system/44.0.0/scss/utilities/_index.scss';
+
+.ons-uac {
+  &__input {
+    font-family: $font-mono;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    width: 15.1em;
+
+    @media all and (min-width: 375px) {
+      font-size: 20px;
+      width: 15.1em;
+    }
+
+    @media all and (max-width: 374px) {
+      letter-spacing: 0;
+      max-width: 12.6em;
+    }
+
+    @media all and (max-width: 299px) {
+      max-width: 100%;
+    }
+
+    @include mq('s') {
+      font-size: 24px;
+      max-width: 14.9em;
+      width: 14.9em !important;
+    }
+  }
+}
+
+.ons-summary__item:not(:last-child) {
+  border-bottom: 1px solid $color-borders !important;
+}
+
+.js-summary {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+}
