@@ -1,4 +1,4 @@
-import domready from '../../../helpers/domready';
+import domready from './domready';
 
 function pipeAnswers() {
   const pipingDestinations = [...document.querySelectorAll('.js-piped-answer')];

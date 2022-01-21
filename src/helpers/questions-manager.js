@@ -1,4 +1,4 @@
-import domready from '../../../helpers/domready';
+import domready from './domready';
 import { getBaseURL, setQueryStringParams, getQueryStringParams } from 'querystring-helpers';
 class QuestionManager {
   constructor() {
