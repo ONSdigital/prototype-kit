@@ -32,7 +32,7 @@ const sassOptions = {
   includePaths: ['./node_modules/normalize.css', './node_modules/prismjs/themes']
 };
 
-const scripts = glob.sync('./src/**/*/index.js').map(entryPoint => ({
+const scripts = glob.sync('./src/prototypes/**/index.js').map(entryPoint => ({
   entryPoint: entryPoint,
   outputFile: entryPoint.replace(/.*src\//, ''),
   config: babelEsmConfig
