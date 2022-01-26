@@ -1,0 +1,74 @@
+{% macro onsHeaderNavigation(params) %}
+    {% from "components/button/_macro.njk" import onsButton %}
+    {% from "components/icons/_macro.njk" import onsIcon %}
+    {% from "components/autosuggest/_macro.njk" import onsAutosuggest %}
+
+        {% if params.navigation is defined and params.navigation %}
+            <div class="ons-header__bottom">
+                <div class="ons-container ons-container--gutterless@xxs@m{{ ' ons-container--full-width' if params.fullWidth }}{{ ' ons-container--wide' if params.wide }}">
+                    {% if params.autosuggest is defined and params.autosuggest %}
+                        <div class="ons-header-search ons-js-header-search">
+                            {{ onsAutosuggest({
+                                "id": "ons-autosuggest-header-search",
+                                "containerClasses": "ons-autosuggest-input--header",
+                                "classes": "ons-input--ghost ons-input-search ons-input-search--icon",
+                                "label": {
+                                    "text": params.autosuggest.label,
+                                    "id": "ons-autosuggest-header-search-label",
+                                    "classes": "ons-label--white ons-u-pl-m"
+                                },
+                                "accessiblePlaceholder": true,
+                                "autocomplete": "off",
+                                "instructions": params.autosuggest.instructions,
+                                "ariaYouHaveSelected":params.autosuggest.ariaYouHaveSelected,
+                                "ariaMinChars": params.autosuggest.ariaMinChars,
+                                "ariaResultsLabel": params.autosuggest.ariaResultsLabel,
+                                "ariaOneResult": params.autosuggest.ariaOneResult,
+                                "ariaNResults": params.autosuggest.ariaNResults,
+                                "ariaLimitedResults": params.autosuggest.ariaLimitedResults,
+                                "moreResults": params.autosuggest.moreResults,
+                                "resultsTitle": params.autosuggest.resultsTitle,
+                                "autosuggestData": params.autosuggest.autosuggestData,
+                                "noResults": params.autosuggest.noResults,
+                                "typeMore": params.autosuggest.typeMore
+                            }) }}
+                        </div>
+                    {% endif %}
+                    <nav class="proto-ons-header-nav ons-js-header-nav" id="{{ params.navigation.id }}" aria-label="{{ params.navigation.ariaLabel | default("Main menu") }}" data-analytics="header-navigation">
+                        <ul class="proto-ons-header-nav__list">
+                            {% for item in (params.navigation.itemsList if params.navigation.itemsList is iterable else params.navigation.itemsList.items()) %}
+                                <li class="proto-ons-header-nav__item {{ item.classes }}{{ ' proto-ons-header-nav__item--active' if (item.url == params.navigation.currentPath) or (item.url != (params.navigation.siteBasePath | default('/')) and item.url in params.navigation.currentPath) }}">
+                                    <a class="proto-ons-header-nav__link" href="{{ item.url }}" {% if item.id is defined and item.id %}id="{{ item.id }}" {% endif %}>{{ item.title }}</a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            {% if params.secondaryNavigation is defined and params.secondaryNavigation %}
+                    <nav class="proto-ons-header-nav proto-ons-header-nav--secondary ons-u-d-no@xxs@m" id="{{ params.secondaryNavigation.id }}" aria-label="{{ params.secondaryNavigation.ariaLabel | default("Section menu") }}" data-analytics="header-section-navigation">
+                        <div class="ons-container ons-container--gutterless@xxs@m{{ ' ons-container--full-width' if params.fullWidth }}{{ ' ons-container--wide' if params.wide }}">
+                            <ul class="proto-ons-header-nav__list proto-ons-header-nav__list">
+                                {% for item in (params.secondaryNavigation.itemsList if params.secondaryNavigation.itemsList is iterable else params.secondaryNavigation.itemsList.items()) %}
+                                    <li class="proto-ons-header-nav__item proto-ons-header-nav__item {{ item.classes }}{{ ' proto-ons-header-nav__item--active' if (item.url == params.secondaryNavigation.currentPath) or (item.url != (params.secondaryNavigation.siteBasePath | default('/')) and item.url in params.secondaryNavigation.currentPath) }}">
+                                        <a class="proto-ons-header-nav__link proto-ons-header-nav__link" href="{{ item.url }}" {% if item.id is defined and item.id %}id="{{ item.id }}" {% endif %}>{{ item.title }}</a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </nav>
+                    <nav class="proto-ons-header-nav proto-ons-header-nav--secondary-mobile ons-u-d-no@m" id="{{ params.secondaryNavigation.id }}" aria-label="{{ params.secondaryNavigation.ariaLabel | default("Section menu") }}" data-analytics="header-section-navigation">
+                        <div class="ons-container ons-container--gutterless@xxs@m{{ ' ons-container--full-width' if params.fullWidth }}{{ ' ons-container--wide' if params.wide }}">
+                            <ul class="proto-ons-header-nav__list proto-ons-header-nav__list">
+                                {% for item in (params.secondaryNavigation.itemsList if params.secondaryNavigation.itemsList is iterable else params.secondaryNavigation.itemsList.items()) %}
+                                    <li class="proto-ons-header-nav__item proto-ons-header-nav__item {{ item.classes }}{{ ' proto-ons-header-nav__item--active' if (item.url == params.secondaryNavigation.currentPath) or (item.url != (params.secondaryNavigation.siteBasePath | default('/')) and item.url in params.secondaryNavigation.currentPath) }}">
+                                        <a class="proto-ons-header-nav__link proto-ons-header-nav__link" href="{{ item.url }}" {% if item.id is defined and item.id %}id="{{ item.id }}" {% endif %}>{{ item.title }}</a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </nav>
+            {% endif %}
+        {% endif %}
+
+{% endmacro %}
