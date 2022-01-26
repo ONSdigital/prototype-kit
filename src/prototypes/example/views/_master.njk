@@ -5,7 +5,7 @@
         "logoHref": '/',
         "titleLogoHref": pageInfo.rootPath + '#0'
     },
-    "title": "Prototype",
+    "title": "Prototype example",
     "footer": {
         "OGLLink": {
             "pre": 'All content is available under the',
@@ -18,16 +18,16 @@
         "ariaLabel": 'Breadcrumbs',
         "itemsList": [
             {
-                "linkClasses": "ons-js-previous" if prevPage != 'accordions' else '',
+                "linkClasses": 'ons-js-previous' if prevPage else '',
                 "url": pageInfo.rootPath + "/" + prevPage + '.html',
-                "text": backLink | default ('Previous')
+                "text": 'Previous'
             }
         ]
     }
 } %}
 
 {% block head %}
-    <link rel="stylesheet" href="{{ pageInfo.rootPath }}/styles.css" />
+    <link rel="stylesheet" href="/prototypes/example/styles.css" />
 {% endblock %}
 
 {% block preMain %}
@@ -37,5 +37,5 @@
 {% endblock %}
 
 {% block bodyEnd %}
-    <script src="{{ pageInfo.rootPath }}/index.js"></script>
+    <script src="/prototypes/example/index.js"></script>
 {% endblock %}
