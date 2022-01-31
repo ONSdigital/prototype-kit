@@ -1,26 +1,43 @@
 .proto-ons-header-nav {
   position: relative;
-  &--secondary,
-  &--secondary-mobile {
+  &--secondary {
     background: $color-branded-tint;
     padding-top: 0.5rem;
+  }
+
+  &--secondary-mobile {
+    border-bottom: 4px solid $color-branded-tint;
   }
 
   &__list {
     list-style: none;
     margin: 0;
-    padding: 0;
+    padding: 0 0 0.5rem;
+    @include mq(m) {
+      padding: 0;
+    }
   }
 
   &__item {
-    border-top: 1px solid rgba(255, 255, 255, 0.5);
     display: block;
-    margin: 0;
-    padding: 0.3rem 0;
+    margin: 0 0 0.2rem;
+    border-left: 4px solid transparent;
+    &--active {
+      border-color: $color-white;
+    }
+
+    .proto-ons-header-nav--secondary-mobile & {
+      &--active {
+        border-color: $color-branded;
+        li {
+          border: 0;
+        }
+      }
+    }
 
     @include mq(m) {
       border-bottom: 4px solid transparent;
-      border-top: 0;
+      border-left: 0;
       display: inline-block;
       margin: 0 0 0 1rem;
       padding: 0 0 0.3rem;
@@ -31,13 +48,12 @@
         margin-left: 0;
       }
 
-      &--active,
-      &:hover {
+      &:hover,
+      &--active {
         border-color: $color-white;
       }
 
-      .proto-ons-header-nav--secondary &,
-      .proto-ons-header-nav--secondary-mobile & {
+      .proto-ons-header-nav--secondary & {
         &:hover,
         &--active {
           border-color: $color-text-link;
@@ -49,10 +65,15 @@
   &__link {
     color: $color-white;
     display: block;
-    font-size: 0.9rem;
     margin: 0 0.35rem;
-    padding: 0 0.65rem;
+    padding: 0.1rem 0.65rem;
     text-decoration: none;
+
+    &--section {
+      margin: 0;
+      padding: 0;
+    }
+
     &:hover,
     &:focus {
       color: $color-white;
@@ -76,7 +97,7 @@
     }
   }
 
-  &__item--active &__link {
+  &__item--active > &__link {
     font-weight: 700;
   }
 }

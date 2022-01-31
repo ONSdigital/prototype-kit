@@ -131,5 +131,10 @@ export default class SummaryManager {
     html.forEach(element => {
       this.placeholder.insertAdjacentHTML('beforeend', element);
     });
+
+    const tableHeader =
+      '<thead class="ons-u-vh">' + '<tr>' + '<th>Question</th>' + '<th>Answer given</th>' + '<th>Change answer</th>' + '</tr>' + '</thead>';
+
+    this.placeholder.insertAdjacentHTML('afterBegin', tableHeader);
   }
 }

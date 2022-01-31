@@ -29,7 +29,7 @@ class QuestionManager {
     if (legend) {
       this.legend = legend.innerText;
     }
-    const previousLink = document.querySelector('.ons-js-previous');
+    const previousLink = document.querySelector('.js-previous');
 
     if (previousLink) {
       this.previousURL = previousLink.getAttribute('href');

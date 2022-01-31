@@ -7,7 +7,7 @@
             <div class="ons-header__bottom">
                 <div class="ons-container ons-container--gutterless@xxs@m{{ ' ons-container--full-width' if params.fullWidth }}{{ ' ons-container--wide' if params.wide }}">
                     {% if params.autosuggest is defined and params.autosuggest %}
-                        <div class="ons-header-search ons-js-header-search">
+                        <div class="ons-header-search proto-ons-js-header-search">
                             {{ onsAutosuggest({
                                 "id": "ons-autosuggest-header-search",
                                 "containerClasses": "ons-autosuggest-input--header",
@@ -34,7 +34,7 @@
                             }) }}
                         </div>
                     {% endif %}
-                    <nav class="proto-ons-header-nav ons-js-header-nav" id="{{ params.navigation.id }}" aria-label="{{ params.navigation.ariaLabel | default("Main menu") }}" data-analytics="header-navigation">
+                    <nav class="proto-ons-header-nav proto-ons-js-header-nav ons-u-d-no@xxs@m" id="{{ params.navigation.id }}" aria-label="{{ params.navigation.ariaLabel | default("Main menu") }}" data-analytics="header-navigation">
                         <ul class="proto-ons-header-nav__list">
                             {% for item in (params.navigation.itemsList if params.navigation.itemsList is iterable else params.navigation.itemsList.items()) %}
                                 <li class="proto-ons-header-nav__item {{ item.classes }}{{ ' proto-ons-header-nav__item--active' if (item.url == params.navigation.currentPath) or (item.url != (params.navigation.siteBasePath | default('/')) and item.url in params.navigation.currentPath) }}">
@@ -57,17 +57,40 @@
                             </ul>
                         </div>
                     </nav>
-                    <nav class="proto-ons-header-nav proto-ons-header-nav--secondary-mobile ons-u-d-no@m" id="{{ params.secondaryNavigation.id }}" aria-label="{{ params.secondaryNavigation.ariaLabel | default("Section menu") }}" data-analytics="header-section-navigation">
-                        <div class="ons-container ons-container--gutterless@xxs@m{{ ' ons-container--full-width' if params.fullWidth }}{{ ' ons-container--wide' if params.wide }}">
-                            <ul class="proto-ons-header-nav__list proto-ons-header-nav__list">
-                                {% for item in (params.secondaryNavigation.itemsList if params.secondaryNavigation.itemsList is iterable else params.secondaryNavigation.itemsList.items()) %}
-                                    <li class="proto-ons-header-nav__item proto-ons-header-nav__item {{ item.classes }}{{ ' proto-ons-header-nav__item--active' if (item.url == params.secondaryNavigation.currentPath) or (item.url != (params.secondaryNavigation.siteBasePath | default('/')) and item.url in params.secondaryNavigation.currentPath) }}">
-                                        <a class="proto-ons-header-nav__link proto-ons-header-nav__link" href="{{ item.url }}" {% if item.id is defined and item.id %}id="{{ item.id }}" {% endif %}>{{ item.title }}</a>
-                                    </li>
-                                {% endfor %}
-                            </ul>
-                        </div>
-                    </nav>
+                    <div class="ons-u-d-no@m">
+                        {{ onsButton({
+                            "text": params.navigation.currentPage,
+                            "classes": "ons-u-d-no proto-ons-js-toggle-secondary proto-ons-secondary-btn",
+                            "buttonStyle": "mobile",
+                            "variants": ["mobile", "ghost"],
+                            "attributes": {
+                                "aria-label": "Toggle section navigation",
+                                "aria-controls": params.navigation.id,
+                                "aria-haspopup": "true",
+                                "aria-expanded": "false"
+                            }
+                        }) }}
+                        <nav class="proto-ons-header-nav proto-ons-header-nav--secondary-mobile ons-u-d-no proto-ons-js-secondary-nav ons-u-mt-xs" id="{{ params.secondaryNavigation.id }}" aria-label="{{ params.secondaryNavigation.ariaLabel | default("Section menu") }}" data-analytics="header-section-navigation">
+                            <div class="ons-container ons-container--gutterless@xxs@m{{ ' ons-container--full-width' if params.fullWidth }}{{ ' ons-container--wide' if params.wide }}">
+                                <ul class="proto-ons-header-nav__list">
+                                    {% for item in (params.secondaryNavigation.itemsList if params.secondaryNavigation.itemsList is iterable else params.secondaryNavigation.itemsList.items()) %}
+                                        <li class="proto-ons-header-nav__item {{ item.classes }}{{ ' proto-ons-header-nav__item--active' if (item.url == params.secondaryNavigation.currentPath) or (item.url != (params.secondaryNavigation.siteBasePath | default('/')) and item.url in params.secondaryNavigation.currentPath) }}">
+                                            <a class="proto-ons-header-nav__link" href="{{ item.url }}" {% if item.id is defined and item.id %}id="{{ item.id }}" {% endif %}>{{ item.title }}</a>
+                                            {% if item.sectionItems is defined and item.sectionItems %}
+                                                <ul class="proto-ons-header-nav__list ons-list--dashed ons-u-ml-s ons-u-mt-xs">
+                                                {% for sectionItem in (item.sectionItems if item.sectionItems is iterable else item.sectionItems.items()) %}
+                                                    <li class="proto-ons-header-nav__item ons-list__item {{ sectionItem.classes }}{{ ' proto-ons-header-nav__item--active' if (sectionItem.url == item.currentPath) or (sectionItem.url != (item.siteBasePath | default('/')) and sectionItem.url in item.currentPath) }}">
+                                                        <a class="proto-ons-header-nav__link proto-ons-header-nav__link--section" href="{{ sectionItem.url }}" {% if sectionItem.id is defined and sectionItem.id %}id="{{ sectionItem.id }}" {% endif %}>{{ sectionItem.title }}</a>
+                                                    </li>
+                                                {% endfor %}
+                                                </ul>
+                                            {% endif %}
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
             {% endif %}
         {% endif %}
 

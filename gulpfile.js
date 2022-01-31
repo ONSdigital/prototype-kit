@@ -104,7 +104,8 @@ gulp.task('copy-js-files', () => {
 
 gulp.task('watch-and-build', async () => {
   browserSync.init({
-    proxy: 'localhost:3010'
+    proxy: 'localhost:4010',
+    port: 4000
   });
 
   gulp.watch('./src/**/*.njk').on('change', browserSync.reload);

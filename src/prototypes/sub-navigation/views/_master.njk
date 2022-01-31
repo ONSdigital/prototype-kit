@@ -1,15 +1,8 @@
 {% extends "layout/_template.njk" %}
+{% from "../components/header-navigation/_macro.njk" import onsHeaderNavigation %}
+{% from "../components/header/_macro.njk" import onsProtoHeader %}
 
 {% set pageConfig = {
-    "header": {
-        "logoHref": '/',
-        "titleLogoHref": pageInfo.rootPath + '#0'
-    },
-    "toggleButton": {
-            "text": 'Menu',
-            "ariaLabel": 'Toggle main navigation'
-    },
-    "title": "Prototype",
     "footer": {
         "OGLLink": {
             "pre": 'All content is available under the',
@@ -22,16 +15,131 @@
         "ariaLabel": 'Breadcrumbs',
         "itemsList": [
             {
-                "linkClasses": "ons-js-previous" if prevPage != 'accordions' else '',
+                "linkClasses": 'js-previous' if prevPage else '',
                 "url": pageInfo.rootPath + "/" + prevPage + '.html',
-                "text": backLink | default ('Previous')
+                "text": 'Previous'
             }
         ]
     }
 } %}
 
 {% block head %}
-    <link rel="stylesheet" href="{{ pageInfo.rootPath }}/styles.css" />
+    <link rel="stylesheet" href="/prototypes/sub-navigation/styles.css" />
+{% endblock %}
+
+{% block header %}
+{{
+    onsProtoHeader({
+        "title": "Prototype",
+        "logoHref": "https://www.ons.gov.uk/",
+        "titleLogoHref": "/",
+        "toggleButton": {
+            "text": "Menu",
+            "ariaLabel": "Toggle main navigation"
+        },
+        "search": true
+    })
+}}
+
+{{
+    onsHeaderNavigation({
+        "navigation": {
+            "id": 'main-nav',
+            "ariaLabel": 'Main menu',
+            "ariaListLabel": 'Navigation menu',
+            "currentPath": '#design-system',
+            "currentPage": 'Design system',
+            "itemsList": [
+                {
+                    "title": 'Home',
+                    "url": '#home'
+                },
+                {
+                    "title": 'Service standard',
+                    "url": '#0'
+                },
+                {
+                    "title": 'Design system',
+                    "url": '#design-system'
+                },
+                {
+                    "title": 'Accessibility',
+                    "url": '#0'
+                },
+                {
+                    "title": 'Brand guidelines',
+                    "url": '#0'
+                }
+            ]
+        },        
+        "secondaryNavigation": {
+            "id": 'main-nav',
+            "ariaLabel": 'Main menu',
+            "ariaListLabel": 'Navigation menu',
+            "currentPath": '#foundations',
+            "itemsList": [
+                {
+                    "title": 'Guidance',
+                    "url": '#0'
+                },
+                {
+                    "title": 'Foundations',
+                    "url": '#foundations',
+                    "currentPath": '#typography',
+                    "sectionItems": [
+                        {
+                            "title": 'Base page template',
+                            "url": '#0'
+                        },
+                        {
+                            "title": 'Grid',
+                            "url": '#0'
+                        },
+                        {
+                            "title": 'Colours',
+                            "url": '#0'
+                        },
+                        {
+                            "title": 'Typography',
+                            "url": '#typography'
+                        },
+                        {
+                            "title": 'Icons',
+                            "url": '#0'
+                        }
+                    ]
+                },
+                {
+                    "title": 'Components',
+                    "url": '#0'
+                },
+                {
+                    "title": 'Patterns',
+                    "url": '#patterns'
+                },
+                {
+                    "title": 'Contribute',
+                    "url": '#0'
+                }
+            ]
+        },
+        "autosuggest": {
+            "label": "Search the design system",
+            "instructions": "Use up and down keys to navigate results once you\'ve typed more than two characters. Use the enter key to select a result. Touch device users, explore by touch or with swipe gestures.",
+            "ariaYouHaveSelected": "You have selected",
+            "ariaMinChars": "Enter 3 or more characters for results.",
+            "ariaResultsLabel": "Search results",
+            "ariaOneResult": "There is one result available.",
+            "ariaNResults": "There are {n} results available.",
+            "ariaLimitedResults": "Results have been limited to 10 results. Type more characters to improve your search",
+            "moreResults": "Continue entering to improve results",
+            "resultsTitle": "Search results",
+            "autosuggestData": "/search-index.json",
+            "noResults": "No results found",
+            "typeMore": "Continue entering to get results"
+        }
+    })
+}}
 {% endblock %}
 
 {% block preMain %}
@@ -41,5 +149,5 @@
 {% endblock %}
 
 {% block bodyEnd %}
-    <script src="{{ pageInfo.rootPath }}/index.js"></script>
+    <script src="/prototypes/sub-navigation/index.js"></script>
 {% endblock %}

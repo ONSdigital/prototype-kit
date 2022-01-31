@@ -8486,6 +8486,11 @@ through2@^4.0.2:
   resolved "https://registry.yarnpkg.com/through/-/through-2.3.8.tgz#0dd4c9ffaabc357960b1b724115d7e0e86a2e1f5"
   integrity sha1-DdTJ/6q8NXlgsbckEV1+Doai4fU=
 
+tick-manager@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/tick-manager/-/tick-manager-1.0.3.tgz#843aee30f3ab53a42c67f4194faa21b03a5eb52a"
+  integrity sha1-hDruMPOrU6QsZ/QZT6ohsDpetSo=
+
 time-stamp@^1.0.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/time-stamp/-/time-stamp-1.1.0.tgz#764a5a11af50561921b133f3b44e618687e0f5c3"
@@ -9089,6 +9094,11 @@ vfile@^3.0.0:
     replace-ext "1.0.0"
     unist-util-stringify-position "^1.0.0"
     vfile-message "^1.0.0"
+
+viewport-details@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/viewport-details/-/viewport-details-3.0.1.tgz#65e166cf9dcc255366db2c64924ed47a783b338e"
+  integrity sha512-+5Wt/4uX+jMi02Ue0gbe78KURgcYjhpIBmFQrSrE42Wtjko10P/OQtfso2NR8dUy0/gdj6nwIL7+sDVouwuvwA==
 
 vinyl-buffer@^1.0.1:
   version "1.0.1"

@@ -7,9 +7,8 @@ export default class NavToggle {
     this.nav = nav;
     this.hideClass = hideClass;
     this.toggle.classList.remove('ons-u-d-no');
-
-    this.setAria();
-    onViewportChange(this.setAria.bind(this));
+    this.closeNav();
+    // this.setAria();
   }
 
   registerEvents() {
@@ -41,18 +40,18 @@ export default class NavToggle {
     this.nav.classList.add(this.hideClass);
   }
 
-  setAria() {
-    const viewportDetails = GetViewportDetails();
-    const hasAria = this.nav.hasAttribute(attrHidden);
+  // setAria() {
+  //   const viewportDetails = { width: 970 };
+  //   const hasAria = this.nav.hasAttribute(attrHidden);
 
-    if (viewportDetails.width < 980) {
-      if (!hasAria) {
-        this.closeNav();
-      }
-    } else if (hasAria) {
-      this.toggle.removeAttribute(attrExpanded);
-      this.nav.removeAttribute(attrHidden);
-      this.nav.classList.remove(this.hideClass);
-    }
-  }
+  //   if (viewportDetails.width < 980) {
+  //     if (!hasAria) {
+  //       this.closeNav();
+  //     }
+  //   } else if (hasAria) {
+  //     this.toggle.removeAttribute(attrExpanded);
+  //     this.nav.removeAttribute(attrHidden);
+  //     this.nav.classList.remove(this.hideClass);
+  //   }
+  // }
 }

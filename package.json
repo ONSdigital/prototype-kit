@@ -92,6 +92,8 @@
     "remark-lint": "^6.0.4",
     "remark-preset-lint-recommended": "^3.0.2",
     "sass-lint": "^1.12.1",
+    "tick-manager": "^1.0.3",
+    "viewport-details": "^3.0.1",
     "vinyl-buffer": "^1.0.1",
     "vinyl-source-stream": "^2.0.0",
     "watchify": "^4.0.0"
