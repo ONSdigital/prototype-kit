@@ -46,7 +46,7 @@
                 </div>
             </div>
             {% if params.secondaryNavigation is defined and params.secondaryNavigation %}
-                    <nav class="proto-ons-header-nav proto-ons-header-nav--secondary ons-u-d-no@xxs@m" id="{{ params.secondaryNavigation.id }}" aria-label="{{ params.secondaryNavigation.ariaLabel | default("Section menu") }}" data-analytics="header-section-navigation">
+                    <nav class="proto-ons-header-nav proto-ons-header-nav--secondary ons-u-d-no@xxs@m{{ ' ' + params.secondaryNavigation.classes if params.secondaryNavigation.classes is defined and params.secondaryNavigation.classes }}" id="{{ params.secondaryNavigation.id }}" aria-label="{{ params.secondaryNavigation.ariaLabel | default("Section menu") }}" data-analytics="header-section-navigation">
                         <div class="ons-container ons-container--gutterless@xxs@m{{ ' ons-container--full-width' if params.fullWidth }}{{ ' ons-container--wide' if params.wide }}">
                             <ul class="proto-ons-header-nav__list proto-ons-header-nav__list">
                                 {% for item in (params.secondaryNavigation.itemsList if params.secondaryNavigation.itemsList is iterable else params.secondaryNavigation.itemsList.items()) %}

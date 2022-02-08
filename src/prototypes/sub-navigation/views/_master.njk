@@ -1,8 +1,15 @@
 {% extends "layout/_template.njk" %}
+
 {% from "../components/header-navigation/_macro.njk" import onsHeaderNavigation %}
-{% from "../components/header/_macro.njk" import onsProtoHeader %}
+{% from "components/lists/_macro.njk" import onsList %}
+{% from "components/input/_macro.njk" import onsInput %}
+{% from "components/button/_macro.njk" import onsButton %}
+{% from "../components/hero/_macro.njk" import onsHero %}
+{% from "components/section-navigation/_macro.njk" import onsSectionNavigation %}
+{% from "components/external-link/_macro.njk" import onsExternalLink %}
 
 {% set pageConfig = {
+    "wide": 'true',
     "footer": {
         "OGLLink": {
             "pre": 'All content is available under the',
@@ -10,142 +17,137 @@
             "url": 'https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/',
             "post": ', except where otherwise stated'
         }
-    },
-    "breadcrumbs": {
-        "ariaLabel": 'Breadcrumbs',
-        "itemsList": [
-            {
-                "linkClasses": 'js-previous' if prevPage else '',
-                "url": pageInfo.rootPath + "/" + prevPage + '.html',
-                "text": 'Previous'
-            }
-        ]
     }
 } %}
+
+{% set subNavClasses = 'ons-u-d-no' if page.hideSubnav == true %}
 
 {% block head %}
     <link rel="stylesheet" href="/prototypes/sub-navigation/styles.css" />
 {% endblock %}
 
 {% block header %}
-{{
-    onsProtoHeader({
-        "title": "Prototype",
-        "logoHref": "https://www.ons.gov.uk/",
-        "titleLogoHref": "/",
-        "toggleButton": {
-            "text": "Menu",
-            "ariaLabel": "Toggle main navigation"
-        },
-        "search": true
-    })
-}}
-
-{{
-    onsHeaderNavigation({
-        "navigation": {
-            "id": 'main-nav',
-            "ariaLabel": 'Main menu',
-            "ariaListLabel": 'Navigation menu',
-            "currentPath": '#design-system',
-            "currentPage": 'Design system',
-            "itemsList": [
-                {
-                    "title": 'Home',
-                    "url": '#home'
-                },
-                {
-                    "title": 'Service standard',
-                    "url": '#0'
-                },
-                {
-                    "title": 'Design system',
-                    "url": '#design-system'
-                },
-                {
-                    "title": 'Accessibility',
-                    "url": '#0'
-                },
-                {
-                    "title": 'Brand guidelines',
-                    "url": '#0'
-                }
-            ]
-        },        
-        "secondaryNavigation": {
-            "id": 'main-nav',
-            "ariaLabel": 'Main menu',
-            "ariaListLabel": 'Navigation menu',
-            "currentPath": '#foundations',
-            "itemsList": [
-                {
-                    "title": 'Guidance',
-                    "url": '#0'
-                },
-                {
-                    "title": 'Foundations',
-                    "url": '#foundations',
-                    "currentPath": '#typography',
-                    "sectionItems": [
+    {% block headerMain %}
+        {% include "./partials/_header-main.njk" %}
+    {% endblock %}
+    {% block headerNav %}
+        {{
+            onsHeaderNavigation({
+                "wide": true,
+                "navigation": {
+                    "id": 'main-nav',
+                    "ariaLabel": 'Main menu',
+                    "ariaListLabel": 'Navigation menu',
+                    "siteBasePath": pageInfo.rootPath + '/service-manual/',
+                    "currentPath": pageInfo.url,
+                    "currentPage": 'Design system',
+                    "itemsList": [
                         {
-                            "title": 'Base page template',
-                            "url": '#0'
+                            "title": 'Home',
+                            "url": pageInfo.rootPath + '/service-manual/'
                         },
                         {
-                            "title": 'Grid',
-                            "url": '#0'
+                            "title": 'Service standard',
+                            "url": pageInfo.rootPath + '/service-manual' + '/service-standard'
                         },
                         {
-                            "title": 'Colours',
-                            "url": '#0'
+                            "title": 'Design system',
+                            "url": pageInfo.rootPath + '/service-manual' + '/design-system'
                         },
                         {
-                            "title": 'Typography',
-                            "url": '#typography'
+                            "title": 'Accessibility',
+                            "url": pageInfo.rootPath + '/service-manual' + '/accessibility'
                         },
                         {
-                            "title": 'Icons',
-                            "url": '#0'
+                            "title": 'Brand guidelines',
+                            "url": pageInfo.rootPath + '/service-manual' + '/brand-guidelines'
+                        },
+                        {
+                            "title": 'Content style guide',
+                            "url": pageInfo.rootPath + '/service-manual' + '/content-style-guide'
                         }
                     ]
                 },
-                {
-                    "title": 'Components',
-                    "url": '#0'
+                "secondaryNavigation": {
+                    "classes": subNavClasses,
+                    "id": 'main-nav',
+                    "ariaLabel": 'Main menu',
+                    "ariaListLabel": 'Navigation menu',
+                    "currentPath": pageInfo.url,
+                    "itemsList": [
+                        {
+                            "title": pageInfo.parent.children[0].title,
+                            "url": pageInfo.parent.children[0].url
+                        },
+                        {
+                            "title": pageInfo.parent.children[1].title,
+                            "url": pageInfo.parent.children[1].url,
+                            "currentPath": '#typography',
+                            "sectionItems": [
+                                {
+                                    "title": 'Base page template',
+                                    "url": '#0'
+                                },
+                                {
+                                    "title": 'Grid',
+                                    "url": '#0'
+                                },
+                                {
+                                    "title": 'Colours',
+                                    "url": '#0'
+                                },
+                                {
+                                    "title": 'Typography',
+                                    "url": '#typography'
+                                },
+                                {
+                                    "title": 'Icons',
+                                    "url": '#0'
+                                }
+                            ]
+                        },
+                        {
+                            "title": pageInfo.parent.children[2].title,
+                            "url": pageInfo.parent.children[2].url
+                        },
+                        {
+                            "title": pageInfo.parent.children[3].title,
+                            "url": pageInfo.parent.children[3].url
+                        },
+                        {
+                            "title": pageInfo.parent.children[4].title,
+                            "url": pageInfo.parent.children[4].url
+                        },
+                        {
+                            "title": pageInfo.parent.children[5].title,
+                            "url": pageInfo.parent.children[5].url
+                        }
+                    ]
                 },
-                {
-                    "title": 'Patterns',
-                    "url": '#patterns'
-                },
-                {
-                    "title": 'Contribute',
-                    "url": '#0'
+                "autosuggest": {
+                    "label": "Search the service manual",
+                    "instructions": "Use up and down keys to navigate results once you\'ve typed more than two characters. Use the enter key to select a result. Touch device users, explore by touch or with swipe gestures.",
+                    "ariaYouHaveSelected": "You have selected",
+                    "ariaMinChars": "Enter 3 or more characters for results.",
+                    "ariaResultsLabel": "Search results",
+                    "ariaOneResult": "There is one result available.",
+                    "ariaNResults": "There are {n} results available.",
+                    "ariaLimitedResults": "Results have been limited to 10 results. Type more characters to improve your search",
+                    "moreResults": "Continue entering to improve results",
+                    "resultsTitle": "Search results",
+                    "autosuggestData": "/search-index.json",
+                    "noResults": "No results found",
+                    "typeMore": "Continue entering to get results"
                 }
-            ]
-        },
-        "autosuggest": {
-            "label": "Search the design system",
-            "instructions": "Use up and down keys to navigate results once you\'ve typed more than two characters. Use the enter key to select a result. Touch device users, explore by touch or with swipe gestures.",
-            "ariaYouHaveSelected": "You have selected",
-            "ariaMinChars": "Enter 3 or more characters for results.",
-            "ariaResultsLabel": "Search results",
-            "ariaOneResult": "There is one result available.",
-            "ariaNResults": "There are {n} results available.",
-            "ariaLimitedResults": "Results have been limited to 10 results. Type more characters to improve your search",
-            "moreResults": "Continue entering to improve results",
-            "resultsTitle": "Search results",
-            "autosuggestData": "/search-index.json",
-            "noResults": "No results found",
-            "typeMore": "Continue entering to get results"
-        }
-    })
-}}
+            })
+        }}
+    {% endblock %}
 {% endblock %}
 
 {% block preMain %}
 {% endblock %}
 
-{% block main %}
+{% block pageContent %}
 {% endblock %}
 
 {% block bodyEnd %}

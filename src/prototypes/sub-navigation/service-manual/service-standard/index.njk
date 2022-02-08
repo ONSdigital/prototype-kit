@@ -1,0 +1,86 @@
+---
+title: Service standard
+description: Our core principles, standards and best practice lay out the path to building services for all users
+version: 45.2.1
+layout: sub-navigation/views/_master
+hideSubnav: true
+---
+{% block pageContent %}
+
+    {% block main %}
+
+        {{
+            onsHero({
+                "noBg": true,
+                "wide": true,
+                "title": pageInfo.title,
+                "text": pageInfo.description
+            })
+        }}
+
+        {% from "components/card/_macro.njk" import onsCard %}
+        <div class="ons-container ons-container--wide">
+
+            <div class="ons-grid ons-grid--column@xxs@s ons-u-mt-l">
+
+                <div class="ons-grid__col ons-col-4@m">
+                    {{ onsCard({
+                        "id": 'title1',
+                        "textId": 'text1',
+                        "title": pageInfo.children[3].title,
+                        "url": pageInfo.children[3].url,
+                        "text": pageInfo.children[3].description
+                    }) }}
+                </div>
+
+                <div class="ons-grid__col ons-col-4@m">
+                    {{ onsCard({
+                        "id": 'title2',
+                        "textId": 'text2',
+                        "title": pageInfo.children[2].title,
+                        "url": pageInfo.children[2].url,
+                        "text": pageInfo.children[2].description
+                    }) }}
+                </div>
+
+                <div class="ons-grid__col ons-col-4@m">
+                    {{ onsCard({
+                        "id": 'title3',
+                        "textId": 'text3',
+                        "title": pageInfo.children[0].title,
+                        "url": pageInfo.children[0].url,
+                        "text": pageInfo.children[0].description
+                    }) }}
+                </div>
+
+            </div>
+
+            <div class="ons-grid ons-grid--column@xxs@s ons-u-mt-l@m ons-u-mb-l">
+
+                <div class="ons-grid__col ons-col-4@m">
+                    {{ onsCard({
+                        "id": 'title1',
+                        "textId": 'text1',
+                        "title": pageInfo.children[4].title,
+                        "url": pageInfo.children[4].url,
+                        "text": pageInfo.children[4].description
+                    }) }}
+                </div>
+
+                <div class="ons-grid__col ons-col-4@m">
+                    {{ onsCard({
+                        "id": 'title2',
+                        "textId": 'text2',
+                        "title": pageInfo.children[1].title,
+                        "url": pageInfo.children[1].url,
+                        "text": pageInfo.children[1].description
+                    }) }}
+                </div>
+
+            </div>
+            
+        </div>
+
+    {% endblock %}
+
+{% endblock %}

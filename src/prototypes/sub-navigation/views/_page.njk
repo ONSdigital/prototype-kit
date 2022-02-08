@@ -1,0 +1,82 @@
+{% extends "./_master.njk" %}
+
+{% from "../components/header-navigation/_macro.njk" import onsHeaderNavigation %}
+{% from "components/lists/_macro.njk" import onsList %}
+
+{% block pageContent %}
+
+    <div class="ons-page__container ons-container ons-container--wide">
+
+        <div class="ons-grid">
+
+            <div class="ons-grid__col ons-col-3@m ons-u-mt-xl ons-u-d-no@xxs@m">
+                {% if pageInfo.children[0].children[0].subgroup %}<h3 class="ons-u-fs-r--b ons-u-mb-s">{{ pageInfo.children[0].children[0].subgroup }}</h3>{% endif %}
+                {{
+                    onsSectionNavigation({
+                        "variants": "vertical",
+                        "id": "section-menu",
+                        "currentPath": pageInfo.url,
+                        "itemsList": [
+                            {
+                                "title": pageInfo.children[0].children[0].title,
+                                "url": pageInfo.children[0].children[0].url
+                            },
+                            {
+                                "title": pageInfo.children[0].children[1].title,
+                                "url": pageInfo.children[0].children[1].url
+                            },
+                            {
+                                "title": pageInfo.children[0].children[2].title,
+                                "url": pageInfo.children[0].children[2].url
+                            },
+                            {
+                                "title": pageInfo.children[0].children[3].title,
+                                "url": pageInfo.children[0].children[3].url
+                            }
+                        ]
+                    })
+                }}
+                <h3 class="ons-u-fs-r--b ons-u-mb-s ons-u-mt-m">{{ pageInfo.children[1].children[0].subgroup }}</h3>
+                {{
+                    onsSectionNavigation({
+                        "variants": "vertical",
+                        "id": "section-menu",
+                        "currentPath": pageInfo.url,
+                        "itemsList": [
+                            {
+                                "title": pageInfo.children[1].children[0].title,
+                                "url": pageInfo.children[1].children[0].url
+                            },
+                            {
+                                "title": pageInfo.children[1].children[1].title,
+                                "url": pageInfo.children[1].children[1].url
+                            },
+                            {
+                                "title": pageInfo.children[1].children[2].title,
+                                "url": pageInfo.children[1].children[2].url
+                            },
+                            {
+                                "title": pageInfo.children[1].children[3].title,
+                                "url": pageInfo.children[1].children[3].url
+                            }
+                        ]
+                    })
+                }}
+            </div>
+
+            <div class="ons-grid__col ons-col-9@m">
+                <main class="ons-page__main" id="main-content" role="main">
+                    <h1 class="ons-u-fs-xxl ons-u-mt-l">
+                        <span class="ons-u-fs-m ons-u-db ons-u-mb-xs ons-u-lighter">{{ pageInfo.subgroup }}</span>
+                        {{ pageInfo.title }}
+                    </h1>
+                    {% block mainContent %}{% endblock %}
+                </main>
+
+            </div>
+
+        </div>
+
+    </div>
+
+{% endblock %}

@@ -1,0 +1,32 @@
+---
+title: Base page template
+subgroup: Layout
+version: 45.2.1
+layout: sub-navigation/views/_page
+---
+{% block mainContent %}
+
+<p>Use the base page template to create pages with the core components and markup required for an ONS service.</p>
+
+<p>The examples below provide templates that consist of commonly used components and patterns.</p>
+
+<p>All template examples contain the following:</p>
+{{
+    onsList({
+        "itemsList": [
+          {
+            "text": 'CSS and Javascript to add styling and behaviours to components'
+          },
+          {
+              "text": 'a skip to content link, header and footer component'
+          },
+          {
+              "text": 'a favicon, and other related bookmark icons'
+          }
+        ]
+    })
+}}
+
+<p>Click on the HTML tab on each example to view the rendered HTML.</p>
+
+{% endblock %}
