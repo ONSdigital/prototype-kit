@@ -32,11 +32,19 @@
                             {
                                 "title": pageInfo.children[0].children[3].title,
                                 "url": pageInfo.children[0].children[3].url
+                            },
+                            {
+                                "title": pageInfo.children[0].children[4].title,
+                                "url": pageInfo.children[0].children[4].url
+                            },
+                            {
+                                "title": pageInfo.children[0].children[5].title,
+                                "url": pageInfo.children[0].children[5].url
                             }
                         ]
                     })
                 }}
-                <h3 class="ons-u-fs-r--b ons-u-mb-s ons-u-mt-m">{{ pageInfo.children[1].children[0].subgroup }}</h3>
+                {% if pageInfo.children[1].children[0].subgroup %}<h3 class="ons-u-fs-r--b ons-u-mb-s ons-u-mt-m">{{ pageInfo.children[1].children[0].subgroup }}</h3>{% endif %}
                 {{
                     onsSectionNavigation({
                         "variants": "vertical",
@@ -58,6 +66,32 @@
                             {
                                 "title": pageInfo.children[1].children[3].title,
                                 "url": pageInfo.children[1].children[3].url
+                            }
+                        ]
+                    })
+                }}
+                {% if pageInfo.children[2].children[0].subgroup %}<h3 class="ons-u-fs-r--b ons-u-mb-s ons-u-mt-m">{{ pageInfo.children[2].children[0].subgroup }}</h3>{% endif %}
+                {{
+                    onsSectionNavigation({
+                        "variants": "vertical",
+                        "id": "section-menu",
+                        "currentPath": pageInfo.url,
+                        "itemsList": [
+                            {
+                                "title": pageInfo.children[2].children[0].title,
+                                "url": pageInfo.children[2].children[0].url
+                            },
+                            {
+                                "title": pageInfo.children[2].children[1].title,
+                                "url": pageInfo.children[2].children[1].url
+                            },
+                            {
+                                "title": pageInfo.children[2].children[2].title,
+                                "url": pageInfo.children[2].children[2].url
+                            },
+                            {
+                                "title": pageInfo.children[2].children[3].title,
+                                "url": pageInfo.children[2].children[3].url
                             }
                         ]
                     })

@@ -31,6 +31,7 @@
         {% include "./partials/_header-main.njk" %}
     {% endblock %}
     {% block headerNav %}
+
         {{
             onsHeaderNavigation({
                 "wide": true,
@@ -121,6 +122,14 @@
                         {
                             "title": pageInfo.parent.children[5].title,
                             "url": pageInfo.parent.children[5].url
+                        },
+                        {
+                            "title": pageInfo.parent.children[6].title,
+                            "url": pageInfo.parent.children[6].url
+                        },
+                        {
+                            "title": pageInfo.parent.children[7].title,
+                            "url": pageInfo.parent.children[7].url
                         }
                     ]
                 },
