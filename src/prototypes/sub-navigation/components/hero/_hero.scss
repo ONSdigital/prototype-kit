@@ -25,6 +25,10 @@
   line-height: 1.2;
 }
 
+.ons-hero__text:last-child {
+  margin-bottom: 0;
+}
+
 // Census theme
 .ons-hero--census {
   background-image: linear-gradient(46deg, $color-branded-tertiary 0%, $color-branded 100%);
