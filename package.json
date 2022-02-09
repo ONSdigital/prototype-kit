@@ -4,10 +4,14 @@
   "type": "module",
   "main": "index.js",
   "license": "MIT",
+  "homepage": "https://github.com/ONSdigital/prototype-kit",
   "author": {
     "email": "bameyrick@gmail.com",
     "name": "Ben Meyrick",
     "url": "https://github.com/bameyrick"
+  },
+  "bin": {
+    "create-prototype": "bin/create-prototype.js"
   },
   "scripts": {
     "lint-staged": "lint-staged",
@@ -41,7 +45,7 @@
       "git add"
     ]
   },
-  "devDependencies": {
+  "dependencies": {
     "@babel/core": "^7.14.6",
     "@babel/node": "^7.14.7",
     "@babel/plugin-proposal-class-properties": "^7.14.5",
@@ -56,39 +60,41 @@
     "browser-sync": "^2.27.7",
     "browserify": "^17.0.0",
     "cssnano": "^4.1.8",
-    "eslint": "^5.13.0",
-    "eslint-cli": "^1.1.1",
-    "eslint-config-prettier": "^4.0.0",
-    "eslint-plugin-prettier": "^3.0.1",
     "express": "^4.17.1",
     "frontmatter": "^0.0.3",
+    "fs-extra": "^10.0.0",
     "glob": "^7.1.3",
     "gulp": "^4.0.2",
     "gulp-babel": "^8.0.0",
-    "gulp-cli": "^2.3.0",
     "gulp-dart-sass": "^1.0.2",
     "gulp-if": "^3.0.0",
     "gulp-postcss": "^9.0.1",
     "gulp-sourcemaps": "^3.0.0",
     "gulp-svgo": "^2.2.1",
     "gulp-terser": "^2.1.0",
-    "husky": "^1.3.1",
-    "lint-staged": "^8.1.3",
     "lodash": "^4.17.13",
     "merge-stream": "^2.0.0",
     "normalize.css": "^8.0.1",
     "nunjucks": "^3.1.7",
     "postcss-mq-optimize": "^1.1.0",
     "postcss-url": "^8.0.0",
+    "vinyl-buffer": "^1.0.1",
+    "vinyl-source-stream": "^2.0.0",
+    "watchify": "^4.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^5.13.0",
+    "eslint-cli": "^1.1.1",
+    "eslint-config-prettier": "^4.0.0",
+    "eslint-plugin-prettier": "^3.0.1",
+    "husky": "^1.3.1",
+    "lint-staged": "^8.1.3",
     "prettier": "^1.16.4",
     "pretty": "^2.0.0",
     "remark": "^10.0.1",
     "remark-cli": "^6.0.1",
     "remark-lint": "^6.0.4",
     "remark-preset-lint-recommended": "^3.0.2",
-    "sass-lint": "^1.12.1",
-    "vinyl-buffer": "^1.0.1",
-    "vinyl-source-stream": "^2.0.0",
-    "watchify": "^4.0.0"
+    "sass-lint": "^1.12.1"
   }
 }
