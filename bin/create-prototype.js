@@ -32,6 +32,10 @@ async function createPrototypesProject() {
   await prepareProjectFileFromTemplate('./gulpfile.js', projectName, outputProjectPath);
   await prepareProjectFileFromTemplate('./README.md', projectName, outputProjectPath);
 
+  // Copy other project files.
+  await copyProjectFileFromTemplate('./dot_gitignore', outputProjectPath, './.gitignore');
+  await copyProjectFileFromTemplate('./dot_editorconfig', outputProjectPath, './.editorconfig');
+
   // Copy example prototype into the new project.
   const projectTemplateSrcPath = path.resolve(__dirname, './project-template/src');
   const outputSrcPath = path.resolve(outputProjectPath, 'src');
@@ -64,4 +68,10 @@ async function prepareProjectFileFromTemplate(templateFile, projectName, project
 
   const outputPath = path.resolve(projectOutputPath, path.basename(templateFile));
   await fs.writeFile(outputPath, output, { encoding: 'utf8' });
+}
+
+async function copyProjectFileFromTemplate(templateFile, projectOutputPath, outputFile) {
+  const templatePath = path.resolve(__dirname, './project-template', templateFile);
+  const outputPath = path.resolve(projectOutputPath, outputFile);
+  await fs.copyFile(templatePath, outputPath);
 }
