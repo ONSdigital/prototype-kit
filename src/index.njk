@@ -1,9 +1,9 @@
 ---
-version: 0.5.0
+version: 45.1.3
 ---
 {% from "components/lists/_macro.njk" import onsList %}
 
-{% set page = { 
+{% set pageConfig = { 
     "title": "ONS Prototypes",
     "footer": {
         "OGLLink": {
@@ -14,20 +14,20 @@ version: 0.5.0
         }
     }
 } %}
-{% block content %}
-{% set groups = helpers.navigationHelper({ 
-    "pages": pageInfo.siteMap[0].children,
-    "ignorePaths": ["/"]
-}) %}
-{% for group in groups %}
-    <section>
-        <h1 class="u-fs-m">{{ group.title }}</h1>
-        {{ 
-            onsList({
-                "classes": "list--bare",
-                "items": group.items
-            })
-        }}
-    </section>
-{% endfor %}
+{% block main %}
+    {% set groups = helpers.navigationHelper({ 
+        "pages": prototypeListing,
+        "ignorePaths": ["/"]
+    }) %}
+    {% for group in groups %}
+        <section>
+            <h1 class="u-fs-m">{{ group.title }}</h1>
+            {{
+                onsList({
+                    "classes": "ons-list--bare",
+                    "itemsList": group.items
+                })
+            }}
+        </section>
+    {% endfor %}
 {% endblock %}
