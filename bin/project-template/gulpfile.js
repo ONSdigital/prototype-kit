@@ -1,4 +1,4 @@
 import gulp from 'gulp';
-import definePrototypeKitGulpTasks from '@ons/prototype-kit/gulpfile.js';
+import definePrototypeKitGulpTasks from '@ons/prototype-kit/defineGulpTasks.js';
 
 definePrototypeKitGulpTasks(gulp);
