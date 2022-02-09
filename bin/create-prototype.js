@@ -45,6 +45,7 @@ async function createPrototypesProject() {
 
   // Success!
   console.log(`Project created at path '${outputProjectPath}'.`);
+  console.log('Refer to README.md for some information about the project.');
 }
 
 async function prepareProjectFileFromTemplate(templateFile, projectName, projectOutputPath) {
