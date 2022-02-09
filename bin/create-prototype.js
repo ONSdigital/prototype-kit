@@ -21,7 +21,7 @@ async function createPrototypesProject() {
     process.exit(1);
   }
 
-  console.log('Creating project...');
+  logStatus('Creating project');
 
   // Make a directory for the prototype; fail if the directory already exists to avoid losing work.
   const outputProjectPath = path.resolve(process.cwd(), projectName);
@@ -37,17 +37,20 @@ async function createPrototypesProject() {
   const outputSrcPath = path.resolve(outputProjectPath, 'src');
   await fs.copy(projectTemplateSrcPath, outputSrcPath);
 
-  // Initialise project as a git repository.
+  logStatus('Initialising git repository');
   await exec(`cd ${outputProjectPath} && git init`);
 
-  // Install yarn dependencies.
+  logStatus('Installing yarn dependencies');
   await exec(`cd ${outputProjectPath} && yarn`);
-  // Install the latest version of the design system.
+  logStatus('Installing latest version of the design system');
   await exec(`cd ${outputProjectPath} && yarn add @ons/design-system`);
 
-  // Success!
   console.log(`Project created at path '${outputProjectPath}'.`);
   console.log('Refer to README.md for some information about the project.');
+}
+
+function logStatus(status) {
+  console.log(`    ${status}...`);
 }
 
 async function prepareProjectFileFromTemplate(templateFile, projectName, projectOutputPath) {
