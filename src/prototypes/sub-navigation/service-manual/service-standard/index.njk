@@ -4,6 +4,7 @@ description: Our core principles, standards and best practice lay out the path t
 version: 45.2.1
 layout: sub-navigation/views/_master
 hideSubnav: true
+sortOrder: 1
 ---
 {% block pageContent %}
 
@@ -22,61 +23,20 @@ hideSubnav: true
         <div class="ons-container ons-container--wide">
 
             <div class="ons-grid ons-grid--column@xxs@s ons-u-mt-l">
-
-                <div class="ons-grid__col ons-col-4@m">
-                    {{ onsCard({
-                        "id": 'title1',
-                        "textId": 'text1',
-                        "title": pageInfo.children[3].title,
-                        "url": pageInfo.children[3].url,
-                        "text": pageInfo.children[3].description
-                    }) }}
-                </div>
-
-                <div class="ons-grid__col ons-col-4@m">
-                    {{ onsCard({
-                        "id": 'title2',
-                        "textId": 'text2',
-                        "title": pageInfo.children[2].title,
-                        "url": pageInfo.children[2].url,
-                        "text": pageInfo.children[2].description
-                    }) }}
-                </div>
-
-                <div class="ons-grid__col ons-col-4@m">
-                    {{ onsCard({
-                        "id": 'title3',
-                        "textId": 'text3',
-                        "title": pageInfo.children[0].title,
-                        "url": pageInfo.children[0].url,
-                        "text": pageInfo.children[0].description
-                    }) }}
-                </div>
-
-            </div>
-
-            <div class="ons-grid ons-grid--column@xxs@s ons-u-mt-l@m ons-u-mb-l">
-
-                <div class="ons-grid__col ons-col-4@m">
-                    {{ onsCard({
-                        "id": 'title1',
-                        "textId": 'text1',
-                        "title": pageInfo.children[4].title,
-                        "url": pageInfo.children[4].url,
-                        "text": pageInfo.children[4].description
-                    }) }}
-                </div>
-
-                <div class="ons-grid__col ons-col-4@m">
-                    {{ onsCard({
-                        "id": 'title2',
-                        "textId": 'text2',
-                        "title": pageInfo.children[1].title,
-                        "url": pageInfo.children[1].url,
-                        "text": pageInfo.children[1].description
-                    }) }}
-                </div>
-
+                {% set cards = helpers.cardsNavigationHelper({ 
+                    "pages": pageInfo.children
+                }) %}
+                {% for card in cards %}
+                    <div class="ons-grid__col ons-col-4@m ons-u-mb-m@m">
+                        {{ onsCard({
+                            "id": 'title' + loop.index,
+                            "textId": 'text-' + loop.index,
+                            "title": card.title,
+                            "url": card.url,
+                            "text": card.description
+                        }) }}
+                    </div>
+                {% endfor %}
             </div>
             
         </div>

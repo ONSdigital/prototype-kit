@@ -4,6 +4,7 @@ description: Everything you need to design and build accessible and consistent d
 version: 45.2.1
 layout: sub-navigation/views/_master
 hideSubnav: true
+sortOrder: 2
 ---
 {% block pageContent %}
 
@@ -30,7 +31,7 @@ hideSubnav: true
                     "pages": pageInfo.children
                 }) %}
                 {% for card in cards %}
-                    <div class="ons-grid__col ons-col-4@m">
+                    <div class="ons-grid__col ons-col-4@m ons-u-mb-m@m">
                         {{ onsCard({
                             "id": 'title' + loop.index,
                             "textId": 'text-' + loop.index,
