@@ -5,7 +5,7 @@ title: Example
 {% from "components/input/_macro.njk" import onsInput %}
 {% from "components/button/_macro.njk" import onsButton %}
 
-{% set page = { 
+{% set pageConfig = { 
     "title": "Example Prototype",
     "footer": {
         "OGLLink": {
@@ -21,7 +21,7 @@ title: Example
     <link rel="stylesheet" href="/prototypes/example/styles.css" />
 {% endblock %}
 
-{% block content %}
+{% block main %}
     <form class="u-mt-m">
         <h1>What is your name?</h1>
         {{
