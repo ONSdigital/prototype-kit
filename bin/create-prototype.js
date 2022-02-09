@@ -25,8 +25,9 @@ async function createPrototypesProject() {
   const outputProjectPath = path.resolve(process.cwd(), projectName);
   await fs.mkdir(outputProjectPath);
 
-  // Prepare 'project.json' and 'README.md' for the prototype(s) project.
+  // Prepare 'project.json', 'gulpfile.js' and 'README.md' for the prototype(s) project.
   await prepareProjectFileFromTemplate('./package.json', projectName, outputProjectPath);
+  await prepareProjectFileFromTemplate('./gulpfile.js', projectName, outputProjectPath);
   await prepareProjectFileFromTemplate('./README.md', projectName, outputProjectPath);
 
   // Copy example prototype into the new project.
