@@ -942,28 +942,6 @@
     normalize-path "^2.0.1"
     through2 "^2.0.3"
 
-"@ons/design-system/0.5.0@npm:@ons/design-system@0.5.0":
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/@ons/design-system/-/design-system-0.5.0.tgz#01d201ab086904f10ff1f3a9d39b9cc8326509ff"
-  integrity sha512-jC0c1MCf/fzqX79bnP/gFZi4gEEGyBCCzFIe2DHJQE5xOcGE5n5t8bS4EwH7EjVBtWdX04i86aZli9LoD2IYgA==
-  dependencies:
-    abortcontroller-polyfill "^1.2.3"
-    core-js "^2.6.0"
-    mdn-polyfills "^5.14.0"
-    normalize-scss "^7.0.1"
-    throttle-typescript "^1.0.1"
-    whatwg-fetch "^3.0.0"
-
-"@ons/design-system/44.0.0@npm:@ons/design-system@44.0.0":
-  version "44.0.0"
-  resolved "https://registry.yarnpkg.com/@ons/design-system/-/design-system-44.0.0.tgz#c8cceec5e9bde875ea4dd9b55889899b507ea001"
-  integrity sha512-acgUGRzdiHXvxba215dRg/EfgXWLcBW4O0GJDJNrPM5hS3wIz7cn1WtNLxr3xbYK9kgfB8DBkx0TymZbnIUS5w==
-
-"@ons/design-system@^21.1.0":
-  version "21.1.0"
-  resolved "https://registry.yarnpkg.com/@ons/design-system/-/design-system-21.1.0.tgz#504cb145b96b09588699a60321a86afe8d896205"
-  integrity sha512-uNfdCT86YYJfQMJKC2BZF4ZzpnQlP9uiY4Im+KJaTxDPgA4KESvGwW4vXIymZqRmGnT8b0sl/5FcwppvH8VsYA==
-
 "@samverschueren/stream-to-observable@^0.3.0":
   version "0.3.1"
   resolved "https://registry.yarnpkg.com/@samverschueren/stream-to-observable/-/stream-to-observable-0.3.1.tgz#a21117b19ee9be70c379ec1877537ef2e1c63301"
@@ -1019,11 +997,6 @@ abbrev@1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/abbrev/-/abbrev-1.1.1.tgz#f8f2c887ad10bf67f634f005b6987fed3179aac8"
   integrity sha512-nne9/IiQ/hzIhY6pdDnbBtz7DjPTKrY00P/zvPSm5pOFkl6xuGrGnXn/VtTNNfNtAfZ9/1RtehkszU9qcTii0Q==
-
-abortcontroller-polyfill@^1.2.3:
-  version "1.7.3"
-  resolved "https://registry.yarnpkg.com/abortcontroller-polyfill/-/abortcontroller-polyfill-1.7.3.tgz#1b5b487bd6436b5b764fd52a612509702c3144b5"
-  integrity sha512-zetDJxd89y3X99Kvo4qFx8GKlt6GsvN3UcRZHwU6iFA/0KiOmhkTVhe8oRoTBiTVPZu09x3vCra47+w8Yz1+2Q==
 
 accepts@~1.3.4, accepts@~1.3.7:
   version "1.3.7"
@@ -2404,11 +2377,6 @@ core-js-compat@^3.20.0, core-js-compat@^3.20.2:
   dependencies:
     browserslist "^4.19.1"
     semver "7.0.0"
-
-core-js@^2.6.0:
-  version "2.6.12"
-  resolved "https://registry.yarnpkg.com/core-js/-/core-js-2.6.12.tgz#d9333dfa7b065e347cc5682219d6f690859cc2ec"
-  integrity sha512-Kb2wC0fvsWfQrgk8HU5lW6U/Lcs8+9aaYcy4ZFc6DDlo4nZ7n70dEgE5rtR0oG6ufKDUnrwfWL1mXR5ljDatrQ==
 
 core-js@^3.20.2:
   version "3.20.2"
@@ -5600,11 +5568,6 @@ mdn-data@2.0.4:
   resolved "https://registry.yarnpkg.com/mdn-data/-/mdn-data-2.0.4.tgz#699b3c38ac6f1d728091a64650b65d388502fd5b"
   integrity sha512-iV3XNKw06j5Q7mi6h+9vbx23Tv7JkjEVgKHW4pimwyDGWm0OIQntJJ+u1C6mg6mK1EaTv42XQ7w76yuzH7M2cA==
 
-mdn-polyfills@^5.14.0:
-  version "5.20.0"
-  resolved "https://registry.yarnpkg.com/mdn-polyfills/-/mdn-polyfills-5.20.0.tgz#ca8247edf20a4f60dec6804372229812b348260b"
-  integrity sha512-AbTv1ytcoOUAkxw6u5oo2QPf27kEZgxBAQr49jFb4i2VnTnFGfJbcIQ9UDBOdfNECeXsgkYFwB2BkdeTfOzztw==
-
 media-typer@0.3.0:
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/media-typer/-/media-typer-0.3.0.tgz#8710d7af0aa626f8fffa1ce00168545263255748"
@@ -5907,11 +5870,6 @@ normalize-range@^0.1.2:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/normalize-range/-/normalize-range-0.1.2.tgz#2d10c06bdfd312ea9777695a4d28439456b75942"
   integrity sha1-LRDAa9/TEuqXd2laTShDlFa3WUI=
-
-normalize-scss@^7.0.1:
-  version "7.0.1"
-  resolved "https://registry.yarnpkg.com/normalize-scss/-/normalize-scss-7.0.1.tgz#74485e82bb5d0526371136422a09fdb868ffc1a4"
-  integrity sha512-qj16bWnYs+9/ac29IgGjySg4R5qQTp1lXfm7ApFOZNVBYFY8RZ3f8+XQNDDLHeDtI3Ba7Jj4+LuPgz9v/fne2A==
 
 normalize-url@^3.0.0:
   version "3.3.0"
@@ -8477,11 +8435,6 @@ tfunk@^4.0.0:
     chalk "^1.1.3"
     dlv "^1.1.3"
 
-throttle-typescript@^1.0.1:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/throttle-typescript/-/throttle-typescript-1.1.0.tgz#548b8e6f20bdcc81b6225104da282e0748a53dec"
-  integrity sha512-pxQ+jaKIZZBkRJxbc+CoH3ubz59zgfd8qr0GqHb5NiAIhwHp5SWCHdVnujv/t87EcnFw7BbNrzyLWxNJ1+K6Mg==
-
 through2-filter@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/through2-filter/-/through2-filter-3.0.0.tgz#700e786df2367c2c88cd8aa5be4cf9c1e7831254"
@@ -9210,11 +9163,6 @@ watchify@^4.0.0:
     outpipe "^1.1.0"
     through2 "^4.0.2"
     xtend "^4.0.2"
-
-whatwg-fetch@^3.0.0:
-  version "3.6.2"
-  resolved "https://registry.yarnpkg.com/whatwg-fetch/-/whatwg-fetch-3.6.2.tgz#dced24f37f2624ed0281725d51d0e2e3fe677f8c"
-  integrity sha512-bJlen0FcuU/0EMLrdbJ7zOnW6ITZLrZMIarMUVmdKtsGvZna8vxKYaexICWPfZ8qwf9fzNq+UEIZrnSaApt6RA==
 
 which-boxed-primitive@^1.0.2:
   version "1.0.2"
