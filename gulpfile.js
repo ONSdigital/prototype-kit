@@ -17,106 +17,121 @@ import nunjucksRendererPipe from './lib/rendering/nunjucks-renderer-pipe.js';
 import postCssPlugins from './postcss.config.js';
 import svgConfig from './svgo-config.js';
 
-const isProduction = process.env.NODE_ENV === 'production';
-const isDevelopment = !isProduction;
+function setupGulpTasks(gulp) {
+  const isProduction = process.env.NODE_ENV === 'production';
+  const isDevelopment = !isProduction;
 
-const terserOptions = {
-  compress: {
-    drop_console: true
+  const terserOptions = {
+    compress: {
+      drop_console: true
+    }
+  };
+
+  const sassOptions = {
+    includePaths: ['./node_modules/normalize.css', './node_modules/prismjs/themes']
+  };
+
+  const scripts = glob.sync('./src/prototypes/**/index.js').map(entryPoint => ({
+    entryPoint: entryPoint,
+    outputFile: entryPoint.replace(/.*src\//, ''),
+    config: babelEsmConfig
+  }));
+
+  gulp.task('prototype-kit:clean', () => {
+    return Promise.resolve();
+  });
+
+  function createBuildScriptTask({ entryPoint, outputFile, config }) {
+    const taskName = `prototype-kit:build-script:${outputFile}`;
+    gulp.task(taskName, () => {
+      return browserify(entryPoint, { debug: isDevelopment })
+        .transform(babelify, { ...config, sourceMaps: isDevelopment })
+        .bundle()
+        .pipe(source(outputFile))
+        .pipe(buffer())
+        .pipe(gulpIf(isDevelopment, gulpSourcemaps.init({ loadMaps: true })))
+        .pipe(gulpIf(isProduction, gulpTerser(terserOptions)))
+        .pipe(gulpIf(isDevelopment, gulpSourcemaps.write('./')))
+        .pipe(gulp.dest('./build'))
+        .pipe(browserSync.stream());
+    });
+    return taskName;
   }
-};
 
-const sassOptions = {
-  includePaths: ['./node_modules/normalize.css', './node_modules/prismjs/themes']
-};
+  gulp.task('prototype-kit:build-script', gulp.series(...scripts.map(createBuildScriptTask)));
 
-const scripts = glob.sync('./src/prototypes/**/index.js').map(entryPoint => ({
-  entryPoint: entryPoint,
-  outputFile: entryPoint.replace(/.*src\//, ''),
-  config: babelEsmConfig
-}));
-
-gulp.task('clean', () => {
-  return Promise.resolve();
-});
-
-function createBuildScriptTask({ entryPoint, outputFile, config }) {
-  const taskName = `build-script:${outputFile}`;
-  gulp.task(taskName, () => {
-    return browserify(entryPoint, { debug: isDevelopment })
-      .transform('babelify', { ...config, sourceMaps: isDevelopment })
-      .bundle()
-      .pipe(source(outputFile))
-      .pipe(buffer())
-      .pipe(gulpIf(isDevelopment, gulpSourcemaps.init({ loadMaps: true })))
-      .pipe(gulpIf(isProduction, gulpTerser(terserOptions)))
+  gulp.task('prototype-kit:build-styles', () => {
+    return gulp
+      .src(['./src/**/*.scss', '!**/_*/**'])
+      .pipe(gulpIf(isDevelopment, gulpSourcemaps.init()))
+      .pipe(gulpDartSass(sassOptions).on('error', gulpDartSass.logError))
+      .pipe(gulpIf(isProduction, gulpPostCss(postCssPlugins())))
       .pipe(gulpIf(isDevelopment, gulpSourcemaps.write('./')))
       .pipe(gulp.dest('./build'))
       .pipe(browserSync.stream());
   });
-  return taskName;
-}
 
-gulp.task('build-script', gulp.series(...scripts.map(createBuildScriptTask)));
-
-gulp.task('build-styles', () => {
-  return gulp
-    .src(['./src/**/*.scss', '!**/_*/**'])
-    .pipe(gulpIf(isDevelopment, gulpSourcemaps.init()))
-    .pipe(gulpDartSass(sassOptions).on('error', gulpDartSass.logError))
-    .pipe(gulpIf(isProduction, gulpPostCss(postCssPlugins())))
-    .pipe(gulpIf(isDevelopment, gulpSourcemaps.write('./')))
-    .pipe(gulp.dest('./build'))
-    .pipe(browserSync.stream());
-});
-
-gulp.task('build-svg', () => {
-  return gulp
-    .src('./src/**/*.svg')
-    .pipe(gulpSvg(svgConfig))
-    .pipe(gulp.dest('./build'))
-    .pipe(browserSync.stream());
-});
-
-gulp.task('build-pages', () => {
-  return gulp
-    .src(['./src/**/*.njk', '!**/_*/**'])
-    .pipe(nunjucksRendererPipe)
-    .pipe(gulp.dest('./build'));
-});
-
-gulp.task('copy-design-system-files', () => {
-  return merge([
-    gulp.src('./node_modules/@ons/design-system/[0-9]*/**/*').pipe(gulp.dest('./build')),
-    gulp.src('./node_modules/@ons/design-system/css/**/*').pipe(gulp.dest('./build/css')),
-    gulp.src('./node_modules/@ons/design-system/favicons/**/*').pipe(gulp.dest('./build/favicons')),
-    gulp.src('./node_modules/@ons/design-system/fonts/**/*').pipe(gulp.dest('./build/fonts')),
-    gulp.src('./node_modules/@ons/design-system/img/**/*').pipe(gulp.dest('./build/img')),
-    gulp.src('./node_modules/@ons/design-system/scripts/**/*').pipe(gulp.dest('./build/scripts'))
-  ]);
-});
-
-gulp.task('copy-js-files', () => {
-  return gulp.src('./src/js/*.js').pipe(gulp.dest('./build/js'));
-});
-
-gulp.task('watch-and-build', async () => {
-  browserSync.init({
-    proxy: 'localhost:3010'
+  gulp.task('prototype-kit:build-svg', () => {
+    return gulp
+      .src('./src/**/*.svg')
+      .pipe(gulpSvg(svgConfig))
+      .pipe(gulp.dest('./build'))
+      .pipe(browserSync.stream());
   });
 
-  gulp.watch('./src/**/*.njk').on('change', browserSync.reload);
-  gulp.watch('./src/**/*.scss', gulp.series('build-styles'));
-  gulp.watch('./src/**/*.js', gulp.series('build-script'));
-  gulp.watch('./src/svg/**/*.svg', gulp.series('build-svg'));
-});
+  gulp.task('prototype-kit:build-pages', () => {
+    return gulp
+      .src(['./src/**/*.njk', '!**/_*/**'])
+      .pipe(nunjucksRendererPipe)
+      .pipe(gulp.dest('./build'));
+  });
 
-gulp.task('start-dev-server', async () => {
-  await import('./lib/dev-server.js');
-});
+  gulp.task('prototype-kit:copy-design-system-files', () => {
+    return merge([
+      gulp.src('./node_modules/@ons/design-system/[0-9]*/**/*').pipe(gulp.dest('./build')),
+      gulp.src('./node_modules/@ons/design-system/css/**/*').pipe(gulp.dest('./build/css')),
+      gulp.src('./node_modules/@ons/design-system/favicons/**/*').pipe(gulp.dest('./build/favicons')),
+      gulp.src('./node_modules/@ons/design-system/fonts/**/*').pipe(gulp.dest('./build/fonts')),
+      gulp.src('./node_modules/@ons/design-system/img/**/*').pipe(gulp.dest('./build/img')),
+      gulp.src('./node_modules/@ons/design-system/scripts/**/*').pipe(gulp.dest('./build/scripts'))
+    ]);
+  });
 
-gulp.task('build-assets', gulp.series('copy-design-system-files', 'build-script', 'build-styles', 'build-svg'));
+  gulp.task('prototype-kit:copy-js-files', () => {
+    return gulp.src('./src/js/*.js').pipe(gulp.dest('./build/js'));
+  });
 
-gulp.task('start', gulp.series('build-assets', 'watch-and-build', 'start-dev-server'));
-gulp.task('watch', gulp.series('watch-and-build', 'start-dev-server'));
-gulp.task('build', gulp.series('build-assets', 'build-pages'));
+  gulp.task('prototype-kit:watch-and-build', async () => {
+    browserSync.init({
+      proxy: 'localhost:3010'
+    });
+
+    gulp.watch('./src/**/*.njk').on('change', browserSync.reload);
+    gulp.watch('./src/**/*.scss', gulp.series('prototype-kit:build-styles'));
+    gulp.watch('./src/**/*.js', gulp.series('prototype-kit:build-script'));
+    gulp.watch('./src/svg/**/*.svg', gulp.series('prototype-kit:build-svg'));
+  });
+
+  gulp.task('prototype-kit:start-dev-server', async () => {
+    await import('./lib/dev-server.js');
+  });
+
+  gulp.task(
+    'prototype-kit:build-assets',
+    gulp.series(
+      'prototype-kit:copy-design-system-files',
+      'prototype-kit:build-script',
+      'prototype-kit:build-styles',
+      'prototype-kit:build-svg'
+    )
+  );
+
+  gulp.task(
+    'prototype-kit:start',
+    gulp.series('prototype-kit:build-assets', 'prototype-kit:watch-and-build', 'prototype-kit:start-dev-server')
+  );
+  gulp.task('prototype-kit:watch', gulp.series('prototype-kit:watch-and-build', 'prototype-kit:start-dev-server'));
+  gulp.task('prototype-kit:build', gulp.series('prototype-kit:build-assets', 'prototype-kit:build-pages'));
+}
+
+export default setupGulpTasks;

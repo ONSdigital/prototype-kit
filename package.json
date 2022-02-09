@@ -10,11 +10,7 @@
     "url": "https://github.com/bameyrick"
   },
   "scripts": {
-    "start": "gulp start",
-    "watch": "gulp watch",
-    "build": "yarn && yarn tidy-clean && NODE_ENV=production gulp build",
     "lint-staged": "lint-staged",
-    "tidy-clean": "rm -rf build",
     "dedupe-deps": "npx yarn-deduplicate yarn.lock && yarn"
   },
   "browserslist": [
