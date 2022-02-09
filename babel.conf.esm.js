@@ -7,7 +7,7 @@ export default {
   babelrc: false,
   plugins: [babelPluginSyntaxDynamicImport, babelPluginProposalClassProperties, babelPluginTransformRuntime],
   global: true,
-  ignore: [/node_modules\/(?!(chai-as-promised|fetch-mock)\/).*/],
+  ignore: [/node_modules\/(?!(@ons)\/).*/],
   sourceType: 'module',
   presets: [
     [

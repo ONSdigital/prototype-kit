@@ -11,7 +11,6 @@
         }
     }
 } %}
-
 {% block main %}
     {% set groups = helpers.navigationHelper({ 
         "pages": prototypeListing,
@@ -20,9 +19,9 @@
     {% for group in groups %}
         <section>
             <h1 class="u-fs-m">{{ group.title }}</h1>
-            {{ 
+            {{
                 onsList({
-                    "classes": "list--bare",
+                    "classes": "ons-list--bare",
                     "itemsList": group.items
                 })
             }}

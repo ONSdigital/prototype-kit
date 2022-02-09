@@ -16,7 +16,7 @@ This project comes with the following commands:
 
 ## Getting started
 
-1. Rename the example prototype directory from 'example' to something appropriate for this project.
+1. Create a directory alongside the 'example' prototype directory and then populate with files using 'example' as a starting point.
 
 2. Create prototype by editing the prototype entry points (`index.njk`, `index.js` and `index.scss`).
 
