@@ -21,6 +21,8 @@ async function createPrototypesProject() {
     process.exit(1);
   }
 
+  console.log('Creating project...');
+
   // Make a directory for the prototype; fail if the directory already exists to avoid losing work.
   const outputProjectPath = path.resolve(process.cwd(), projectName);
   await fs.mkdir(outputProjectPath);
