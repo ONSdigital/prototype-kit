@@ -1,23 +1,21 @@
-const browserSync = require('browser-sync');
-const browserify = require('browserify');
-const glob = require('glob');
-const gulp = require('gulp');
-const gulpIf = require('gulp-if');
-const gulpPostCss = require('gulp-postcss');
-const gulpDartSass = require('gulp-dart-sass');
-const gulpSourcemaps = require('gulp-sourcemaps');
-const gulpSvg = require('gulp-svgo');
-const gulpTerser = require('gulp-terser');
-const buffer = require('vinyl-buffer');
-const source = require('vinyl-source-stream');
-const merge = require('merge-stream');
+import babelify from 'babelify';
+import browserSync from 'browser-sync';
+import browserify from 'browserify';
+import glob from 'glob';
+import gulpIf from 'gulp-if';
+import gulpPostCss from 'gulp-postcss';
+import gulpDartSass from 'gulp-dart-sass';
+import gulpSourcemaps from 'gulp-sourcemaps';
+import gulpSvg from 'gulp-svgo';
+import gulpTerser from 'gulp-terser';
+import buffer from 'vinyl-buffer';
+import source from 'vinyl-source-stream';
+import merge from 'merge-stream';
 
-require('@babel/register');
-
-const babelEsmConfig = require('./babel.conf.esm');
-const nunjucksRendererPipe = require('./lib/rendering/nunjucks-renderer-pipe.js').default;
-const postCssPlugins = require('./postcss.config').default;
-const svgConfig = require('./svgo-config.js').default;
+import babelEsmConfig from './babel.conf.esm.js';
+import nunjucksRendererPipe from './lib/rendering/nunjucks-renderer-pipe.js';
+import postCssPlugins from './postcss.config.js';
+import svgConfig from './svgo-config.js';
 
 const isProduction = process.env.NODE_ENV === 'production';
 const isDevelopment = !isProduction;

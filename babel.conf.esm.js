@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   babelrc: false,
   plugins: ['@babel/plugin-syntax-dynamic-import', '@babel/plugin-proposal-class-properties', '@babel/plugin-transform-runtime'],
   global: true,
