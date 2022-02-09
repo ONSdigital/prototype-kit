@@ -1,12 +1,17 @@
+import babelPluginSyntaxDynamicImport from '@babel/plugin-syntax-dynamic-import';
+import babelPluginProposalClassProperties from '@babel/plugin-proposal-class-properties';
+import babelPluginTransformRuntime from '@babel/plugin-transform-runtime';
+import babelPresetEnv from '@babel/preset-env';
+
 export default {
   babelrc: false,
-  plugins: ['@babel/plugin-syntax-dynamic-import', '@babel/plugin-proposal-class-properties', '@babel/plugin-transform-runtime'],
+  plugins: [babelPluginSyntaxDynamicImport, babelPluginProposalClassProperties, babelPluginTransformRuntime],
   global: true,
   ignore: [/node_modules\/(?!(chai-as-promised|fetch-mock)\/).*/],
   sourceType: 'module',
   presets: [
     [
-      '@babel/preset-env',
+      babelPresetEnv,
       {
         modules: 'commonjs',
         targets: {
