@@ -76,6 +76,7 @@
     "merge-stream": "^2.0.0",
     "normalize.css": "^8.0.1",
     "nunjucks": "^3.1.7",
+    "postcss": "^8.4.6",
     "postcss-mq-optimize": "^1.1.0",
     "postcss-url": "^8.0.0",
     "querystring-helpers": "^1.0.2",
@@ -96,6 +97,6 @@
     "remark-cli": "^6.0.1",
     "remark-lint": "^6.0.4",
     "remark-preset-lint-recommended": "^3.0.2",
-    "sass-lint": "^1.12.1"
+    "sass-lint": "^1.13.1"
   }
 }
