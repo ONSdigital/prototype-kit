@@ -1,4 +1,3 @@
-import babelify from 'babelify';
 import browserSync from 'browser-sync';
 import browserify from 'browserify';
 import glob from 'glob';
@@ -7,12 +6,12 @@ import gulpPostCss from 'gulp-postcss';
 import gulpDartSass from 'gulp-dart-sass';
 import gulpSourcemaps from 'gulp-sourcemaps';
 import gulpSvg from 'gulp-svgo';
-import gulpTerser from 'gulp-terser';
-import buffer from 'vinyl-buffer';
-import source from 'vinyl-source-stream';
 import merge from 'merge-stream';
+import path from 'path';
+import * as rollup from 'rollup';
+import { nodeResolve as rollupNodeResolve } from '@rollup/plugin-node-resolve';
+import rollupCommonJS from 'rollup-plugin-commonjs';
 
-import babelEsmConfig from './babel.conf.esm.js';
 import nunjucksRendererPipe from './lib/rendering/nunjucks-renderer-pipe.js';
 import postCssPlugins from './postcss.config.js';
 import svgConfig from './svgo-config.js';
@@ -33,27 +32,32 @@ function setupGulpTasks(gulp) {
 
   const scripts = glob.sync('./src/prototypes/**/index.js').map(entryPoint => ({
     entryPoint: entryPoint,
-    outputFile: entryPoint.replace(/.*src\//, ''),
-    config: babelEsmConfig
+    outputFile: entryPoint.replace(/.*src\//, '')
   }));
 
   gulp.task('prototype-kit:clean', () => {
     return Promise.resolve();
   });
 
-  function createBuildScriptTask({ entryPoint, outputFile, config }) {
+  function createBuildScriptTask({ entryPoint, outputFile }) {
     const taskName = `prototype-kit:build-script:${outputFile}`;
-    gulp.task(taskName, () => {
-      return browserify(entryPoint, { debug: isDevelopment })
-        .transform(babelify, { ...config, sourceMaps: isDevelopment })
-        .bundle()
-        .pipe(source(outputFile))
-        .pipe(buffer())
-        .pipe(gulpIf(isDevelopment, gulpSourcemaps.init({ loadMaps: true })))
-        .pipe(gulpIf(isProduction, gulpTerser(terserOptions)))
-        .pipe(gulpIf(isDevelopment, gulpSourcemaps.write('./')))
-        .pipe(gulp.dest('./build'))
-        .pipe(browserSync.stream());
+    gulp.task(taskName, async () => {
+      const bundle = await rollup.rollup({
+        input: entryPoint,
+        plugins: [
+          rollupNodeResolve(),
+          rollupCommonJS({
+            include: /node_modules/
+          })
+        ]
+      });
+
+      await bundle.write({
+        file: `./build/${outputFile}`,
+        format: 'cjs',
+        name: path.basename(outputFile),
+        sourcemap: true
+      });
     });
     return taskName;
   }
