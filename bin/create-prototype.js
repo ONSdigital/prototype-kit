@@ -21,10 +21,17 @@ async function createPrototypesProject() {
     process.exit(1);
   }
 
+  const outputProjectPath = path.resolve(process.cwd(), projectName);
+
+  // Verify that the project doesn't already exist.
+  if (fs.existsSync(outputProjectPath)) {
+    console.error(`A directory already exists at the path '${outputProjectPath}'.`);
+    process.exit(1);
+  }
+
   logStatus('Creating project');
 
   // Make a directory for the prototype; fail if the directory already exists to avoid losing work.
-  const outputProjectPath = path.resolve(process.cwd(), projectName);
   await fs.mkdir(outputProjectPath);
 
   // Prepare 'project.json', 'gulpfile.js' and 'README.md' for the prototype(s) project.
