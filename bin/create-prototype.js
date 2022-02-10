@@ -41,13 +41,13 @@ async function createPrototypesProject() {
   const outputSrcPath = path.resolve(outputProjectPath, 'src');
   await fs.copy(projectTemplateSrcPath, outputSrcPath);
 
-  logStatus('Initialising git repository');
-  await exec(`cd ${outputProjectPath} && git init`);
-
   logStatus('Installing yarn dependencies');
   await exec(`cd ${outputProjectPath} && yarn`);
   logStatus('Installing latest version of the design system');
   await exec(`cd ${outputProjectPath} && yarn add @ons/design-system`);
+
+  logStatus('Initialising git repository');
+  await exec(`cd ${outputProjectPath} && git init && git add . && git commit -m 'Initial commit.'`);
 
   console.log(`Project created at path '${outputProjectPath}'.`);
   console.log('Refer to README.md for some information about the project.');
