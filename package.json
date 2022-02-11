@@ -6,9 +6,7 @@
   "license": "MIT",
   "homepage": "https://github.com/ONSdigital/prototype-kit",
   "author": {
-    "email": "bameyrick@gmail.com",
-    "name": "Ben Meyrick",
-    "url": "https://github.com/bameyrick"
+    "name": "ONS Digital"
   },
   "bin": {
     "create-prototype": "bin/create-prototype.js"
