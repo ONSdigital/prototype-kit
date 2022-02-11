@@ -94,7 +94,8 @@
     "sass-lint": "^1.12.1",
     "vinyl-buffer": "^1.0.1",
     "vinyl-source-stream": "^2.0.0",
-    "watchify": "^4.0.0"
+    "watchify": "^4.0.0",
+    "yaml": "^1.10.2"
   },
   "dependencies": {
     "@ons/design-system": "^21.1.0",

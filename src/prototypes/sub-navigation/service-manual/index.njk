@@ -19,7 +19,7 @@ hideSubnav: true
         <div class="ons-container ons-container--wide">
 
             <div class="ons-grid ons-grid--column@xxs@s ons-u-mt-l">
-                {% set cards = helpers.cardsNavigationHelper({ 
+                {% set cards = helpers.navigationHelper({ 
                     "pages": pageInfo.children
                 }) %}
                 {% for card in cards %}

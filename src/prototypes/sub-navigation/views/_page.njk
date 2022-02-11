@@ -8,104 +8,28 @@
     <div class="ons-page__container ons-container ons-container--wide">
 
         <div class="ons-grid">
-            {% if pageInfo.children.length %}
             <div class="ons-grid__col ons-col-3@m ons-u-mt-xl ons-u-d-no@xxs@m ons-u-mb-l">
-                {% if pageInfo.children[0].children[0].subgroup %}<h3 class="ons-u-fs-r--b ons-u-mb-s">{{ pageInfo.children[0].children[0].subgroup }}</h3>{% endif %}
-                {{
-                    onsSectionNavigation({
-                        "variants": "vertical",
-                        "id": "section-menu",
-                        "currentPath": pageInfo.url,
-                        "itemsList": [
-                            {
-                                "title": pageInfo.children[0].children[0].title,
-                                "url": pageInfo.children[0].children[0].url
-                            },
-                            {
-                                "title": pageInfo.children[0].children[1].title,
-                                "url": pageInfo.children[0].children[1].url
-                            },
-                            {
-                                "title": pageInfo.children[0].children[2].title,
-                                "url": pageInfo.children[0].children[2].url
-                            },
-                            {
-                                "title": pageInfo.children[0].children[3].title,
-                                "url": pageInfo.children[0].children[3].url
-                            },
-                            {
-                                "title": pageInfo.children[0].children[4].title,
-                                "url": pageInfo.children[0].children[4].url
-                            },
-                            {
-                                "title": pageInfo.children[0].children[5].title,
-                                "url": pageInfo.children[0].children[5].url
-                            },
-                            {
-                                "title": pageInfo.children[0].children[6].title,
-                                "url": pageInfo.children[0].children[6].url
-                            },
-                            {
-                                "title": pageInfo.children[0].children[7].title,
-                                "url": pageInfo.children[0].children[7].url
-                            }
-                        ]
-                    })
-                }}
-                {% if pageInfo.children[1].children[0].subgroup %}<h3 class="ons-u-fs-r--b ons-u-mb-s ons-u-mt-m">{{ pageInfo.children[1].children[0].subgroup }}</h3>{% endif %}
-                {{
-                    onsSectionNavigation({
-                        "variants": "vertical",
-                        "id": "section-menu",
-                        "currentPath": pageInfo.url,
-                        "itemsList": [
-                            {
-                                "title": pageInfo.children[1].children[0].title,
-                                "url": pageInfo.children[1].children[0].url
-                            },
-                            {
-                                "title": pageInfo.children[1].children[1].title,
-                                "url": pageInfo.children[1].children[1].url
-                            },
-                            {
-                                "title": pageInfo.children[1].children[2].title,
-                                "url": pageInfo.children[1].children[2].url
-                            },
-                            {
-                                "title": pageInfo.children[1].children[3].title,
-                                "url": pageInfo.children[1].children[3].url
-                            }
-                        ]
-                    })
-                }}
-                {% if pageInfo.children[2].children[0].subgroup %}<h3 class="ons-u-fs-r--b ons-u-mb-s ons-u-mt-m">{{ pageInfo.children[2].children[0].subgroup }}</h3>{% endif %}
-                {{
-                    onsSectionNavigation({
-                        "variants": "vertical",
-                        "id": "section-menu",
-                        "currentPath": pageInfo.url,
-                        "itemsList": [
-                            {
-                                "title": pageInfo.children[2].children[0].title,
-                                "url": pageInfo.children[2].children[0].url
-                            },
-                            {
-                                "title": pageInfo.children[2].children[1].title,
-                                "url": pageInfo.children[2].children[1].url
-                            },
-                            {
-                                "title": pageInfo.children[2].children[2].title,
-                                "url": pageInfo.children[2].children[2].url
-                            },
-                            {
-                                "title": pageInfo.children[2].children[3].title,
-                                "url": pageInfo.children[2].children[3].url
-                            }
-                        ]
-                    })
-                }}
+                {% for group in helpers.subNavigationHelper({
+                    pageInfo: pageInfo,
+                    anchorLinks: pageInfo.anchorLinks
+                }) %}
+                    {% if group.title is defined and group.title %}
+                        <h3 class="ons-u-fs-r--b ons-u-mb-s">{{ group.title }}</h3>
+                    {% endif %}
+                    <div class="ons-u-mb-l">
+                        {{
+                            onsSectionNavigation({
+                                "variants": "vertical",
+                                "id": "section-navigation",
+                                "ariaLabel": "Sub menu",
+                                "ariaListLabel": "Child menu",
+                                "currentPath": pageInfo.url,
+                                "itemsList": group.items
+                            })
+                        }}
+                    </div>
+                {% endfor %}
             </div>
-            {% endif %}
             <div class="ons-grid__col ons-col-9@m">
                 <main class="ons-page__main" id="main-content" role="main">
                     <h1 class="ons-u-fs-xxl ons-u-mt-l">
