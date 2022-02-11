@@ -3,6 +3,10 @@
   "version": "0.0.1",
   "private": true,
   "type": "module",
+  "license": "MIT",
+  "author": {
+    "name": "ONS Digital"
+  },
   "scripts": {
     "start": "gulp prototype-kit:start",
     "watch": "gulp prototype-kit:watch",

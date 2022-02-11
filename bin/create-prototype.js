@@ -38,6 +38,7 @@ async function createPrototypesProject() {
   await prepareProjectFileFromTemplate('./package.json', projectName, outputProjectPath);
   await prepareProjectFileFromTemplate('./gulpfile.js', projectName, outputProjectPath);
   await prepareProjectFileFromTemplate('./README.md', projectName, outputProjectPath);
+  await prepareProjectFileFromTemplate('./LICENSE', projectName, outputProjectPath);
 
   // Copy other project files.
   await copyProjectFileFromTemplate('./dot_gitignore', outputProjectPath, './.gitignore');
@@ -71,7 +72,8 @@ async function prepareProjectFileFromTemplate(templateFile, projectName, project
     .replace(/{{PROTOTYPE_KIT_PACKAGE_NAME}}/g, prototypeKitInfo.name)
     .replace(/{{PROTOTYPE_KIT_HOMEPAGE}}/g, prototypeKitInfo.homepage)
     .replace(/{{PROJECT_NAME}}/g, projectName)
-    .replace(/{{PROTOTYPE_KIT_VERSION}}/, prototypeKitInfo.version);
+    .replace(/{{PROTOTYPE_KIT_VERSION}}/, prototypeKitInfo.version)
+    .replace(/{{COPYRIGHT_YEAR}}/, new Date().getFullYear());
 
   const outputPath = path.resolve(projectOutputPath, path.basename(templateFile));
   await fs.writeFile(outputPath, output, { encoding: 'utf8' });
