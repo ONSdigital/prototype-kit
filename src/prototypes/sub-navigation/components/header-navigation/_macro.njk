@@ -57,7 +57,7 @@
                             </ul>
                         </div>
                     </nav>
-                    <div class="ons-u-d-no@m">
+                    <div class="ons-u-d-no@m{{ ' ' + params.secondaryNavigation.classes if params.secondaryNavigation.classes is defined and params.secondaryNavigation.classes }}">
                         {{ onsButton({
                             "text": params.navigation.currentPage,
                             "classes": "ons-u-d-no proto-ons-js-toggle-secondary proto-ons-secondary-btn",
