@@ -6,5 +6,100 @@ layout: sub-navigation/views/_page
 sortOrder: 1
 ---
 {% block mainContent %}
-
+<p>The design system must be universally accessible. This means components and patterns to work on every browser and device that users access our services on.</p>
+<h2 id="test-for-compatibility">Test for compatibility</h2>
+<p>Components and patterns don’t have to look perfect in every browser but users must be able to access and use all the information and features they need, regardless of which browser they use.</p>
+<p>Use 
+    <a href="https://www.gov.uk/service-manual/technology/using-progressive-enhancement" class="ons-external-link" target="_blank" rel="noopener">progressive enhancement<span class="ons-external-link__icon">&nbsp;<svg id="external-link" class="ons-svg-icon" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+        <path d="M13.5,9H13a.5.5,0,0,0-.5.5v3h-9v-9h3A.5.5,0,0,0,7,3V2.5A.5.5,0,0,0,6.5,2h-4a.5.5,0,0,0-.5.5v11a.5.5,0,0,0,.5.5h11a.5.5,0,0,0,.5-.5v-4A.5.5,0,0,0,13.5,9Z" transform="translate(-2 -1.99)"></path>
+        <path d="M8.83,7.88a.51.51,0,0,0,.71,0l2.31-2.32,1.28,1.28A.51.51,0,0,0,14,6.49v-4a.52.52,0,0,0-.5-.5h-4A.51.51,0,0,0,9,2.52a.58.58,0,0,0,.14.33l1.28,1.28L8.12,6.46a.51.51,0,0,0,0,.71Z" transform="translate(-2 -1.99)"></path>
+    </svg></span></a>
+ to give your component or pattern the best possible chance of working for the majority of your users.</p>
+<h2 id="browsers-to-test-in">Browsers to test in</h2>
+<p>You should test your component or pattern in these browsers:</p>
+<table class="ons-table">
+<thead class="ons-table__head">
+<tr class="ons-table__row">
+<th class="ons-table__header">Operating system</th>
+<th class="ons-table__header">Browser</th>
+<th class="ons-table__header">Version</th>
+</tr>
+</thead>
+<tbody><tr class="ons-table__row">
+<td class="ons-table__cell"><em>Windows</em></td>
+<td class="ons-table__cell">Internet Explorer</td>
+<td class="ons-table__cell">11</td>
+</tr>
+<tr class="ons-table__row">
+<td class="ons-table__cell"></td>
+<td class="ons-table__cell">Edge</td>
+<td class="ons-table__cell">Latest 2 versions</td>
+</tr>
+<tr class="ons-table__row">
+<td class="ons-table__cell"></td>
+<td class="ons-table__cell">Chrome</td>
+<td class="ons-table__cell">Latest 2 versions</td>
+</tr>
+<tr class="ons-table__row">
+<td class="ons-table__cell"></td>
+<td class="ons-table__cell">Firefox</td>
+<td class="ons-table__cell">Latest 2 versions</td>
+</tr>
+<tr class="ons-table__row">
+<td class="ons-table__cell"><em>macOS</em></td>
+<td class="ons-table__cell">Safari</td>
+<td class="ons-table__cell">12 and later</td>
+</tr>
+<tr class="ons-table__row">
+<td class="ons-table__cell"></td>
+<td class="ons-table__cell">Chrome</td>
+<td class="ons-table__cell">Latest 2 versions</td>
+</tr>
+<tr class="ons-table__row">
+<td class="ons-table__cell"></td>
+<td class="ons-table__cell">Firefox</td>
+<td class="ons-table__cell">Latest 2 versions</td>
+</tr>
+<tr class="ons-table__row">
+<td class="ons-table__cell"><em>iOS</em></td>
+<td class="ons-table__cell">Safari</td>
+<td class="ons-table__cell">12.1 and later</td>
+</tr>
+<tr class="ons-table__row">
+<td class="ons-table__cell"></td>
+<td class="ons-table__cell">Chrome</td>
+<td class="ons-table__cell">Latest 2 versions</td>
+</tr>
+<tr class="ons-table__row">
+<td class="ons-table__cell"><em>Android</em></td>
+<td class="ons-table__cell">Chrome</td>
+<td class="ons-table__cell">Latest 2 versions</td>
+</tr>
+<tr class="ons-table__row">
+<td class="ons-table__cell"></td>
+<td class="ons-table__cell">Samsung Internet</td>
+<td class="ons-table__cell">Latest 2 versions</td>
+</tr>
+</tbody></table>
+<h3 id="understanding-the-table">Understanding the table</h3>
+<p>“Latest 2 versions” means the latest stable version and the version immediately before that.</p>
+<p>This list in the table is from GDS, based on usage statistics for GOV.UK and represents approximately 95% of the most popular browsers. They update it in January and June every year.</p>
+<h3 id="testing-with-assistive-technologies">Testing with assistive technologies</h3>
+<p>You’ll also need to 
+    <a href="https://www.gov.uk/service-manual/helping-people-to-use-your-service/testing-for-accessibility" class="ons-external-link" target="_blank" rel="noopener">make sure your component or pattern works with assistive technologies<span class="ons-external-link__icon">&nbsp;<svg id="external-link" class="ons-svg-icon" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+        <path d="M13.5,9H13a.5.5,0,0,0-.5.5v3h-9v-9h3A.5.5,0,0,0,7,3V2.5A.5.5,0,0,0,6.5,2h-4a.5.5,0,0,0-.5.5v11a.5.5,0,0,0,.5.5h11a.5.5,0,0,0,.5-.5v-4A.5.5,0,0,0,13.5,9Z" transform="translate(-2 -1.99)"></path>
+        <path d="M8.83,7.88a.51.51,0,0,0,.71,0l2.31-2.32,1.28,1.28A.51.51,0,0,0,14,6.49v-4a.52.52,0,0,0-.5-.5h-4A.51.51,0,0,0,9,2.52a.58.58,0,0,0,.14.33l1.28,1.28L8.12,6.46a.51.51,0,0,0,0,.71Z" transform="translate(-2 -1.99)"></path>
+    </svg></span></a>
+</p>
+<h2 id="design-for-your-audience">Design for your audience</h2>
+<p>When designing your component or pattern, you should analyse your users’ choice of:</p>
+<ul>
+<li>operating systems</li>
+<li>browsers</li>
+<li>browser versions</li>
+<li>screen size/resolutions</li>
+<li>choice of mobile device</li>
+</ul>
+<p>If evidence shows that your users have specific needs or extra support requirements, you can use this to make a case for not meeting these browser requirements.</p>
+<p>For example, components and patterns used exclusively in products that internal teams use may not need to be tailored to work on smaller viewports, as it is likely that these users will only be using the product on a desktop browser.</p>
 {% endblock %}

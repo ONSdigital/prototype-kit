@@ -5,28 +5,537 @@ version: 45.2.1
 layout: sub-navigation/views/_page
 ---
 {% block mainContent %}
-
 <p>Use the base page template to create pages with the core components and markup required for an ONS service.</p>
-
-<p>The examples below provide templates that consist of commonly used components and patterns.</p>
-
+<p>The examples below provide templates that consist of commonly used <a href="/components">components</a> and <a href="/patterns">patterns</a>.</p>
 <p>All template examples contain the following:</p>
-{{
-    onsList({
-        "itemsList": [
-          {
-            "text": 'CSS and Javascript to add styling and behaviours to components'
-          },
-          {
-              "text": 'a skip to content link, header and footer component'
-          },
-          {
-              "text": 'a favicon, and other related bookmark icons'
-          }
-        ]
-    })
-}}
-
+<ul>
+<li>CSS and Javascript to add styling and behaviours to components.</li>
+<li>a <a href="/components/skip-to-content">skip to content</a> link, <a href="/components/header">header</a> and <a href="/components/footer">footer</a> component.</li>
+<li>a favicon, and other related bookmark icons.</li>
+</ul>
 <p>Click on the HTML tab on each example to view the rendered HTML.</p>
+<h2 id="default-base-page-template">Default base page template</h2>
+<p>The example below shows the minimum requirements for an ONS base page template.</p>
+
+<h2 id="customised-page-template">Customised page template</h2>
+<p>Components can be added to the base page template. The example below provides a <a href="/components/phase-banner">phase banner</a>, <a href="/patterns/change-language">change language</a>, <a href="/components/breadcrumbs">breadcrumbs</a>, <a href="/components/button">save button</a> and <a href="/components/footer">footer links</a>.</p>
+
+<h2 id="census-page-template">Census page template</h2>
+<p>The example below shows a themed census version of the ONS base page template.</p>
+
+<h3 id="changing-template-content">Changing template content</h3>
+<p>The Nunjucks template allows 2 ways to change the content: 
+    <a href="https://mozilla.github.io/nunjucks/templating.html#set" class="ons-external-link" target="_blank" rel="noopener">variables<span class="ons-external-link__icon">&nbsp;<svg id="external-link" class="ons-svg-icon" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+        <path d="M13.5,9H13a.5.5,0,0,0-.5.5v3h-9v-9h3A.5.5,0,0,0,7,3V2.5A.5.5,0,0,0,6.5,2h-4a.5.5,0,0,0-.5.5v11a.5.5,0,0,0,.5.5h11a.5.5,0,0,0,.5-.5v-4A.5.5,0,0,0,13.5,9Z" transform="translate(-2 -1.99)"></path>
+        <path d="M8.83,7.88a.51.51,0,0,0,.71,0l2.31-2.32,1.28,1.28A.51.51,0,0,0,14,6.49v-4a.52.52,0,0,0-.5-.5h-4A.51.51,0,0,0,9,2.52a.58.58,0,0,0,.14.33l1.28,1.28L8.12,6.46a.51.51,0,0,0,0,.71Z" transform="translate(-2 -1.99)"></path>
+    </svg></span></a>
+ or 
+    <a href="https://mozilla.github.io/nunjucks/templating.html#block" class="ons-external-link" target="_blank" rel="noopener">blocks<span class="ons-external-link__icon">&nbsp;<svg id="external-link" class="ons-svg-icon" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+        <path d="M13.5,9H13a.5.5,0,0,0-.5.5v3h-9v-9h3A.5.5,0,0,0,7,3V2.5A.5.5,0,0,0,6.5,2h-4a.5.5,0,0,0-.5.5v11a.5.5,0,0,0,.5.5h11a.5.5,0,0,0,.5-.5v-4A.5.5,0,0,0,13.5,9Z" transform="translate(-2 -1.99)"></path>
+        <path d="M8.83,7.88a.51.51,0,0,0,.71,0l2.31-2.32,1.28,1.28A.51.51,0,0,0,14,6.49v-4a.52.52,0,0,0-.5-.5h-4A.51.51,0,0,0,9,2.52a.58.58,0,0,0,.14.33l1.28,1.28L8.12,6.46a.51.51,0,0,0,0,.71Z" transform="translate(-2 -1.99)"></path>
+    </svg></span></a>
+</p>
+<p>The main difference between a variable and a block is that blocks can contain markup.</p>
+<h4 id="variables">Variables</h4>
+<p>Variables can be set with:</p>
+
+    <pre class="ons-patternlib-example__pre  language-markup" tabindex="0"><code class="ons-patternlib-example__code ons-  language-markup">{% raw %}{% set variableName = value %}{% endraw %}</code></pre>
+
+<table class="ons-table">
+<thead class="ons-table__head">
+<tr class="ons-table__row">
+<th class="ons-table__header">Variable Name</th>
+<th class="ons-table__header">Type</th>
+<th class="ons-table__header">Required</th>
+<th class="ons-table__header">Description</th>
+</tr>
+</thead>
+<tbody><tr class="ons-table__row">
+<td class="ons-table__cell">form</td>
+<td class="ons-table__cell"><code>FormConfig</code> <a href="#formconfig"><em>(ref)</em></a></td>
+<td class="ons-table__cell">false</td>
+<td class="ons-table__cell">A object with configuration to wrap the current page in a form. If <code>form</code> variable is not set, the page will not be wrapped in a form</td>
+</tr>
+<tr class="ons-table__row">
+<td class="ons-table__cell">pageConfig</td>
+<td class="ons-table__cell"><code>PageConfig</code> <a href="#pageconfig"><em>(ref)</em></a></td>
+<td class="ons-table__cell">true</td>
+<td class="ons-table__cell">A object with configuration for the current page</td>
+</tr>
+<tr class="ons-table__row">
+<td class="ons-table__cell">release_version</td>
+<td class="ons-table__cell">string</td>
+<td class="ons-table__cell">false</td>
+<td class="ons-table__cell">What CDN version to use. This can also be configured from the <code>page</code> configuration object</td>
+</tr>
+</tbody></table>
+<h5 id="formconfig">FormConfig</h5>
+<table class="ons-table">
+<thead class="ons-table__head">
+<tr class="ons-table__row">
+<th class="ons-table__header">Variable Name</th>
+<th class="ons-table__header">Type</th>
+<th class="ons-table__header">Required</th>
+<th class="ons-table__header">Description</th>
+</tr>
+</thead>
+<tbody><tr class="ons-table__row">
+<td class="ons-table__cell">classes</td>
+<td class="ons-table__cell">string</td>
+<td class="ons-table__cell">false</td>
+<td class="ons-table__cell">Classes to apply to the wrapping form</td>
+</tr>
+<tr class="ons-table__row">
+<td class="ons-table__cell">attributes</td>
+<td class="ons-table__cell">object</td>
+<td class="ons-table__cell">false</td>
+<td class="ons-table__cell">HTML attributes (for example, data attributes) to add to the button form</td>
+</tr>
+<tr class="ons-table__row">
+<td class="ons-table__cell">method</td>
+<td class="ons-table__cell">string</td>
+<td class="ons-table__cell">false</td>
+<td class="ons-table__cell">The method the form should you, if not specified it will default to <code>POST</code></td>
+</tr>
+</tbody></table>
+<h5 id="pageconfig">PageConfig</h5>
+<table class="ons-table">
+<thead class="ons-table__head">
+<tr class="ons-table__row">
+<th class="ons-table__header">Variable Name</th>
+<th class="ons-table__header">Type</th>
+<th class="ons-table__header">Required</th>
+<th class="ons-table__header">Description</th>
+</tr>
+</thead>
+<tbody><tr class="ons-table__row">
+<td class="ons-table__cell">cdn</td>
+<td class="ons-table__cell"><code>CDN</code> <a href="#cdn"><em>(ref)</em></a></td>
+<td class="ons-table__cell">false</td>
+<td class="ons-table__cell">What CDN version to use</td>
+</tr>
+<tr class="ons-table__row">
+<td class="ons-table__cell">assetsURL</td>
+<td class="ons-table__cell">string</td>
+<td class="ons-table__cell">false</td>
+<td class="ons-table__cell">The base url where to find CSS/JS/images etc., for example, <code>http://localhost:3030</code></td>
+</tr>
+<tr class="ons-table__row">
+<td class="ons-table__cell">theme</td>
+<td class="ons-table__cell">string</td>
+<td class="ons-table__cell">false</td>
+<td class="ons-table__cell">The name of the css file, for example, “census” if using a theme. Defaults to “main”.</td>
+</tr>
+<tr class="ons-table__row">
+<td class="ons-table__cell">title</td>
+<td class="ons-table__cell">string</td>
+<td class="ons-table__cell">true</td>
+<td class="ons-table__cell">The contents for the <code>&lt;title&gt;</code> element</td>
+</tr>
+<tr class="ons-table__row">
+<td class="ons-table__cell">cspNonce</td>
+<td class="ons-table__cell">string</td>
+<td class="ons-table__cell">false</td>
+<td class="ons-table__cell">The Content Security Policy (CSP) nonce value</td>
+</tr>
+<tr class="ons-table__row">
+<td class="ons-table__cell">headMeta</td>
+<td class="ons-table__cell"><code>HeadMeta</code> <a href="#headmeta"><em>(ref)</em></a></td>
+<td class="ons-table__cell">false</td>
+<td class="ons-table__cell">Configuration for <code>&lt;meta&gt;</code> information in the document <code>&lt;head&gt;</code></td>
+</tr>
+<tr class="ons-table__row">
+<td class="ons-table__cell">breadcrumbs</td>
+<td class="ons-table__cell"><code>Breadcrumbs</code> <a href="/components/breadcrumbs"><em>(ref)</em></a></td>
+<td class="ons-table__cell">false</td>
+<td class="ons-table__cell">Configuration for the breadcrumbs or back link</td>
+</tr>
+<tr class="ons-table__row">
+<td class="ons-table__cell">bodyClasses</td>
+<td class="ons-table__cell">string</td>
+<td class="ons-table__cell">false</td>
+<td class="ons-table__cell">Classes to add to the <code>&lt;body&gt;</code> element</td>
+</tr>
+<tr class="ons-table__row">
+<td class="ons-table__cell">header</td>
+<td class="ons-table__cell"><code>PageHeader</code> <a href="#pageheader"><em>(ref)</em></a></td>
+<td class="ons-table__cell">true</td>
+<td class="ons-table__cell">Configuration for the page header</td>
+</tr>
+<tr class="ons-table__row">
+<td class="ons-table__cell">language</td>
+<td class="ons-table__cell"><code>Language</code> <a href="/patterns/change-language"><em>(ref)</em></a></td>
+<td class="ons-table__cell">false</td>
+<td class="ons-table__cell">Language configuration for the page</td>
+</tr>
+<tr class="ons-table__row">
+<td class="ons-table__cell">signoutButton</td>
+<td class="ons-table__cell"><code>Button</code> <a href="/components/button"><em>(ref)</em></a></td>
+<td class="ons-table__cell">false</td>
+<td class="ons-table__cell">Configuration for the save and sign out button. If not specified, the button will not render</td>
+</tr>
+<tr class="ons-table__row">
+<td class="ons-table__cell">toggleButton</td>
+<td class="ons-table__cell"><code>HeaderToggleButton</code> <a href="/components/header"><em>(ref)</em></a></td>
+<td class="ons-table__cell">true (if <code>navigation</code> supplied)</td>
+<td class="ons-table__cell">Configuration for the mobile navigation toggle button</td>
+</tr>
+<tr class="ons-table__row">
+<td class="ons-table__cell">navigation</td>
+<td class="ons-table__cell"><code>HeaderNavigation</code> <a href="/components/header"><em>(ref)</em></a></td>
+<td class="ons-table__cell">true (if <code>toggleButton</code> supplied)</td>
+<td class="ons-table__cell">Configuration for header navigation links</td>
+</tr>
+<tr class="ons-table__row">
+<td class="ons-table__cell">phase</td>
+<td class="ons-table__cell"><code>PhaseBanner</code> <a href="/components/phase-banner"><em>(ref)</em></a></td>
+<td class="ons-table__cell">false</td>
+<td class="ons-table__cell">Settings for the Phase banner</td>
+</tr>
+<tr class="ons-table__row">
+<td class="ons-table__cell">serviceLinks</td>
+<td class="ons-table__cell"><code>Array&lt;Navigation&gt;</code> <a href="/components/header"><em>(ref)</em></a></td>
+<td class="ons-table__cell">false</td>
+<td class="ons-table__cell">An array to render the service links list</td>
+</tr>
+<tr class="ons-table__row">
+<td class="ons-table__cell">footer</td>
+<td class="ons-table__cell"><code>PageFooter</code> <a href="#pagefooter"><em>(ref)</em></a></td>
+<td class="ons-table__cell">true</td>
+<td class="ons-table__cell">Configuration for the page footer</td>
+</tr>
+<tr class="ons-table__row">
+<td class="ons-table__cell">pageColNumber</td>
+<td class="ons-table__cell">string</td>
+<td class="ons-table__cell">false</td>
+<td class="ons-table__cell">sets the number of grid columns for the page (defaults to 8)</td>
+</tr>
+<tr class="ons-table__row">
+<td class="ons-table__cell">description</td>
+<td class="ons-table__cell">string</td>
+<td class="ons-table__cell">true</td>
+<td class="ons-table__cell">Default description of the current page for search engines if headMeta.description is not provided.</td>
+</tr>
+<tr class="ons-table__row">
+<td class="ons-table__cell">absoluteUrl</td>
+<td class="ons-table__cell">string</td>
+<td class="ons-table__cell">true</td>
+<td class="ons-table__cell">Default URL for the preferred page for search engines to avoid duplicate content penalties. Used if if headMeta.canonicalUrl is not provided.</td>
+</tr>
+<tr class="ons-table__row">
+<td class="ons-table__cell">wide</td>
+<td class="ons-table__cell">boolean</td>
+<td class="ons-table__cell">false</td>
+<td class="ons-table__cell">If sets to true passes sets the <code>wide</code> param on both the header and footer which will add css which will make the page use a wider style.</td>
+</tr>
+</tbody></table>
+<h5 id="cdn">CDN</h5>
+<table class="ons-table">
+<thead class="ons-table__head">
+<tr class="ons-table__row">
+<th class="ons-table__header">Variable Name</th>
+<th class="ons-table__header">Type</th>
+<th class="ons-table__header">Required</th>
+<th class="ons-table__header">Description</th>
+</tr>
+</thead>
+<tbody><tr class="ons-table__row">
+<td class="ons-table__cell">url</td>
+<td class="ons-table__cell">string</td>
+<td class="ons-table__cell">false</td>
+<td class="ons-table__cell">URL for the CDN</td>
+</tr>
+<tr class="ons-table__row">
+<td class="ons-table__cell">version</td>
+<td class="ons-table__cell">string</td>
+<td class="ons-table__cell">false</td>
+<td class="ons-table__cell">DS version on the CDN</td>
+</tr>
+</tbody></table>
+<h6 id="pageheader">PageHeader</h6>
+<table class="ons-table">
+<thead class="ons-table__head">
+<tr class="ons-table__row">
+<th class="ons-table__header">Variable Name</th>
+<th class="ons-table__header">Type</th>
+<th class="ons-table__header">Required</th>
+<th class="ons-table__header">Description</th>
+</tr>
+</thead>
+<tbody><tr class="ons-table__row">
+<td class="ons-table__cell">title</td>
+<td class="ons-table__cell">string</td>
+<td class="ons-table__cell">false</td>
+<td class="ons-table__cell">Title for the page header. If not specified this will default to <code>page.title</code></td>
+</tr>
+<tr class="ons-table__row">
+<td class="ons-table__cell">classes</td>
+<td class="ons-table__cell">string</td>
+<td class="ons-table__cell">false</td>
+<td class="ons-table__cell">CSS classes to be added to the header</td>
+</tr>
+<tr class="ons-table__row">
+<td class="ons-table__cell">logo</td>
+<td class="ons-table__cell">string</td>
+<td class="ons-table__cell">false</td>
+<td class="ons-table__cell">URL for the page header logo</td>
+</tr>
+<tr class="ons-table__row">
+<td class="ons-table__cell">logoAlt</td>
+<td class="ons-table__cell">string</td>
+<td class="ons-table__cell">false</td>
+<td class="ons-table__cell">Alt tag for the page header logo</td>
+</tr>
+<tr class="ons-table__row">
+<td class="ons-table__cell">logoHref</td>
+<td class="ons-table__cell">string</td>
+<td class="ons-table__cell">false</td>
+<td class="ons-table__cell">URL for the page header logo. If not specified the image will not be wrapped in a link</td>
+</tr>
+<tr class="ons-table__row">
+<td class="ons-table__cell">titleLogo</td>
+<td class="ons-table__cell">string</td>
+<td class="ons-table__cell">false</td>
+<td class="ons-table__cell">URL for image to use instead of a title string</td>
+</tr>
+<tr class="ons-table__row">
+<td class="ons-table__cell">mobileLogo</td>
+<td class="ons-table__cell">string</td>
+<td class="ons-table__cell">false</td>
+<td class="ons-table__cell">URL for image to use for small screens instead of a title string</td>
+</tr>
+<tr class="ons-table__row">
+<td class="ons-table__cell">titleLogoAlt</td>
+<td class="ons-table__cell">string</td>
+<td class="ons-table__cell">false (if <code>titleLogo</code> not specified)</td>
+<td class="ons-table__cell">Alt tag for the title logo</td>
+</tr>
+<tr class="ons-table__row">
+<td class="ons-table__cell">titleLogoHref</td>
+<td class="ons-table__cell">string</td>
+<td class="ons-table__cell">false</td>
+<td class="ons-table__cell">Will wrap the title logo in a link to the specified URL</td>
+</tr>
+<tr class="ons-table__row">
+<td class="ons-table__cell">customHeaderLogo</td>
+<td class="ons-table__cell">string</td>
+<td class="ons-table__cell">false</td>
+<td class="ons-table__cell">Set to ‘true’ to make the masthead taller to accommodate a logo with a taller aspect ratio</td>
+</tr>
+</tbody></table>
+<h6 id="headmeta">HeadMeta</h6>
+<table class="ons-table">
+<thead class="ons-table__head">
+<tr class="ons-table__row">
+<th class="ons-table__header">Variable Name</th>
+<th class="ons-table__header">Type</th>
+<th class="ons-table__header">Required</th>
+<th class="ons-table__header">Description</th>
+</tr>
+</thead>
+<tbody><tr class="ons-table__row">
+<td class="ons-table__cell">description</td>
+<td class="ons-table__cell">string</td>
+<td class="ons-table__cell">false</td>
+<td class="ons-table__cell">Description of the current page for search engines.</td>
+</tr>
+<tr class="ons-table__row">
+<td class="ons-table__cell">canonicalUrl</td>
+<td class="ons-table__cell">string</td>
+<td class="ons-table__cell">false</td>
+<td class="ons-table__cell">URL for the preferred page for search engines to avoid duplicate content penalties. Defaults to current page url</td>
+</tr>
+<tr class="ons-table__row">
+<td class="ons-table__cell">twitterSite</td>
+<td class="ons-table__cell">string</td>
+<td class="ons-table__cell">false</td>
+<td class="ons-table__cell">@username for the website used in the card, for example <code>@census2021</code></td>
+</tr>
+<tr class="ons-table__row">
+<td class="ons-table__cell">hrefLangs</td>
+<td class="ons-table__cell"><code>HrefLangs</code> <a href="#hreflangs"><em>(ref)</em></a></td>
+<td class="ons-table__cell">false</td>
+<td class="ons-table__cell">Metadata for the language links to improve SEO</td>
+</tr>
+</tbody></table>
+<h5 id="hreflangs">HrefLangs</h5>
+<table class="ons-table">
+<thead class="ons-table__head">
+<tr class="ons-table__row">
+<th class="ons-table__header">Variable Name</th>
+<th class="ons-table__header">Type</th>
+<th class="ons-table__header">Required</th>
+<th class="ons-table__header">Description</th>
+</tr>
+</thead>
+<tbody><tr class="ons-table__row">
+<td class="ons-table__cell">url</td>
+<td class="ons-table__cell">string</td>
+<td class="ons-table__cell">false</td>
+<td class="ons-table__cell">URL for the CDN</td>
+</tr>
+<tr class="ons-table__row">
+<td class="ons-table__cell">lang</td>
+<td class="ons-table__cell">string</td>
+<td class="ons-table__cell">false</td>
+<td class="ons-table__cell">DS version on the CDN</td>
+</tr>
+</tbody></table>
+<h6 id="pagefooter">PageFooter</h6>
+<table class="ons-table">
+<thead class="ons-table__head">
+<tr class="ons-table__row">
+<th class="ons-table__header">Variable Name</th>
+<th class="ons-table__header">Type</th>
+<th class="ons-table__header">Required</th>
+<th class="ons-table__header">Description</th>
+</tr>
+</thead>
+<tbody><tr class="ons-table__row">
+<td class="ons-table__cell">OGLLink</td>
+<td class="ons-table__cell"><code>OGLLink</code> <a href="/components/footer"><em>(ref)</em></a></td>
+<td class="ons-table__cell">false</td>
+<td class="ons-table__cell">An object containing settings for the OGL link</td>
+</tr>
+<tr class="ons-table__row">
+<td class="ons-table__cell">footerWarning</td>
+<td class="ons-table__cell"><code>footerWarning</code> <a href="/components/footer"><em>(ref)</em></a></td>
+<td class="ons-table__cell">false</td>
+<td class="ons-table__cell">An object containing settings for the Footer Warning</td>
+</tr>
+<tr class="ons-table__row">
+<td class="ons-table__cell">copyrightDeclaration</td>
+<td class="ons-table__cell"><code>copyrightDeclaration</code> <a href="/components/footer"><em>(ref)</em></a></td>
+<td class="ons-table__cell">false</td>
+<td class="ons-table__cell">An object containing settings for the Copyright Declaration</td>
+</tr>
+<tr class="ons-table__row">
+<td class="ons-table__cell">cols</td>
+<td class="ons-table__cell"><code>Array&lt;FooterCol&gt;</code> <a href="/components/footer"><em>(ref)</em></a></td>
+<td class="ons-table__cell">false</td>
+<td class="ons-table__cell">An array of <code>FooterCol</code> objects. <em>Maximum of 3</em></td>
+</tr>
+<tr class="ons-table__row">
+<td class="ons-table__cell">rows</td>
+<td class="ons-table__cell"><code>Array&lt;FooterRow&gt;</code> <a href="/components/footer"><em>(ref)</em></a></td>
+<td class="ons-table__cell">false</td>
+<td class="ons-table__cell">An array of <code>FooterRow</code> objects</td>
+</tr>
+<tr class="ons-table__row">
+<td class="ons-table__cell">poweredBy</td>
+<td class="ons-table__cell">boolean | <code>PoweredBy</code> <a href="/components/footer"><em>(ref)</em></a></td>
+<td class="ons-table__cell">false</td>
+<td class="ons-table__cell">Whether to show the ONS logo, and optionally settings for the logo</td>
+</tr>
+<tr class="ons-table__row">
+<td class="ons-table__cell">lang</td>
+<td class="ons-table__cell">string</td>
+<td class="ons-table__cell">false</td>
+<td class="ons-table__cell">The current page language. Will change out the ONS logo if <code>poweredBy</code> is provided. Defaults to <code>en</code></td>
+</tr>
+<tr class="ons-table__row">
+<td class="ons-table__cell">newTabWarning</td>
+<td class="ons-table__cell">string</td>
+<td class="ons-table__cell">false</td>
+<td class="ons-table__cell">Text for warning of links opening in new tabs</td>
+</tr>
+<tr class="ons-table__row">
+<td class="ons-table__cell">crest</td>
+<td class="ons-table__cell">boolean</td>
+<td class="ons-table__cell">false</td>
+<td class="ons-table__cell">If set to true will add the UK coat of arms to the footer</td>
+</tr>
+<tr class="ons-table__row">
+<td class="ons-table__cell">legal</td>
+<td class="ons-table__cell"><code>Array&lt;LegalRow&gt;</code></td>
+<td class="ons-table__cell">false</td>
+<td class="ons-table__cell">An array of LegalRow objects</td>
+</tr>
+</tbody></table>
+<h4 id="blocks">Blocks</h4>
+<p>Blocks can be set with:</p>
+
+
+    <pre class="ons-patternlib-example__pre  language-markup" tabindex="0"><code class="ons-patternlib-example__code ons-  language-markup">{% raw %}{% block blockName %}
+    HTML Here
+{% endblock %}{% endraw %}</code></pre>
+
+
+<p>To change the components that are included by default, set their equivalent blocks, for example:</p>
+
+
+    <pre class="ons-patternlib-example__pre  language-markup" tabindex="0"><code class="ons-patternlib-example__code ons-  language-markup">{% raw %}{% block header %}
+    {{ onsHeader({
+        ...
+    }) }}
+{% endblock %}{% endraw %}</code></pre>
+
+
+<table class="ons-table">
+<thead class="ons-table__head">
+<tr class="ons-table__row">
+<th class="ons-table__header">Block Name</th>
+<th class="ons-table__header">Description</th>
+</tr>
+</thead>
+<tbody><tr class="ons-table__row">
+<td class="ons-table__cell">headIcons</td>
+<td class="ons-table__cell">Override the default icons used for ONS branded pages</td>
+</tr>
+<tr class="ons-table__row">
+<td class="ons-table__cell">head</td>
+<td class="ons-table__cell">An area to add additional markup to the <code>&lt;head&gt;</code> element, for example, extra CSS references</td>
+</tr>
+<tr class="ons-table__row">
+<td class="ons-table__cell">body</td>
+<td class="ons-table__cell">Override the entire contents of the <code>&lt;body&gt;</code> element</td>
+</tr>
+<tr class="ons-table__row">
+<td class="ons-table__cell">bodyStart</td>
+<td class="ons-table__cell">An area to add additional markup after the opening  element</td>
+</tr>
+<tr class="ons-table__row">
+<td class="ons-table__cell">skipLink</td>
+<td class="ons-table__cell">Override the default <a href="/components/skip-to-content">skip link</a></td>
+</tr>
+<tr class="ons-table__row">
+<td class="ons-table__cell">preHeader</td>
+<td class="ons-table__cell">An area to add content and markup before the header</td>
+</tr>
+<tr class="ons-table__row">
+<td class="ons-table__cell">header</td>
+<td class="ons-table__cell">Override the default <a href="/components/header">header</a> component</td>
+</tr>
+<tr class="ons-table__row">
+<td class="ons-table__cell">page</td>
+<td class="ons-table__cell">Override the default content and layout of the page</td>
+</tr>
+<tr class="ons-table__row">
+<td class="ons-table__cell">preMain</td>
+<td class="ons-table__cell">Content to place before the main content</td>
+</tr>
+<tr class="ons-table__row">
+<td class="ons-table__cell">main</td>
+<td class="ons-table__cell">Main content and markup</td>
+</tr>
+<tr class="ons-table__row">
+<td class="ons-table__cell">footer</td>
+<td class="ons-table__cell">Override the default <a href="/components/footer">footer</a> component</td>
+</tr>
+<tr class="ons-table__row">
+<td class="ons-table__cell">bodyEnd</td>
+<td class="ons-table__cell">Add content just after just before the closing <code>&lt;/body&gt;</code> element</td>
+</tr>
+</tbody></table>
+<h5 id="exploded-view-of-the-base-page-template-block-areas">Exploded view of the base page template block areas</h5>
+
+<h2 id="help-improve-this-layout">Help improve this layout</h2>
+<p>Let us know how we could improve this layout or share your user research findings.
+
+    <a href="https://github.com/ONSdigital/design-system/discussions/195" class="ons-external-link" target="_blank" rel="noopener">Discuss ‘Base page template’ on GitHub<span class="ons-external-link__icon">&nbsp;<svg id="external-link" class="ons-svg-icon" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+        <path d="M13.5,9H13a.5.5,0,0,0-.5.5v3h-9v-9h3A.5.5,0,0,0,7,3V2.5A.5.5,0,0,0,6.5,2h-4a.5.5,0,0,0-.5.5v11a.5.5,0,0,0,.5.5h11a.5.5,0,0,0,.5-.5v-4A.5.5,0,0,0,13.5,9Z" transform="translate(-2 -1.99)"></path>
+        <path d="M8.83,7.88a.51.51,0,0,0,.71,0l2.31-2.32,1.28,1.28A.51.51,0,0,0,14,6.49v-4a.52.52,0,0,0-.5-.5h-4A.51.51,0,0,0,9,2.52a.58.58,0,0,0,.14.33l1.28,1.28L8.12,6.46a.51.51,0,0,0,0,.71Z" transform="translate(-2 -1.99)"></path>
+    </svg></span></a>
+</p>
 
 {% endblock %}

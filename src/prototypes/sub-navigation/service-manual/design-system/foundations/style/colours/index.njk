@@ -5,5 +5,505 @@ layout: sub-navigation/views/_page
 sortOrder: 1
 ---
 {% block mainContent %}
+<p>Use the ONS colour palettes for all services so that pages and elements are consistent and familiar to users.</p>
+<p>We have designed text and background colours that are accessible to 
+    <a href="https://www.w3.org/TR/WCAG21/#contrast-minimum" class="ons-external-link" target="_blank" rel="noopener">WCAG 2.1 AA level of compliance for contrast<span class="ons-external-link__icon">&nbsp;<svg id="external-link" class="ons-svg-icon" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+        <path d="M13.5,9H13a.5.5,0,0,0-.5.5v3h-9v-9h3A.5.5,0,0,0,7,3V2.5A.5.5,0,0,0,6.5,2h-4a.5.5,0,0,0-.5.5v11a.5.5,0,0,0,.5.5h11a.5.5,0,0,0,.5-.5v-4A.5.5,0,0,0,13.5,9Z" transform="translate(-2 -1.99)"></path>
+        <path d="M8.83,7.88a.51.51,0,0,0,.71,0l2.31-2.32,1.28,1.28A.51.51,0,0,0,14,6.49v-4a.52.52,0,0,0-.5-.5h-4A.51.51,0,0,0,9,2.52a.58.58,0,0,0,.14.33l1.28,1.28L8.12,6.46a.51.51,0,0,0,0,.71Z" transform="translate(-2 -1.99)"></path>
+    </svg></span></a>
+. The <a href="#colour-contrast">Colour contrast section</a> has more detail about accessibility and colour.</p>
+<p>Each colour has a colour variable that can be <a href="#colour-assignment">assigned to a element</a>. The main colours can also be expanded by creating the three <a href="#tints">allowed tint variations</a>.</p>
+<h2 id="primary-brand-palette">Primary brand palette</h2>
+<h2 id="supporting-palette">Supporting palette</h2>
+<h2 id="census-2021-theme-palette">Census 2021 theme palette</h2>
+<h2 id="greyscale">Greyscale</h2>
+<h2 id="tints">Tints</h2>
+<p>Only tints of 70%, 40% or 10% of the primary, supporting and census colour palettes can be used.</p>
+<p>To apply a tint, you can use the <code>tint()</code> function by passing in the colour variable and the percentage of white you want to mix with it. For example:
+
+  </p><div class="ons-grid ons-grid--flex ons-grid--gutterless">
+    <div class="ons-patternlib-swatch ons-grid ons-grid--flex ons-grid--gutterless ons-grid--no-wrap@s">
+            <div class="ons-patternlib-swatch__color ons-u-flex-no-shrink" style="background-color:#4d7789;">
+            </div>
+            <div class="ons-patternlib-swatch__codes ons-u-flex-no-grow">
+                <span class="ons-patternlib-swatch__hex">#4d7789</span>
+                    <code class="ons-patternlib-swatch__var">tint($color-night-blue, 30);</code>
+                </div>
+            <div class="ons-patternlib-swatch__info ons-grid__col ons-u-flex-shrink ons-u-mt-no@s">70% tint of Night blue</div>
+            </div>
+    </div>
+
+
+
+  <div class="ons-grid ons-grid--flex ons-grid--gutterless">
+    <div class="ons-patternlib-swatch ons-grid ons-grid--flex ons-grid--gutterless ons-grid--no-wrap@s">
+            <div class="ons-patternlib-swatch__color ons-u-flex-no-shrink" style="background-color:#99b1bc;">
+            </div>
+            <div class="ons-patternlib-swatch__codes ons-u-flex-no-grow">
+                <span class="ons-patternlib-swatch__hex">#99b1bc</span>
+                    <code class="ons-patternlib-swatch__var">tint($color-night-blue, 60);</code>
+                </div>
+            <div class="ons-patternlib-swatch__info ons-grid__col ons-u-flex-shrink ons-u-mt-no@s">40% tint of Night blue</div>
+            </div>
+    </div>
+
+
+
+  <div class="ons-grid ons-grid--flex ons-grid--gutterless">
+    <div class="ons-patternlib-swatch ons-grid ons-grid--flex ons-grid--gutterless ons-grid--no-wrap@s">
+            <div class="ons-patternlib-swatch__color ons-u-flex-no-shrink" style="background-color:#e6ecee;">
+            </div>
+            <div class="ons-patternlib-swatch__codes ons-u-flex-no-grow">
+                <span class="ons-patternlib-swatch__hex">#e6ecee</span>
+                    <code class="ons-patternlib-swatch__var">tint($color-night-blue, 90);</code>
+                </div>
+            <div class="ons-patternlib-swatch__info ons-grid__col ons-u-flex-shrink ons-u-mt-no@s">10% tint of Night blue</div>
+            </div>
+    </div>
+
+<p></p>
+<h2 id="colour-assignment">Colour assignment</h2>
+<p>The colour variables are assigned to elements by using variables to provide context. For example, <code>$color-black</code> is assigned to <code>$color-text</code> to be used to style all heading elements.</p>
+<h3 id="text">Text</h3>
+
+  <div class="ons-grid ons-grid--flex ons-grid--gutterless">
+    <div class="ons-patternlib-swatch ons-grid ons-grid--flex ons-grid--gutterless ons-grid--no-wrap@s">
+            <div class="ons-patternlib-swatch__color ons-u-flex-no-shrink" style="background-color:#222222;">
+            </div>
+            <div class="ons-patternlib-swatch__codes ons-u-flex-no-grow">
+                <span class="ons-patternlib-swatch__hex">#222222</span>
+                    <code class="ons-patternlib-swatch__var">$color-text</code>
+                </div>
+            <div class="ons-patternlib-swatch__info ons-grid__col ons-u-flex-shrink ons-u-mt-no@s">Black is the primary colour for headings and body content.</div>
+            </div>
+    </div>
+
+
+
+  <div class="ons-grid ons-grid--flex ons-grid--gutterless">
+    <div class="ons-patternlib-swatch ons-grid ons-grid--flex ons-grid--gutterless ons-grid--no-wrap@s">
+            <div class="ons-patternlib-swatch__color ons-u-flex-no-shrink" style="background-color:#707071;">
+            </div>
+            <div class="ons-patternlib-swatch__codes ons-u-flex-no-grow">
+                <span class="ons-patternlib-swatch__hex">#707071</span>
+                    <code class="ons-patternlib-swatch__var">$color-text-light</code>
+                </div>
+            <div class="ons-patternlib-swatch__info ons-grid__col ons-u-flex-shrink ons-u-mt-no@s">A secondary text colour for a title subheading.</div>
+            </div>
+    </div>
+
+
+<h3 id="links">Links</h3>
+<p>
+  </p><div class="ons-grid ons-grid--flex ons-grid--gutterless">
+    <div class="ons-patternlib-swatch ons-grid ons-grid--flex ons-grid--gutterless ons-grid--no-wrap@s">
+            <div class="ons-patternlib-swatch__color ons-u-flex-no-shrink" style="background-color:#206095;">
+            </div>
+            <div class="ons-patternlib-swatch__codes ons-u-flex-no-grow">
+                <span class="ons-patternlib-swatch__hex">#206095</span>
+                    <code class="ons-patternlib-swatch__var">$color-text-link</code>
+                </div>
+            <div class="ons-patternlib-swatch__info ons-grid__col ons-u-flex-shrink ons-u-mt-no@s">Blue is the colour for all link text elements in the body of the page. Link text should also be underlined.</div>
+            </div>
+    </div>
+
+
+
+  <div class="ons-grid ons-grid--flex ons-grid--gutterless">
+    <div class="ons-patternlib-swatch ons-grid ons-grid--flex ons-grid--gutterless ons-grid--no-wrap@s">
+            <div class="ons-patternlib-swatch__color ons-u-flex-no-shrink" style="background-color:#003c57;">
+            </div>
+            <div class="ons-patternlib-swatch__codes ons-u-flex-no-grow">
+                <span class="ons-patternlib-swatch__hex">#003c57</span>
+                    <code class="ons-patternlib-swatch__var">$color-text-link-hover</code>
+                </div>
+            <div class="ons-patternlib-swatch__info ons-grid__col ons-u-flex-shrink ons-u-mt-no@s">Hover state colour for link text.</div>
+            </div>
+    </div>
+
+<p></p>
+<h3 id="buttons">Buttons</h3>
+<p>
+  </p><div class="ons-grid ons-grid--flex ons-grid--gutterless">
+    <div class="ons-patternlib-swatch ons-grid ons-grid--flex ons-grid--gutterless ons-grid--no-wrap@s">
+            <div class="ons-patternlib-swatch__color ons-u-flex-no-shrink" style="background-color:#0f8243;">
+            <span class="ons-patternlib-swatch__char" style="color:#ffffff">A</span></div>
+            <div class="ons-patternlib-swatch__codes ons-u-flex-no-grow">
+                <span class="ons-patternlib-swatch__hex">#0f8243</span>
+                    <code class="ons-patternlib-swatch__var">$color-button</code>
+                </div>
+            <div class="ons-patternlib-swatch__info ons-grid__col ons-u-flex-shrink ons-u-mt-no@s">Primary action buttons use a green background colour and white text.</div>
+            </div>
+    </div>
+
+
+
+  <div class="ons-grid ons-grid--flex ons-grid--gutterless">
+    <div class="ons-patternlib-swatch ons-grid ons-grid--flex ons-grid--gutterless ons-grid--no-wrap@s">
+            <div class="ons-patternlib-swatch__color ons-u-flex-no-shrink" style="background-color:#e2e2e3;">
+            <span class="ons-patternlib-swatch__char" style="color:#222222">A</span></div>
+            <div class="ons-patternlib-swatch__codes ons-u-flex-no-grow">
+                <span class="ons-patternlib-swatch__hex">#e2e2e3</span>
+                    <code class="ons-patternlib-swatch__var">$color-button-secondary</code>
+                </div>
+            <div class="ons-patternlib-swatch__info ons-grid__col ons-u-flex-shrink ons-u-mt-no@s">Secondary buttons use a light grey background colour and black text. This prevents interference with the primary action.</div>
+            </div>
+    </div>
+
+<p></p>
+<h3 id="focus">Focus</h3>
+
+  <div class="ons-grid ons-grid--flex ons-grid--gutterless">
+    <div class="ons-patternlib-swatch ons-grid ons-grid--flex ons-grid--gutterless ons-grid--no-wrap@s">
+            <div class="ons-patternlib-swatch__color ons-u-flex-no-shrink" style="background-color:#fbc900;border-radius:0; -webkit-box-shadow: 0 -2px #fbc900, 0 4px #222222;
+                box-shadow: 0 -2px #fbc900, 0 4px #222222;">
+            <span class="ons-patternlib-swatch__char" style="color:#222222">A</span></div>
+            <div class="ons-patternlib-swatch__codes ons-u-flex-no-grow">
+                <span class="ons-patternlib-swatch__hex">#fbc900</span>
+                    <code class="ons-patternlib-swatch__var">$color-focus</code>
+                </div>
+            <div class="ons-patternlib-swatch__info ons-grid__col ons-u-flex-shrink ons-u-mt-no@s">Black text on a yellow background is used to show that an element has focus. Any focused text <code>color</code> is changed to black, and yellow is applied as a <code>background-color</code> with an additional <code>4px</code> black offset <code>box-shadow</code>. The change to both foreground and background colours makes sure there is a consistent <a href="#colour-contrast">accessible colour contrast ratio</a>, regardless of the element’s initial background colour.</div>
+            </div>
+    </div>
+
+
+<h3 id="highlight">Highlight</h3>
+
+  <div class="ons-grid ons-grid--flex ons-grid--gutterless">
+    <div class="ons-patternlib-swatch ons-grid ons-grid--flex ons-grid--gutterless ons-grid--no-wrap@s">
+            <div class="ons-patternlib-swatch__color ons-u-flex-no-shrink" style="background-color:#f0f762;">
+            <span class="ons-patternlib-swatch__char" style="color:#222222">A</span></div>
+            <div class="ons-patternlib-swatch__codes ons-u-flex-no-grow">
+                <span class="ons-patternlib-swatch__hex">#f0f762</span>
+                    <code class="ons-patternlib-swatch__var">$color-highlight</code>
+                </div>
+            <div class="ons-patternlib-swatch__info ons-grid__col ons-u-flex-shrink ons-u-mt-no@s">Bright yellow is used to <a href="/foundations/typography#highlighting">highlight important information in headings</a>.</div>
+            </div>
+    </div>
+
+
+<h3 id="borders">Borders</h3>
+
+  <div class="ons-grid ons-grid--flex ons-grid--gutterless">
+    <div class="ons-patternlib-swatch ons-grid ons-grid--flex ons-grid--gutterless ons-grid--no-wrap@s">
+            <div class="ons-patternlib-swatch__color ons-u-flex-no-shrink" style="background-color:#707071;">
+            </div>
+            <div class="ons-patternlib-swatch__codes ons-u-flex-no-grow">
+                <span class="ons-patternlib-swatch__hex">#707071</span>
+                    <code class="ons-patternlib-swatch__var">$color-borders</code>
+                </div>
+            <div class="ons-patternlib-swatch__info ons-grid__col ons-u-flex-shrink ons-u-mt-no@s">The grey is used for all borders that are applied on a white background.</div>
+            </div>
+    </div>
+
+
+<h3 id="status">Status</h3>
+<p>Different colours can be used to represent a status. Each status has a primary border colour and a background tint for use in a status <a href="/components/panel">panel</a>, and a vibrant hue for use in a <a href="/components/status">status indicator</a> dot.</p>
+<h4 id="information">Information</h4>
+
+  <div class="ons-grid ons-grid--flex ons-grid--gutterless">
+    <div class="ons-patternlib-swatch ons-grid ons-grid--flex ons-grid--gutterless ons-grid--no-wrap@s">
+            <div class="ons-patternlib-swatch__color ons-u-flex-no-shrink" style="background-color:#206095;">
+            </div>
+            <div class="ons-patternlib-swatch__codes ons-u-flex-no-grow">
+                <span class="ons-patternlib-swatch__hex">#206095</span>
+                    <code class="ons-patternlib-swatch__var">$color-info</code>
+                </div>
+            </div>
+    <div class="ons-patternlib-swatch ons-grid ons-grid--flex ons-grid--gutterless ons-grid--no-wrap@s">
+            <div class="ons-patternlib-swatch__color ons-u-flex-no-shrink" style="background-color:#e9eff4;">
+            <span class="ons-patternlib-swatch__char" style="color:#222222">A</span></div>
+            <div class="ons-patternlib-swatch__codes ons-u-flex-no-grow">
+                <span class="ons-patternlib-swatch__hex">#e9eff4</span>
+                    <code class="ons-patternlib-swatch__var">$color-info-tint</code>
+                </div>
+            <div class="ons-patternlib-swatch__info ons-grid__col ons-u-flex-shrink ons-u-mt-no@s">A 10% tint of the primary colour.</div>
+            </div>
+    <div class="ons-patternlib-swatch ons-grid ons-grid--flex ons-grid--gutterless ons-grid--no-wrap@s">
+            <div class="ons-patternlib-swatch__color ons-u-flex-no-shrink" style="background-color:#1f84d8;">
+            </div>
+            <div class="ons-patternlib-swatch__codes ons-u-flex-no-grow">
+                <span class="ons-patternlib-swatch__hex">#1f84d8</span>
+                    <code class="ons-patternlib-swatch__var">$color-info-vibrant</code>
+                </div>
+            <div class="ons-patternlib-swatch__info ons-grid__col ons-u-flex-shrink ons-u-mt-no@s">An increase in lightness (20%) and saturation (30%) of the primary colour.</div>
+            </div>
+    </div>
+
+
+<h4 id="success">Success</h4>
+
+  <div class="ons-grid ons-grid--flex ons-grid--gutterless">
+    <div class="ons-patternlib-swatch ons-grid ons-grid--flex ons-grid--gutterless ons-grid--no-wrap@s">
+            <div class="ons-patternlib-swatch__color ons-u-flex-no-shrink" style="background-color:#0f8243;">
+            </div>
+            <div class="ons-patternlib-swatch__codes ons-u-flex-no-grow">
+                <span class="ons-patternlib-swatch__hex">#0f8243</span>
+                    <code class="ons-patternlib-swatch__var">$color-success</code>
+                </div>
+            </div>
+    <div class="ons-patternlib-swatch ons-grid ons-grid--flex ons-grid--gutterless ons-grid--no-wrap@s">
+            <div class="ons-patternlib-swatch__color ons-u-flex-no-shrink" style="background-color:#e7f3ec;">
+            <span class="ons-patternlib-swatch__char" style="color:#222222">A</span></div>
+            <div class="ons-patternlib-swatch__codes ons-u-flex-no-grow">
+                <span class="ons-patternlib-swatch__hex">#e7f3ec</span>
+                    <code class="ons-patternlib-swatch__var">$color-success-tint</code>
+                </div>
+            <div class="ons-patternlib-swatch__info ons-grid__col ons-u-flex-shrink ons-u-mt-no@s">A 10% tint of the primary colour</div>
+            </div>
+    <div class="ons-patternlib-swatch ons-grid ons-grid--flex ons-grid--gutterless ons-grid--no-wrap@s">
+            <div class="ons-patternlib-swatch__color ons-u-flex-no-shrink" style="background-color:#10ca64;">
+            </div>
+            <div class="ons-patternlib-swatch__codes ons-u-flex-no-grow">
+                <span class="ons-patternlib-swatch__hex">#10ca64</span>
+                    <code class="ons-patternlib-swatch__var">$color-success-vibrant</code>
+                </div>
+            <div class="ons-patternlib-swatch__info ons-grid__col ons-u-flex-shrink ons-u-mt-no@s">An increase in lightness (20%) and saturation (30%) of the primary colour</div>
+            </div>
+    </div>
+
+
+<h4 id="errors">Errors</h4>
+
+  <div class="ons-grid ons-grid--flex ons-grid--gutterless">
+    <div class="ons-patternlib-swatch ons-grid ons-grid--flex ons-grid--gutterless ons-grid--no-wrap@s">
+            <div class="ons-patternlib-swatch__color ons-u-flex-no-shrink" style="background-color:#d0021b;">
+            </div>
+            <div class="ons-patternlib-swatch__codes ons-u-flex-no-grow">
+                <span class="ons-patternlib-swatch__hex">#d0021b</span>
+                    <code class="ons-patternlib-swatch__var">$color-errors</code>
+                </div>
+            </div>
+    <div class="ons-patternlib-swatch ons-grid ons-grid--flex ons-grid--gutterless ons-grid--no-wrap@s">
+            <div class="ons-patternlib-swatch__color ons-u-flex-no-shrink" style="background-color:#fae6e8;">
+            <span class="ons-patternlib-swatch__char" style="color:#222222">A</span></div>
+            <div class="ons-patternlib-swatch__codes ons-u-flex-no-grow">
+                <span class="ons-patternlib-swatch__hex">#fae6e8</span>
+                    <code class="ons-patternlib-swatch__var">$color-errors-tint</code>
+                </div>
+            <div class="ons-patternlib-swatch__info ons-grid__col ons-u-flex-shrink ons-u-mt-no@s">A 10% tint of the primary colour</div>
+            </div>
+    <div class="ons-patternlib-swatch ons-grid ons-grid--flex ons-grid--gutterless ons-grid--no-wrap@s">
+            <div class="ons-patternlib-swatch__color ons-u-flex-no-shrink" style="background-color:#fd112d;">
+            </div>
+            <div class="ons-patternlib-swatch__codes ons-u-flex-no-grow">
+                <span class="ons-patternlib-swatch__hex">#fd112d</span>
+                    <code class="ons-patternlib-swatch__var">$color-errors-vibrant</code>
+                </div>
+            <div class="ons-patternlib-swatch__info ons-grid__col ons-u-flex-shrink ons-u-mt-no@s">An increase in lightness (20%) and saturation (30%) of the primary colour</div>
+            </div>
+    </div>
+
+
+<h4 id="pending">Pending</h4>
+
+  <div class="ons-grid ons-grid--flex ons-grid--gutterless">
+    <div class="ons-patternlib-swatch ons-grid ons-grid--flex ons-grid--gutterless ons-grid--no-wrap@s">
+            <div class="ons-patternlib-swatch__color ons-u-flex-no-shrink" style="background-color:#ff803b;">
+            </div>
+            <div class="ons-patternlib-swatch__codes ons-u-flex-no-grow">
+                <span class="ons-patternlib-swatch__hex">#ff803b</span>
+                    <code class="ons-patternlib-swatch__var">$color-pending-vibrant</code>
+                </div>
+            </div>
+    </div>
+
+
+<h2 id="colour-contrast">Colour contrast</h2>
+<p>We have tested the contrast between foreground and background colours to make sure they meet 
+    <a href="https://www.w3.org/TR/WCAG21/#contrast-minimum" class="ons-external-link" target="_blank" rel="noopener">level AA of the Web Content Accessibility Guidelines (WCAG 2.1)<span class="ons-external-link__icon">&nbsp;<svg id="external-link" class="ons-svg-icon" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+        <path d="M13.5,9H13a.5.5,0,0,0-.5.5v3h-9v-9h3A.5.5,0,0,0,7,3V2.5A.5.5,0,0,0,6.5,2h-4a.5.5,0,0,0-.5.5v11a.5.5,0,0,0,.5.5h11a.5.5,0,0,0,.5-.5v-4A.5.5,0,0,0,13.5,9Z" transform="translate(-2 -1.99)"></path>
+        <path d="M8.83,7.88a.51.51,0,0,0,.71,0l2.31-2.32,1.28,1.28A.51.51,0,0,0,14,6.49v-4a.52.52,0,0,0-.5-.5h-4A.51.51,0,0,0,9,2.52a.58.58,0,0,0,.14.33l1.28,1.28L8.12,6.46a.51.51,0,0,0,0,.71Z" transform="translate(-2 -1.99)"></path>
+    </svg></span></a>
+.</p>
+<p>To meet the WCAG 2.1 level AA guideline “1.4.3 Contrast (Minimum)”, all text and background colour combinations must have a minimum contrast ratio of:
+
+    
+    
+
+    
+        
+    
+
+    
+        
+    
+
+    
+        </p><ul class="ons-list"><li class="ons-list__item">
+
+                    
+
+                    
+
+                    
+                    Normal text, 4.5:1</li><li class="ons-list__item">
+
+                    
+
+                    
+
+                    
+                    Large text (minimum 18.66px and bold, or 24px), 3:1</li></ul>
+    
+<p></p>
+<h3 id="accessible-text-and-background-colour-combinations">Accessible text and background colour combinations</h3>
+
+  <div class="ons-grid ons-grid--flex ons-grid--gutterless">
+    <div class="ons-patternlib-swatch ons-grid ons-grid--flex ons-grid--gutterless ons-grid--no-wrap@s">
+            <div class="ons-patternlib-swatch__color ons-u-flex-no-shrink" style="background-color:#ffffff;border:1px solid #707071;">
+            <span class="ons-patternlib-swatch__char" style="color:#222222">A</span></div>
+            <div class="ons-patternlib-swatch__codes ons-u-flex-no-grow">
+                <span class="ons-patternlib-swatch__detail">Foreground: <strong>#222222</strong></span>
+                    <span class="ons-patternlib-swatch__detail">Background: <strong>#ffffff</strong></span>
+                    <span class="ons-patternlib-swatch__detail">Contrast ratio: <strong>15.91</strong></span>
+                    </div>
+            </div>
+    <div class="ons-patternlib-swatch ons-grid ons-grid--flex ons-grid--gutterless ons-grid--no-wrap@s">
+            <div class="ons-patternlib-swatch__color ons-u-flex-no-shrink" style="background-color:#222222;">
+            <span class="ons-patternlib-swatch__char" style="color:#ffffff">A</span></div>
+            <div class="ons-patternlib-swatch__codes ons-u-flex-no-grow">
+                <span class="ons-patternlib-swatch__detail">Foreground: <strong>#ffffff</strong></span>
+                    <span class="ons-patternlib-swatch__detail">Background: <strong>#222222</strong></span>
+                    <span class="ons-patternlib-swatch__detail">Contrast ratio: <strong>15.91</strong></span>
+                    </div>
+            </div>
+    <div class="ons-patternlib-swatch ons-grid ons-grid--flex ons-grid--gutterless ons-grid--no-wrap@s">
+            <div class="ons-patternlib-swatch__color ons-u-flex-no-shrink" style="background-color:#e2e2e3;">
+            <span class="ons-patternlib-swatch__char" style="color:#222222">A</span></div>
+            <div class="ons-patternlib-swatch__codes ons-u-flex-no-grow">
+                <span class="ons-patternlib-swatch__detail">Foreground: <strong>#222222</strong></span>
+                    <span class="ons-patternlib-swatch__detail">Background: <strong>#e2e2e3</strong></span>
+                    <span class="ons-patternlib-swatch__detail">Contrast ratio: <strong>12.29</strong></span>
+                    </div>
+            </div>
+    <div class="ons-patternlib-swatch ons-grid ons-grid--flex ons-grid--gutterless ons-grid--no-wrap@s">
+            <div class="ons-patternlib-swatch__color ons-u-flex-no-shrink" style="background-color:#f5f5f6;">
+            <span class="ons-patternlib-swatch__char" style="color:#206095">A</span></div>
+            <div class="ons-patternlib-swatch__codes ons-u-flex-no-grow">
+                <span class="ons-patternlib-swatch__detail">Foreground: <strong>#206095</strong></span>
+                    <span class="ons-patternlib-swatch__detail">Background: <strong>#f5f5f6</strong></span>
+                    <span class="ons-patternlib-swatch__detail">Contrast ratio: <strong>6.08</strong></span>
+                    </div>
+            </div>
+    <div class="ons-patternlib-swatch ons-grid ons-grid--flex ons-grid--gutterless ons-grid--no-wrap@s">
+            <div class="ons-patternlib-swatch__color ons-u-flex-no-shrink" style="background-color:#206095;">
+            <span class="ons-patternlib-swatch__char" style="color:#ffffff">A</span></div>
+            <div class="ons-patternlib-swatch__codes ons-u-flex-no-grow">
+                <span class="ons-patternlib-swatch__detail">Foreground: <strong>#ffffff</strong></span>
+                    <span class="ons-patternlib-swatch__detail">Background: <strong>#206095</strong></span>
+                    <span class="ons-patternlib-swatch__detail">Contrast ratio: <strong>6.63</strong></span>
+                    </div>
+            </div>
+    <div class="ons-patternlib-swatch ons-grid ons-grid--flex ons-grid--gutterless ons-grid--no-wrap@s">
+            <div class="ons-patternlib-swatch__color ons-u-flex-no-shrink" style="background-color:#0f8243;">
+            <span class="ons-patternlib-swatch__char" style="color:#ffffff">A</span></div>
+            <div class="ons-patternlib-swatch__codes ons-u-flex-no-grow">
+                <span class="ons-patternlib-swatch__detail">Foreground: <strong>#ffffff</strong></span>
+                    <span class="ons-patternlib-swatch__detail">Background: <strong>#0f8243</strong></span>
+                    <span class="ons-patternlib-swatch__detail">Contrast ratio: <strong>4.89</strong></span>
+                    </div>
+            </div>
+    <div class="ons-patternlib-swatch ons-grid ons-grid--flex ons-grid--gutterless ons-grid--no-wrap@s">
+            <div class="ons-patternlib-swatch__color ons-u-flex-no-shrink" style="background-color:#003c57;">
+            <span class="ons-patternlib-swatch__char" style="color:#ffffff">A</span></div>
+            <div class="ons-patternlib-swatch__codes ons-u-flex-no-grow">
+                <span class="ons-patternlib-swatch__detail">Foreground: <strong>#ffffff</strong></span>
+                    <span class="ons-patternlib-swatch__detail">Background: <strong>#003c57</strong></span>
+                    <span class="ons-patternlib-swatch__detail">Contrast ratio: <strong>11.77</strong></span>
+                    </div>
+            </div>
+    <div class="ons-patternlib-swatch ons-grid ons-grid--flex ons-grid--gutterless ons-grid--no-wrap@s">
+            <div class="ons-patternlib-swatch__color ons-u-flex-no-shrink" style="background-color:#d0021b;">
+            <span class="ons-patternlib-swatch__char" style="color:#ffffff">A</span></div>
+            <div class="ons-patternlib-swatch__codes ons-u-flex-no-grow">
+                <span class="ons-patternlib-swatch__detail">Foreground: <strong>#ffffff</strong></span>
+                    <span class="ons-patternlib-swatch__detail">Background: <strong>#d0021b</strong></span>
+                    <span class="ons-patternlib-swatch__detail">Contrast ratio: <strong>5.67</strong></span>
+                    </div>
+            </div>
+    <div class="ons-patternlib-swatch ons-grid ons-grid--flex ons-grid--gutterless ons-grid--no-wrap@s">
+            <div class="ons-patternlib-swatch__color ons-u-flex-no-shrink" style="background-color:#fa6401;">
+            <span class="ons-patternlib-swatch__char" style="color:#222222">A</span></div>
+            <div class="ons-patternlib-swatch__codes ons-u-flex-no-grow">
+                <span class="ons-patternlib-swatch__detail">Foreground: <strong>#222222</strong></span>
+                    <span class="ons-patternlib-swatch__detail">Background: <strong>#fa6401</strong></span>
+                    <span class="ons-patternlib-swatch__detail">Contrast ratio: <strong>5.22</strong></span>
+                    </div>
+            </div>
+    <div class="ons-patternlib-swatch ons-grid ons-grid--flex ons-grid--gutterless ons-grid--no-wrap@s">
+            <div class="ons-patternlib-swatch__color ons-u-flex-no-shrink" style="background-color:#fbc900;">
+            <span class="ons-patternlib-swatch__char" style="color:#222222">A</span></div>
+            <div class="ons-patternlib-swatch__codes ons-u-flex-no-grow">
+                <span class="ons-patternlib-swatch__detail">Foreground: <strong>#222222</strong></span>
+                    <span class="ons-patternlib-swatch__detail">Background: <strong>#fbc900</strong></span>
+                    <span class="ons-patternlib-swatch__detail">Contrast ratio: <strong>10.19</strong></span>
+                    </div>
+            </div>
+    <div class="ons-patternlib-swatch ons-grid ons-grid--flex ons-grid--gutterless ons-grid--no-wrap@s">
+            <div class="ons-patternlib-swatch__color ons-u-flex-no-shrink" style="background-color:#f0f762;">
+            <span class="ons-patternlib-swatch__char" style="color:#222222">A</span></div>
+            <div class="ons-patternlib-swatch__codes ons-u-flex-no-grow">
+                <span class="ons-patternlib-swatch__detail">Foreground: <strong>#222222</strong></span>
+                    <span class="ons-patternlib-swatch__detail">Background: <strong>#f0f762</strong></span>
+                    <span class="ons-patternlib-swatch__detail">Contrast ratio: <strong>13.78</strong></span>
+                    </div>
+            </div>
+    </div>
+
+
+<h3 id="how-to-check-colour-contrast">How to check colour contrast</h3>
+<p>Make sure you test colour contrast with a range of people with different colour vision deficiencies.</p>
+<p>We also recommend the following tools to check colour contrast:
+
+    
+    
+
+    
+        
+    
+
+    
+        
+    
+
+    
+        </p><ul class="ons-list"><li class="ons-list__item">
+
+                    
+
+                    
+
+                    
+                    
+                            
+    <a href="http://webaim.org/resources/contrastchecker/" class="ons-external-link" target="_blank" rel="noopener">Web Aim's colour contrast checker<span class="ons-external-link__icon">&nbsp;<svg id="external-link" class="ons-svg-icon" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+        <path d="M13.5,9H13a.5.5,0,0,0-.5.5v3h-9v-9h3A.5.5,0,0,0,7,3V2.5A.5.5,0,0,0,6.5,2h-4a.5.5,0,0,0-.5.5v11a.5.5,0,0,0,.5.5h11a.5.5,0,0,0,.5-.5v-4A.5.5,0,0,0,13.5,9Z" transform="translate(-2 -1.99)"></path>
+        <path d="M8.83,7.88a.51.51,0,0,0,.71,0l2.31-2.32,1.28,1.28A.51.51,0,0,0,14,6.49v-4a.52.52,0,0,0-.5-.5h-4A.51.51,0,0,0,9,2.52a.58.58,0,0,0,.14.33l1.28,1.28L8.12,6.46a.51.51,0,0,0,0,.71Z" transform="translate(-2 -1.99)"></path>
+    </svg></span></a>
+</li><li class="ons-list__item">
+
+                    
+
+                    
+
+                    
+                    
+                            
+    <a href="http://colororacle.org/" class="ons-external-link" target="_blank" rel="noopener">Color Oracle (free colour blindness simulator)<span class="ons-external-link__icon">&nbsp;<svg id="external-link" class="ons-svg-icon" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+        <path d="M13.5,9H13a.5.5,0,0,0-.5.5v3h-9v-9h3A.5.5,0,0,0,7,3V2.5A.5.5,0,0,0,6.5,2h-4a.5.5,0,0,0-.5.5v11a.5.5,0,0,0,.5.5h11a.5.5,0,0,0,.5-.5v-4A.5.5,0,0,0,13.5,9Z" transform="translate(-2 -1.99)"></path>
+        <path d="M8.83,7.88a.51.51,0,0,0,.71,0l2.31-2.32,1.28,1.28A.51.51,0,0,0,14,6.49v-4a.52.52,0,0,0-.5-.5h-4A.51.51,0,0,0,9,2.52a.58.58,0,0,0,.14.33l1.28,1.28L8.12,6.46a.51.51,0,0,0,0,.71Z" transform="translate(-2 -1.99)"></path>
+    </svg></span></a>
+</li></ul>
+    
+<p></p>
+<h2 id="help-improve-this-style">Help improve this style</h2>
+<p>Let us know how we could improve this style or share your user research findings.
+
+    <a href="https://github.com/ONSdigital/design-system/discussions/1394" class="ons-external-link" target="_blank" rel="noopener">Discuss the ‘Colours’ style on Github<span class="ons-external-link__icon">&nbsp;<svg id="external-link" class="ons-svg-icon" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+        <path d="M13.5,9H13a.5.5,0,0,0-.5.5v3h-9v-9h3A.5.5,0,0,0,7,3V2.5A.5.5,0,0,0,6.5,2h-4a.5.5,0,0,0-.5.5v11a.5.5,0,0,0,.5.5h11a.5.5,0,0,0,.5-.5v-4A.5.5,0,0,0,13.5,9Z" transform="translate(-2 -1.99)"></path>
+        <path d="M8.83,7.88a.51.51,0,0,0,.71,0l2.31-2.32,1.28,1.28A.51.51,0,0,0,14,6.49v-4a.52.52,0,0,0-.5-.5h-4A.51.51,0,0,0,9,2.52a.58.58,0,0,0,.14.33l1.28,1.28L8.12,6.46a.51.51,0,0,0,0,.71Z" transform="translate(-2 -1.99)"></path>
+    </svg></span></a>
+</p>
 
 {% endblock %}
