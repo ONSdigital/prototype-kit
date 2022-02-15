@@ -1,0 +1,14 @@
+---
+title: Compiled HTML
+subgroup: Installing the design system
+version: 45.2.1
+layout: sub-navigation/views/_page
+sortOrder: 4
+---
+{% block mainContent %}
+
+<p>This approach is not recommended in production. We recommend you use <a href="/guidance/using-nunjucks">Nunjucks</a> instead. By using Nunjucks, you can easily keep up to date with the latest versions of the design system. If you use compiled HTML for your service, upgrading to new versions will require careful, manual amendments to your code.</p>
+<p>If you have to use compiled HTML, each component example has an HTML tab that shows the rendered HTML output. You can copy and paste the code into templates in your project.</p>
+<p>You need to <a href="/guidance/using-css-js-and-assets#cdn">reference the CSS and JS files from the CDN</a> to bring in the styles and interactivity for the components being used. </p>
+
+{% endblock %}

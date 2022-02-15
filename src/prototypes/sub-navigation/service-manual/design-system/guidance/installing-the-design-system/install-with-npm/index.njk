@@ -8,13 +8,38 @@ sortOrder: 1
 +++
 {% block mainContent %}
 
-<p>Everything you need to get set up on the design system, and guidance on how to use it.</p>
+<p>The ONS Design System is available as an 
+    <a href="https://www.npmjs.com/package/@ons/design-system" class="ons-external-link" target="_blank" rel="noopener">npm package<span class="ons-external-link__icon">&nbsp;<svg id="external-link" class="ons-svg-icon" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+        <path d="M13.5,9H13a.5.5,0,0,0-.5.5v3h-9v-9h3A.5.5,0,0,0,7,3V2.5A.5.5,0,0,0,6.5,2h-4a.5.5,0,0,0-.5.5v11a.5.5,0,0,0,.5.5h11a.5.5,0,0,0,.5-.5v-4A.5.5,0,0,0,13.5,9Z" transform="translate(-2 -1.99)"></path>
+        <path d="M8.83,7.88a.51.51,0,0,0,.71,0l2.31-2.32,1.28,1.28A.51.51,0,0,0,14,6.49v-4a.52.52,0,0,0-.5-.5h-4A.51.51,0,0,0,9,2.52a.58.58,0,0,0,.14.33l1.28,1.28L8.12,6.46a.51.51,0,0,0,0,.71Z" transform="translate(-2 -1.99)"></path>
+    </svg></span></a>
+. Every release is published to npm and provides a quick way to install everything you need.
+Inside the package are the following:</p>
+<ul>
+<li><strong>components</strong> – each component contains a macro file that can be used in a Nunjucks-compatible application</li>
+<li><strong>Sass files</strong> – all Sass rules are available to import, either everything or specific parts like a single component or the Sass that controls layout</li>
+<li><strong>CSS files</strong> – compiled CSS of all components and layout styles</li>
+<li><strong>JS files</strong> – bundled JavaScript modules</li>
+<li><strong>fonts, images, favicons</strong> – static assets used in components and templates</li>
+<li><strong><a href="/foundations/page-template">base page template</a></strong> – a Nunjucks template that contains the core markup and components needed to create an ONS service</li>
+</ul>
+<p>To install the ONS Design System npm package you will need to install 
+    <a href="https://nodejs.org/en/" class="ons-external-link" target="_blank" rel="noopener">node.js<span class="ons-external-link__icon">&nbsp;<svg id="external-link" class="ons-svg-icon" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+        <path d="M13.5,9H13a.5.5,0,0,0-.5.5v3h-9v-9h3A.5.5,0,0,0,7,3V2.5A.5.5,0,0,0,6.5,2h-4a.5.5,0,0,0-.5.5v11a.5.5,0,0,0,.5.5h11a.5.5,0,0,0,.5-.5v-4A.5.5,0,0,0,13.5,9Z" transform="translate(-2 -1.99)"></path>
+        <path d="M8.83,7.88a.51.51,0,0,0,.71,0l2.31-2.32,1.28,1.28A.51.51,0,0,0,14,6.49v-4a.52.52,0,0,0-.5-.5h-4A.51.51,0,0,0,9,2.52a.58.58,0,0,0,.14.33l1.28,1.28L8.12,6.46a.51.51,0,0,0,0,.71Z" transform="translate(-2 -1.99)"></path>
+    </svg></span></a>
+ and you will need a 
+    <a href="https://docs.npmjs.com/files/package.json" class="ons-external-link" target="_blank" rel="noopener">package.json<span class="ons-external-link__icon">&nbsp;<svg id="external-link" class="ons-svg-icon" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+        <path d="M13.5,9H13a.5.5,0,0,0-.5.5v3h-9v-9h3A.5.5,0,0,0,7,3V2.5A.5.5,0,0,0,6.5,2h-4a.5.5,0,0,0-.5.5v11a.5.5,0,0,0,.5.5h11a.5.5,0,0,0,.5-.5v-4A.5.5,0,0,0,13.5,9Z" transform="translate(-2 -1.99)"></path>
+        <path d="M8.83,7.88a.51.51,0,0,0,.71,0l2.31-2.32,1.28,1.28A.51.51,0,0,0,14,6.49v-4a.52.52,0,0,0-.5-.5h-4A.51.51,0,0,0,9,2.52a.58.58,0,0,0,.14.33l1.28,1.28L8.12,6.46a.51.51,0,0,0,0,.71Z" transform="translate(-2 -1.99)"></path>
+    </svg></span></a>
+ file in the root of your project.</p>
+<p>Then run:</p>
 
-<p>Start your set-up by installing with npm to get the most up-to-date version of the design system. Then import the files and assets you need.</p>
+    <pre class="ons-patternlib-example__pre  language-markup" tabindex="0"><code class="ons-patternlib-example__code ons-  language-markup">npm install @ons/design-system</code></pre>
 
-<p>The content and design guides will help you write and design for accessibility and consistency. They will also guide you on how to apply ONS house style correctly.</p>
-
-<p>If you need further help, or have any questions, you can email the Design System working group at ons.design.system@ons.gov.uk</p>
+<p>This will install the latest version of <code>@ons/design-system</code> in your <code>node_modules</code> folder.</p>
+<p>The next step is to get some <a href="/guidance/using-css-js-and-assets">styles, scripts and other assets</a> working in your project.</p>
 
 {% endblock %}
 +++

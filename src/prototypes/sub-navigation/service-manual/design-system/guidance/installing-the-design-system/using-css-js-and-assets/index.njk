@@ -8,6 +8,98 @@ sortOrder: 2
 +++
 {% block mainContent %}
 
+<h2 id="css">CSS</h2>
+<h3 id="how-to-import-sass-files-from-the-npm-package">How to import Sass files from the npm package</h3>
+<p>If your project has its own bundling tool you can import Sass rules from your <code>@ons/design-system</code> 
+    <a href="https://www.npmjs.com/package/@ons/design-system" class="ons-external-link" target="_blank" rel="noopener">npm package<span class="ons-external-link__icon">&nbsp;<svg id="external-link" class="ons-svg-icon" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+        <path d="M13.5,9H13a.5.5,0,0,0-.5.5v3h-9v-9h3A.5.5,0,0,0,7,3V2.5A.5.5,0,0,0,6.5,2h-4a.5.5,0,0,0-.5.5v11a.5.5,0,0,0,.5.5h11a.5.5,0,0,0,.5-.5v-4A.5.5,0,0,0,13.5,9Z" transform="translate(-2 -1.99)"></path>
+        <path d="M8.83,7.88a.51.51,0,0,0,.71,0l2.31-2.32,1.28,1.28A.51.51,0,0,0,14,6.49v-4a.52.52,0,0,0-.5-.5h-4A.51.51,0,0,0,9,2.52a.58.58,0,0,0,.14.33l1.28,1.28L8.12,6.46a.51.51,0,0,0,0,.71Z" transform="translate(-2 -1.99)"></path>
+    </svg></span></a>
+.</p>
+<h4 id="how-to-import-all-sass-rules">How to import all Sass rules</h4>
+<p>You can get all the Sass rules by adding the following to your main Sass file:</p>
+
+    <pre class="ons-patternlib-example__pre  language-markup" tabindex="0"><code class="ons-patternlib-example__code ons-  language-markup">@import 'node_modules/@ons/design-system/scss/main';</code></pre>
+
+<h4 id="how-to-import-specific-sass-rules">How to import specific Sass rules</h4>
+<p>You may not need any or many of the CSS for components. For performance reasons, you may only want specific parts of the design system Sass files.</p>
+<p>As a minimum, you should import the following Sass files:</p>
+
+    <pre class="ons-patternlib-example__pre  language-markup" tabindex="0"><code class="ons-patternlib-example__code ons-  language-markup">@import 'node_modules/@ons/design-system/scss/vars/index';
+@import 'node_modules/@ons/design-system/scss/helpers/index';
+@import 'node_modules/@ons/design-system/scss/utilities/index';
+@import 'node_modules/@ons/design-system/scss/base/index';
+@import 'node_modules/@ons/design-system/scss/objects/index';</code></pre>
+
+<p>Importing these files ensures components and patterns have access to any required global classes and utilities.</p>
+<p>To import the styles for a single component, for example, the button component, you need to add this after the base Sass files:</p>
+
+    <pre class="ons-patternlib-example__pre  language-markup" tabindex="0"><code class="ons-patternlib-example__code ons-  language-markup">@import 'node_modules/@ons/design-system/components/button/button';</code></pre>
+
+<p>Some components use other components, for example, the accordion component uses the collapsible component. You need to import the Sass files for each component used.</p>
+<h3 id="how-to-use-compiled-css-from-the-npm-package">How to use compiled CSS from the npm package</h3>
+<p>You can either import or copy the <code>main.css</code> file to include the compiled style sheet of all components and styles. This file can be found under <code>node_modules/@ons/design-system/css/main.css</code>.</p>
+<h2 id="javascript">JavaScript</h2>
+<p>To import the JavaScript (JS) for components, you can either:</p>
+<ul>
+<li>add the JS file to your HTML</li>
+<li>import JS using a bundler</li>
+</ul>
+<h3 id="add-the-js-file-to-your-html">Add the JS file to your HTML</h3>
+<p>You can use the <code>main.js</code> from the design system npm package. You can copy the file from <code>node_modules/@ons/design-system/scripts</code>
+into a <code>/scripts</code> folder in your project. You could also set up routing on your service to point to the <code>/scripts</code> located in <code>node_modules/@ons/design-system</code>.</p>
+<p>Then import the JS file before the closing <code>body</code> tag of your HTML page or page template.</p>
+<p>
+    </p><pre class="ons-patternlib-example__pre  language-markup" tabindex="0"><code class="ons-patternlib-example__code ons-  language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">&gt;</span></span>
+...
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">'</span>&lt;YOUR-APP&gt;/&lt;YOUR-JS-FILE&gt;.js<span class="token punctuation">'</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">&gt;</span></span></code></pre>
+
+<br><p></p>
+<p>You can also reference the published JS file from the <a href="#cdn">content delivery network (CDN)</a>.</p>
+<h3 id="import-js-using-a-bundler">Import JS using a bundler</h3>
+<p>If your service uses a bundler like <a href="https://webpack.js.org/">Webpack</a> you can select and initialise all component JS using <code>import</code> or <code>require()</code>.</p>
+<p>Import the <code>node_modules/design-system/js/main.js</code> to import the JS for all components.</p>
+<h4 id="import-js-for-a-specific-component">Import JS for a specific component</h4>
+<p>You can import the JS for a specific component. For example, <code>node_modules/design-system/components/button/button.dom.js</code> imports the JS for the button component. Each component that uses JS will have a <code>&lt;COMPONENT&gt;.dom.js</code> file available to import. This file will handle the initialising of a component.</p>
+<h2 id="cdn">CDN</h2>
+<p>All the global styles and individual component code is compiled and made available via a CDN. Each release deployed to the CDN is always available. This allows services to plan upgrades to new versions.</p>
+<p>Each release of the design system is tagged with a version, for example, <img src="https://img.shields.io/github/release/onsdigital/design-system.svg?style=flat-square" alt=""> which forms part of the URL of the compiled files for a specific release.</p>
+<p>The following files are deployed to the CDN which can be referenced in a service or project:</p>
+<ul>
+<li><code>main.css</code> - responsive CSS file of all components</li>
+<li><code>main.js</code> - bundled JS modules</li>
+</ul>
+<p>If you are using the design system <a href="/foundations/page-template/">base page template</a> (recommended) you will not need to reference any assets from the CDN. The release version is automatically applied in the base template to any references.</p>
+<p>If you do need to reference the files in your service, use the following URL structures (the <code>[VERSION]</code> should be replaced with the required release version, for example  <img src="https://img.shields.io/github/release/onsdigital/design-system.svg?style=flat-square" alt="">). Do not include the <code>v</code>, just include the number:</p>
+<ul>
+<li><code>https://cdn.ons.gov.uk/sdc/design-system/[VERSION]/css/main.css</code></li>
+<li><code>https://cdn.ons.gov.uk/sdc/design-system/[VERSION]/scripts/main.js</code></li>
+</ul>
+<p>Note that some local development environments require you to override the global <code>ONS_assets_base_URL</code> variable to use the chunked JS files. To do this, add the following script before the reference to the main.js file:</p>
+
+    <pre class="ons-patternlib-example__pre  language-markup" tabindex="0"><code class="ons-patternlib-example__code ons-  language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span><span class="token script"><span class="token language-javascript"><span class="token keyword">var</span> ONS_assets_base_URL<span class="token operator">=</span><span class="token string">'https://cdn.ons.gov.uk/sdc/design-system/[VERSION]/'</span><span class="token punctuation">;</span></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span></code></pre>
+
+<h2 id="assets">Assets</h2>
+<p>All assets are available through the CDN. If you choose to use the main CSS file via the CDN, all required fonts and images will be served from there.</p>
+<h3 id="fonts">Fonts</h3>
+<p>If you import all or parts of the CSS from the npm package you will need to import fonts into your service. You can copy the font files from <code>node_modules/@ons/design-system/fonts</code>
+into a <code>/fonts</code> folder in your project. You could also set up routing on your service to point to the <code>/fonts</code> folder that is served from <code>node_modules/@ons/design-system/fonts</code>.</p>
+<h3 id="images">Images</h3>
+<p>All of the main images used across the design system have been implemented as inline SVGs, so you may not need any of the images within the npm package or CDN. We do supply placeholder images for some components. If you require these, you can make them available by referencing directly from the CDN or following the same process as for including fonts and using a folder named <code>img</code>.</p>
+<h3 id="favicons">Favicons</h3>
+<p>There are favicons (or shortcut icons) for Safari, Chrome and Edge/Internet Explorer for desktop and mobile. Place the following references into the <code>head</code> of all pages within your service to make use of the available favicons. The <code>[VERSION]</code> should be replaced with the required release version.</p>
+
+    <pre class="ons-patternlib-example__pre  language-markup" tabindex="0"><code class="ons-patternlib-example__code ons-  language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>msapplication-config<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://cdn.ons.gov.uk/sdc/design-system/[VERSION]/favicons/browserconfig.json<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>icon<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>image/x-icon<span class="token punctuation">"</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/favicons/favicon.ico<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>icon<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>image/png<span class="token punctuation">"</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://cdn.ons.gov.uk/sdc/design-system/[VERSION]/favicons/favicon-32x32.png<span class="token punctuation">"</span></span> <span class="token attr-name">sizes</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>32x32<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>icon<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>image/png<span class="token punctuation">"</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://cdn.ons.gov.uk/sdc/design-system/[VERSION]/favicons/favicon-16x16.png<span class="token punctuation">"</span></span> <span class="token attr-name">sizes</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>16x16<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>mask-icon<span class="token punctuation">"</span></span> <span class="token attr-name">color</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>#5bbad5<span class="token punctuation">"</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://cdn.ons.gov.uk/sdc/design-system/[VERSION]/favicons/safari-pinned-tab.svg<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>apple-touch-icon<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>image/png<span class="token punctuation">"</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://cdn.ons.gov.uk/sdc/design-system/[VERSION]/favicons/apple-touch-icon.png<span class="token punctuation">"</span></span> <span class="token attr-name">sizes</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>180x180<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>manifest<span class="token punctuation">"</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://cdn.ons.gov.uk/sdc/design-system/[VERSION]/favicons/manifest.json<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span></code></pre>
+
+<p>Alternatively, you can copy the favicons from <code>node_modules/@ons/design-system/favicons</code> (if using the npm package) and referencing them from your project folder.</p>
+
 
 
 
