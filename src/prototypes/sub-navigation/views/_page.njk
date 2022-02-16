@@ -7,8 +7,18 @@
 
     <div class="ons-page__container ons-container ons-container--wide">
 
-        <div class="ons-grid">
-            <div class="ons-grid__col ons-col-3@m ons-u-mt-xl ons-u-d-no@xxs@m ons-u-mb-l">
+        <div class="ons-grid ons-grid--reverse">
+            <div class="ons-grid__col ons-col-9@m">
+                <main class="ons-page__main ons-u-mb-m" id="main-content" role="main">
+                    <h1 class="ons-u-fs-xxl ons-u-mt-l">
+                        <span class="ons-u-fs-m ons-u-db ons-u-mb-xs ons-u-lighter">{{ pageInfo.group.title }}</span>
+                        {{ pageInfo.title }}
+                    </h1>
+                    {% block mainContent %}{% endblock %}
+                </main>
+            </div>
+            {% if pageInfo.children %}
+            <div class="ons-grid__col ons-col-3@m ons-u-mt-xl@m ons-u-mb-l">
                 {% for group in helpers.subNavigationHelper({
                     pageInfo: pageInfo,
                     anchorLinks: pageInfo.anchorLinks
@@ -30,16 +40,7 @@
                     </div>
                 {% endfor %}
             </div>
-            <div class="ons-grid__col ons-col-9@m">
-                <main class="ons-page__main" id="main-content" role="main">
-                    <h1 class="ons-u-fs-xxl ons-u-mt-l">
-                        <span class="ons-u-fs-m ons-u-db ons-u-mb-xs ons-u-lighter">{{ pageInfo.subgroup }}</span>
-                        {{ pageInfo.title }}
-                    </h1>
-                    {% block mainContent %}{% endblock %}
-                </main>
-
-            </div>
+            {% endif %}
 
         </div>
 
