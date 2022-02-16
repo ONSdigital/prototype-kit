@@ -7,10 +7,12 @@ anchorLinks: true
 ---
 +++
 {% block mainContent %}
++++
+
 <p>Text is the primary way users digest information and complete tasks, so it’s important to use good typographic principles to establish a clear visual hierarchy and to maximise legibility.</p>
-+++
+
 ## Font
-+++
+
 <p>The primary font used in ONS digital products is 
     <a href="https://fonts.google.com/specimen/Open+Sans" class="ons-external-link" target="_blank" rel="noopener">Open Sans<span class="ons-external-link__icon">&nbsp;<svg id="external-link" class="ons-svg-icon" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
         <path d="M13.5,9H13a.5.5,0,0,0-.5.5v3h-9v-9h3A.5.5,0,0,0,7,3V2.5A.5.5,0,0,0,6.5,2h-4a.5.5,0,0,0-.5.5v11a.5.5,0,0,0,.5.5h11a.5.5,0,0,0,.5-.5v-4A.5.5,0,0,0,13.5,9Z" transform="translate(-2 -1.99)"></path>
@@ -19,7 +21,8 @@ anchorLinks: true
  , defaulting to stylistic set 2 (for open g’s).</p>
 <p>Open Sans, with its broad range of weights and extensive unicode support was chosen to provide a good balance between legibility, personality and readability. As the majority of our User Interface (UI) is text-based, we use weight and size to denote hierarchy and separation between content. Open Sans’ letterforms also provide a good level of contrast which aid readability on poorer quality displays and for users with visual impairment.</p>
 <p>Font stack: <span style="font-family: OpenSans;">“Open Sans”</span>, <span style="font-family: &quot;Helvetica Neue&quot;;">“Helvetica Neue”</span>, <span style="font-family: Helvetica;">Helvetica</span>, <span style="font-family: Arial;">Arial</span>, <span style="font-family: sans-serif;">sans-serif</span></p>
-<h3 id="type-scale">Type scale</h3>
+
+### Type scale
 <p>Using the type scale classes on text elements, the type is sized appropriately for the following breakpoints:</p>
 <table class="ons-table__table">
 <thead class="ons-table__head">
@@ -65,18 +68,8 @@ anchorLinks: true
 <td class="ons-table__cell"><p class="ons-u-fs-s">ons-u-fs-s</p>Open Sans Regular - 0.7rem/14px</td>
 </tr>
 </tbody></table>
-<h3 id="font-weights">Font weights</h3>
 
-    
-    
-
-    
-        
-    
-
-    
-        
-    
+### Font weights
 
     
         <ul class="ons-list ons-list--bare"><li class="ons-list__item">
@@ -96,32 +89,36 @@ anchorLinks: true
                     Regular: 400</li></ul>
     
 
-+++
+
 ## Headings
-+++
+
 <p>Heading defaults are as follows:
 
-<h3 id="breakpoint-headings">Breakpoint headings</h3>
+### Breakpoint headings
 <p>Font sizes can be triggered at certain breakpoints. Just suffix any font size class with <code>@{breakpoint}</code>, for example, <code>ons-u-fs-m@l</code></p>
 <p class="ons-u-fs-s@xxs ons-u-fs-r@s ons-u-fs-m@l ons-u-fs-l@xl ons-u-fs-xl@xxl">This text will change font size depending on viewport width</p>
 
 
-+++
+
 ## Paragraphs
-+++
+
 <p>The base font size for paragraphs is 18px.</p>
-<h2 id="links">Links</h2>
+
+## Links
 <p>Links are blue and underlined by default. If your link is at the end of a sentence or paragraph, make sure that the linked text does not include the full stop.</p>
-<h3 id="external-links">External Links</h3>
+
+### External Links
 <p>Links to external websites using the <code>onsExternalLink</code> macro will have the attributes <code>target="_blank"</code> to open websites in a new tab, and <code>rel="noopener"</code> to guard against a security vulnerability which can be exploited by malicious websites.
-+++
+
 ## Lists
-+++
+
 <p>Use lists to break up blocks of text into concise, manageable chunks to make it easier to read.</p>
-<h3 id="bulleted-list-default">Bulleted list (default)</h3>
+
+### Bulleted list (default)
 <p>Bulleted lists should be introduced with a lead-in line, ending in a colon.</p>
 <p>Each item in the list should start with a lowercase letter and should not end with a full stop.</p>
-<h3 id="numbered-list">Numbered list</h3>
+
+### Numbered list
 <p>Numbered lists should be displayed in place of bulleted lists when the order of items is relevant.</p>
 <p>Each list item should be a complete sentence, therefore start with an uppercase letter, and end with a full stop.</p>
 <p>You do not need to introduce a numbered list with a lead-in line.</p>
@@ -129,47 +126,48 @@ anchorLinks: true
 <p>If there is only one item in the list when using the list macro it will render the item in <code>&lt;p&gt;</code> tags and not a list with no list styling added.
 
 
-<h3 id="bare-list">Bare list</h3>
+### Bare list
 <p>Bare lists should be used to display a list of navigational links, for example, a group of related pages displayed in the <a href="/components/footer">footer</a>.
 
-<h3 id="dashed-list">Dashed list</h3>
+### Dashed list
 <p>Dashed lists should be used to display a list of content navigational links.
 lass="token punctuation">}</span>
 
-<h3 id="suffixed-list">Suffixed list</h3>
+### Suffixed list
 <p>The suffix list works the same as the prefix but just comes after the list item and the full stop isn’t included.
  
-<h3 id="inline-list">Inline list</h3>
+### Inline list
 <p>Inline lists should be used to display a horizontal row of links, for example, a list of pages displayed in the <a href="/components/footer#transactional">transactional footer</a>.
 
-<h4 id="list-with-icon-suffix">List with icon suffix</h4>
+#### List with icon suffix
 <p>This example uses <code>"iconPosition": 'after'</code> and the <code>iconType</code> parameter on this list to show the check after each item.
 
-<h4 id="inline-list-with-icon-prefix">Inline list with icon prefix</h4>
+#### Inline list with icon prefix
 <p>This example uses <code>"variants": [ 'inline', 'social']</code>, <code>"iconPosition": 'before'</code> and <code>"iconSize": 'xxl'</code> on the list, with the <code>iconType</code> parameter set on each item to show the social icons.
 
-+++
+
 ## Quotes
-+++
+
 <p>Use when displaying a short quote.
 
-+++
+
 ## Addresses
-+++
+
 <p>Use when displaying an address.
 
-+++
 ## Indented text
-+++
+
 <p>Use when you need information to stand out from the rest of the content on a page, for example, when providing contact information.
 
-<h2 id="help-improve-this-style">Help improve this style</h2>
+## Help improve this style
 <p>Let us know how we could improve this style or share your user research findings.
 
++++
     <a href="https://github.com/ONSdigital/design-system/discussions/233" class="ons-external-link" target="_blank" rel="noopener">Discuss the ‘Typography’ style on Github<span class="ons-external-link__icon">&nbsp;<svg id="external-link" class="ons-svg-icon" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
         <path d="M13.5,9H13a.5.5,0,0,0-.5.5v3h-9v-9h3A.5.5,0,0,0,7,3V2.5A.5.5,0,0,0,6.5,2h-4a.5.5,0,0,0-.5.5v11a.5.5,0,0,0,.5.5h11a.5.5,0,0,0,.5-.5v-4A.5.5,0,0,0,13.5,9Z" transform="translate(-2 -1.99)"></path>
         <path d="M8.83,7.88a.51.51,0,0,0,.71,0l2.31-2.32,1.28,1.28A.51.51,0,0,0,14,6.49v-4a.52.52,0,0,0-.5-.5h-4A.51.51,0,0,0,9,2.52a.58.58,0,0,0,.14.33l1.28,1.28L8.12,6.46a.51.51,0,0,0,0,.71Z" transform="translate(-2 -1.99)"></path>
     </svg></span></a>
 </p>
++++
 {% endblock %}
 +++

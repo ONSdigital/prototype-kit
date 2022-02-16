@@ -6,6 +6,7 @@ sortOrder: 1
 ---
 +++
 {% block mainContent %}
++++
 <p>Use the ONS colour palettes for all services so that pages and elements are consistent and familiar to users.</p>
 <p>We have designed text and background colours that are accessible to 
     <a href="https://www.w3.org/TR/WCAG21/#contrast-minimum" class="ons-external-link" target="_blank" rel="noopener">WCAG 2.1 AA level of compliance for contrast<span class="ons-external-link__icon">&nbsp;<svg id="external-link" class="ons-svg-icon" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
@@ -14,15 +15,20 @@ sortOrder: 1
     </svg></span></a>
 . The <a href="#colour-contrast">Colour contrast section</a> has more detail about accessibility and colour.</p>
 <p>Each colour has a colour variable that can be <a href="#colour-assignment">assigned to a element</a>. The main colours can also be expanded by creating the three <a href="#tints">allowed tint variations</a>.</p>
-<h2 id="primary-brand-palette">Primary brand palette</h2>
-<h2 id="supporting-palette">Supporting palette</h2>
-<h2 id="census-2021-theme-palette">Census 2021 theme palette</h2>
-<h2 id="greyscale">Greyscale</h2>
-<h2 id="tints">Tints</h2>
-<p>Only tints of 70%, 40% or 10% of the primary, supporting and census colour palettes can be used.</p>
-<p>To apply a tint, you can use the <code>tint()</code> function by passing in the colour variable and the percentage of white you want to mix with it. For example:
 
-  </p><div class="ons-grid ons-grid--flex ons-grid--gutterless">
+## Primary brand palette
+
+## Supporting palette
+
+## Census 2021 theme palette
+
+## Greyscale
+
+## Tints
+<p>Only tints of 70%, 40% or 10% of the primary, supporting and census colour palettes can be used.</p>
+<p>To apply a tint, you can use the <code>tint()</code> function by passing in the colour variable and the percentage of white you want to mix with it. For example:</p>
+
+  <div class="ons-grid ons-grid--flex ons-grid--gutterless">
     <div class="ons-patternlib-swatch ons-grid ons-grid--flex ons-grid--gutterless ons-grid--no-wrap@s">
             <div class="ons-patternlib-swatch__color ons-u-flex-no-shrink" style="background-color:#4d7789;">
             </div>
@@ -63,9 +69,11 @@ sortOrder: 1
     </div>
 
 <p></p>
-<h2 id="colour-assignment">Colour assignment</h2>
+
+## Colour assignment
 <p>The colour variables are assigned to elements by using variables to provide context. For example, <code>$color-black</code> is assigned to <code>$color-text</code> to be used to style all heading elements.</p>
-<h3 id="text">Text</h3>
+
+### Text
 
   <div class="ons-grid ons-grid--flex ons-grid--gutterless">
     <div class="ons-patternlib-swatch ons-grid ons-grid--flex ons-grid--gutterless ons-grid--no-wrap@s">
@@ -94,7 +102,7 @@ sortOrder: 1
     </div>
 
 
-<h3 id="links">Links</h3>
+### Links
 <p>
   </p><div class="ons-grid ons-grid--flex ons-grid--gutterless">
     <div class="ons-patternlib-swatch ons-grid ons-grid--flex ons-grid--gutterless ons-grid--no-wrap@s">
@@ -123,7 +131,8 @@ sortOrder: 1
     </div>
 
 <p></p>
-<h3 id="buttons">Buttons</h3>
+
+### Buttons
 <p>
   </p><div class="ons-grid ons-grid--flex ons-grid--gutterless">
     <div class="ons-patternlib-swatch ons-grid ons-grid--flex ons-grid--gutterless ons-grid--no-wrap@s">
@@ -152,7 +161,8 @@ sortOrder: 1
     </div>
 
 <p></p>
-<h3 id="focus">Focus</h3>
+
+### Focus
 
   <div class="ons-grid ons-grid--flex ons-grid--gutterless">
     <div class="ons-patternlib-swatch ons-grid ons-grid--flex ons-grid--gutterless ons-grid--no-wrap@s">
@@ -168,7 +178,7 @@ sortOrder: 1
     </div>
 
 
-<h3 id="highlight">Highlight</h3>
+### Highlight
 
   <div class="ons-grid ons-grid--flex ons-grid--gutterless">
     <div class="ons-patternlib-swatch ons-grid ons-grid--flex ons-grid--gutterless ons-grid--no-wrap@s">
@@ -183,7 +193,7 @@ sortOrder: 1
     </div>
 
 
-<h3 id="borders">Borders</h3>
+### Borders
 
   <div class="ons-grid ons-grid--flex ons-grid--gutterless">
     <div class="ons-patternlib-swatch ons-grid ons-grid--flex ons-grid--gutterless ons-grid--no-wrap@s">
@@ -198,9 +208,10 @@ sortOrder: 1
     </div>
 
 
-<h3 id="status">Status</h3>
+### Status
 <p>Different colours can be used to represent a status. Each status has a primary border colour and a background tint for use in a status <a href="/components/panel">panel</a>, and a vibrant hue for use in a <a href="/components/status">status indicator</a> dot.</p>
-<h4 id="information">Information</h4>
+
+#### Information
 
   <div class="ons-grid ons-grid--flex ons-grid--gutterless">
     <div class="ons-patternlib-swatch ons-grid ons-grid--flex ons-grid--gutterless ons-grid--no-wrap@s">
@@ -232,7 +243,7 @@ sortOrder: 1
     </div>
 
 
-<h4 id="success">Success</h4>
+#### Success
 
   <div class="ons-grid ons-grid--flex ons-grid--gutterless">
     <div class="ons-patternlib-swatch ons-grid ons-grid--flex ons-grid--gutterless ons-grid--no-wrap@s">
@@ -264,7 +275,7 @@ sortOrder: 1
     </div>
 
 
-<h4 id="errors">Errors</h4>
+#### Errors
 
   <div class="ons-grid ons-grid--flex ons-grid--gutterless">
     <div class="ons-patternlib-swatch ons-grid ons-grid--flex ons-grid--gutterless ons-grid--no-wrap@s">
@@ -296,7 +307,7 @@ sortOrder: 1
     </div>
 
 
-<h4 id="pending">Pending</h4>
+#### Pending
 
   <div class="ons-grid ons-grid--flex ons-grid--gutterless">
     <div class="ons-patternlib-swatch ons-grid ons-grid--flex ons-grid--gutterless ons-grid--no-wrap@s">
@@ -310,7 +321,7 @@ sortOrder: 1
     </div>
 
 
-<h2 id="colour-contrast">Colour contrast</h2>
+## Colour contrast
 <p>We have tested the contrast between foreground and background colours to make sure they meet 
     <a href="https://www.w3.org/TR/WCAG21/#contrast-minimum" class="ons-external-link" target="_blank" rel="noopener">level AA of the Web Content Accessibility Guidelines (WCAG 2.1)<span class="ons-external-link__icon">&nbsp;<svg id="external-link" class="ons-svg-icon" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
         <path d="M13.5,9H13a.5.5,0,0,0-.5.5v3h-9v-9h3A.5.5,0,0,0,7,3V2.5A.5.5,0,0,0,6.5,2h-4a.5.5,0,0,0-.5.5v11a.5.5,0,0,0,.5.5h11a.5.5,0,0,0,.5-.5v-4A.5.5,0,0,0,13.5,9Z" transform="translate(-2 -1.99)"></path>
@@ -348,7 +359,8 @@ sortOrder: 1
                     Large text (minimum 18.66px and bold, or 24px), 3:1</li></ul>
     
 <p></p>
-<h3 id="accessible-text-and-background-colour-combinations">Accessible text and background colour combinations</h3>
+
+### Accessible text and background colour combinations
 
   <div class="ons-grid ons-grid--flex ons-grid--gutterless">
     <div class="ons-patternlib-swatch ons-grid ons-grid--flex ons-grid--gutterless ons-grid--no-wrap@s">
@@ -453,7 +465,7 @@ sortOrder: 1
     </div>
 
 
-<h3 id="how-to-check-colour-contrast">How to check colour contrast</h3>
+### How to check colour contrast
 <p>Make sure you test colour contrast with a range of people with different colour vision deficiencies.</p>
 <p>We also recommend the following tools to check colour contrast:
 
@@ -498,7 +510,8 @@ sortOrder: 1
 </li></ul>
     
 <p></p>
-<h2 id="help-improve-this-style">Help improve this style</h2>
+
+## Help improve this style
 <p>Let us know how we could improve this style or share your user research findings.
 
     <a href="https://github.com/ONSdigital/design-system/discussions/1394" class="ons-external-link" target="_blank" rel="noopener">Discuss the ‘Colours’ style on Github<span class="ons-external-link__icon">&nbsp;<svg id="external-link" class="ons-svg-icon" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
@@ -507,5 +520,6 @@ sortOrder: 1
     </svg></span></a>
 </p>
 
++++
 {% endblock %}
 +++

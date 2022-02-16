@@ -7,28 +7,31 @@ sortOrder: 4
 ---
 +++
 {% block mainContent %}
-    <p>Patterns are a way to combine different components to help a user carry out a task. The task could be entering information, such as an address or phone number, or helping users download a file or correct an error.</p>
++++
 
-    <p>Each pattern has guidance on:</p>
+<p>Patterns are a way to combine different components to help a user carry out a task. The task could be entering information, such as an address or phone number, or helping users download a file or correct an error.</p>
 
-    {{
-        onsList({
-            "itemsList": [
-                {
-                    "text": 'when to use it'
-                },
-                {
-                    "text": 'how to use it'
-                },
-                {
-                    "text": 'how to check it for errors'
-                },
-                {
-                    "text": 'user research done on it'
-                }
-            ]
-        })
-    }}
-    <p>You are welcome to <a href="#0">contribute a new pattern or a change to an existing pattern</a>.</p>
+<p>Each pattern has guidance on:</p>
+
+{{
+    onsList({
+        "itemsList": [
+            {
+                "text": 'when to use it'
+            },
+            {
+                "text": 'how to use it'
+            },
+            {
+                "text": 'how to check it for errors'
+            },
+            {
+                "text": 'user research done on it'
+            }
+        ]
+    })
+}}
+<p>You are welcome to <a href="#0">contribute a new pattern or a change to an existing pattern</a>.</p>
++++
 {% endblock %}
 +++
