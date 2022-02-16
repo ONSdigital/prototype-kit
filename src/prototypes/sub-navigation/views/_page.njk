@@ -2,6 +2,7 @@
 
 {% from "../components/header-navigation/_macro.njk" import onsHeaderNavigation %}
 {% from "components/lists/_macro.njk" import onsList %}
+{% from "components/table-of-contents/_macro.njk" import onsTableOfContents %}
 
 {% block pageContent %}
 
@@ -14,10 +15,26 @@
                         <span class="ons-u-fs-m ons-u-db ons-u-mb-xs ons-u-lighter">{{ pageInfo.group.title }}</span>
                         {{ pageInfo.title }}
                     </h1>
+                    {% if pageInfo.anchorLinks %}
+                        {% for item in helpers.subNavigationHelper({
+                            pageInfo: pageInfo,
+                            anchorLinks: pageInfo.anchorLinks
+                        }) %}
+                            {{
+                                onsTableOfContents({
+                                    "title": 'Contents',
+                                    "skipLink": {
+                                        "url": "#0",
+                                        "text": 'Skip to guide content'
+                                    },
+                                    "itemsList": items
+                                })
+                            }}
+                        {% endfor %}
+                    {% endif %}
                     {% block mainContent %}{% endblock %}
                 </main>
             </div>
-            {% if pageInfo.children %}
             <div class="ons-grid__col ons-col-3@m ons-u-mt-xl@m ons-u-mb-l">
                 {% for group in helpers.subNavigationHelper({
                     pageInfo: pageInfo,
@@ -40,8 +57,6 @@
                     </div>
                 {% endfor %}
             </div>
-            {% endif %}
-
         </div>
 
     </div>
