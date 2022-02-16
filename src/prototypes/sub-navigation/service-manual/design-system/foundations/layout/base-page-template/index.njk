@@ -6,6 +6,7 @@ layout: sub-navigation/views/_page
 ---
 +++
 {% block mainContent %}
++++
 <p>Use the base page template to create pages with the core components and markup required for an ONS service.</p>
 <p>The examples below provide templates that consist of commonly used <a href="/components">components</a> and <a href="/patterns">patterns</a>.</p>
 <p>All template examples contain the following:</p>
@@ -15,29 +16,32 @@ layout: sub-navigation/views/_page
 <li>a favicon, and other related bookmark icons.</li>
 </ul>
 <p>Click on the HTML tab on each example to view the rendered HTML.</p>
-<h2 id="default-base-page-template">Default base page template</h2>
+
+## Default base page template
+
 <p>The example below shows the minimum requirements for an ONS base page template.</p>
 
-<h2 id="customised-page-template">Customised page template</h2>
+## Customised page template
 <p>Components can be added to the base page template. The example below provides a <a href="/components/phase-banner">phase banner</a>, <a href="/patterns/change-language">change language</a>, <a href="/components/breadcrumbs">breadcrumbs</a>, <a href="/components/button">save button</a> and <a href="/components/footer">footer links</a>.</p>
 
-<h2 id="census-page-template">Census page template</h2>
+## Census page template
 <p>The example below shows a themed census version of the ONS base page template.</p>
 
-<h3 id="changing-template-content">Changing template content</h3>
+### Changing template content
 <p>The Nunjucks template allows 2 ways to change the content: 
     <a href="https://mozilla.github.io/nunjucks/templating.html#set" class="ons-external-link" target="_blank" rel="noopener">variables<span class="ons-external-link__icon">&nbsp;<svg id="external-link" class="ons-svg-icon" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
         <path d="M13.5,9H13a.5.5,0,0,0-.5.5v3h-9v-9h3A.5.5,0,0,0,7,3V2.5A.5.5,0,0,0,6.5,2h-4a.5.5,0,0,0-.5.5v11a.5.5,0,0,0,.5.5h11a.5.5,0,0,0,.5-.5v-4A.5.5,0,0,0,13.5,9Z" transform="translate(-2 -1.99)"></path>
         <path d="M8.83,7.88a.51.51,0,0,0,.71,0l2.31-2.32,1.28,1.28A.51.51,0,0,0,14,6.49v-4a.52.52,0,0,0-.5-.5h-4A.51.51,0,0,0,9,2.52a.58.58,0,0,0,.14.33l1.28,1.28L8.12,6.46a.51.51,0,0,0,0,.71Z" transform="translate(-2 -1.99)"></path>
     </svg></span></a>
  or 
-    <a href="https://mozilla.github.io/nunjucks/templating.html#block" class="ons-external-link" target="_blank" rel="noopener">blocks<span class="ons-external-link__icon">&nbsp;<svg id="external-link" class="ons-svg-icon" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+    <a href="https://mozilla.github.io/nunjucks/templating.html# Block" class="ons-external-link" target="_blank" rel="noopener">blocks<span class="ons-external-link__icon">&nbsp;<svg id="external-link" class="ons-svg-icon" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
         <path d="M13.5,9H13a.5.5,0,0,0-.5.5v3h-9v-9h3A.5.5,0,0,0,7,3V2.5A.5.5,0,0,0,6.5,2h-4a.5.5,0,0,0-.5.5v11a.5.5,0,0,0,.5.5h11a.5.5,0,0,0,.5-.5v-4A.5.5,0,0,0,13.5,9Z" transform="translate(-2 -1.99)"></path>
         <path d="M8.83,7.88a.51.51,0,0,0,.71,0l2.31-2.32,1.28,1.28A.51.51,0,0,0,14,6.49v-4a.52.52,0,0,0-.5-.5h-4A.51.51,0,0,0,9,2.52a.58.58,0,0,0,.14.33l1.28,1.28L8.12,6.46a.51.51,0,0,0,0,.71Z" transform="translate(-2 -1.99)"></path>
     </svg></span></a>
 </p>
 <p>The main difference between a variable and a block is that blocks can contain markup.</p>
-<h4 id="variables">Variables</h4>
+
+#### Variables
 <p>Variables can be set with:</p>
 
     <pre class="ons-patternlib-example__pre  language-markup" tabindex="0"><code class="ons-patternlib-example__code ons-  language-markup">{% raw %}{% set variableName = value %}{% endraw %}</code></pre>
@@ -70,7 +74,8 @@ layout: sub-navigation/views/_page
 <td class="ons-table__cell">What CDN version to use. This can also be configured from the <code>page</code> configuration object</td>
 </tr>
 </tbody></table>
-<h5 id="formconfig">FormConfig</h5>
+
+##### FormConfig
 <table class="ons-table">
 <thead class="ons-table__head">
 <tr class="ons-table__row">
@@ -99,7 +104,8 @@ layout: sub-navigation/views/_page
 <td class="ons-table__cell">The method the form should you, if not specified it will default to <code>POST</code></td>
 </tr>
 </tbody></table>
-<h5 id="pageconfig">PageConfig</h5>
+
+##### PageConfig
 <table class="ons-table">
 <thead class="ons-table__head">
 <tr class="ons-table__row">
@@ -230,7 +236,8 @@ layout: sub-navigation/views/_page
 <td class="ons-table__cell">If sets to true passes sets the <code>wide</code> param on both the header and footer which will add css which will make the page use a wider style.</td>
 </tr>
 </tbody></table>
-<h5 id="cdn">CDN</h5>
+
+##### CDN
 <table class="ons-table">
 <thead class="ons-table__head">
 <tr class="ons-table__row">
@@ -253,7 +260,8 @@ layout: sub-navigation/views/_page
 <td class="ons-table__cell">DS version on the CDN</td>
 </tr>
 </tbody></table>
-<h6 id="pageheader">PageHeader</h6>
+
+###### PageHeader
 <table class="ons-table">
 <thead class="ons-table__head">
 <tr class="ons-table__row">
@@ -324,7 +332,8 @@ layout: sub-navigation/views/_page
 <td class="ons-table__cell">Set to ‘true’ to make the masthead taller to accommodate a logo with a taller aspect ratio</td>
 </tr>
 </tbody></table>
-<h6 id="headmeta">HeadMeta</h6>
+
+###### HeadMeta
 <table class="ons-table">
 <thead class="ons-table__head">
 <tr class="ons-table__row">
@@ -359,7 +368,8 @@ layout: sub-navigation/views/_page
 <td class="ons-table__cell">Metadata for the language links to improve SEO</td>
 </tr>
 </tbody></table>
-<h5 id="hreflangs">HrefLangs</h5>
+
+##### HrefLangs
 <table class="ons-table">
 <thead class="ons-table__head">
 <tr class="ons-table__row">
@@ -382,7 +392,8 @@ layout: sub-navigation/views/_page
 <td class="ons-table__cell">DS version on the CDN</td>
 </tr>
 </tbody></table>
-<h6 id="pagefooter">PageFooter</h6>
+
+###### PageFooter
 <table class="ons-table">
 <thead class="ons-table__head">
 <tr class="ons-table__row">
@@ -453,24 +464,25 @@ layout: sub-navigation/views/_page
 <td class="ons-table__cell">An array of LegalRow objects</td>
 </tr>
 </tbody></table>
-<h4 id="blocks">Blocks</h4>
+
+#### Blocks
 <p>Blocks can be set with:</p>
 
-
++++
     <pre class="ons-patternlib-example__pre  language-markup" tabindex="0"><code class="ons-patternlib-example__code ons-  language-markup">{% raw %}{% block blockName %}
     HTML Here
 {% endblock %}{% endraw %}</code></pre>
-
++++
 
 <p>To change the components that are included by default, set their equivalent blocks, for example:</p>
 
-
++++
     <pre class="ons-patternlib-example__pre  language-markup" tabindex="0"><code class="ons-patternlib-example__code ons-  language-markup">{% raw %}{% block header %}
     {{ onsHeader({
         ...
     }) }}
 {% endblock %}{% endraw %}</code></pre>
-
++++
 
 <table class="ons-table">
 <thead class="ons-table__head">
@@ -528,11 +540,12 @@ layout: sub-navigation/views/_page
 <td class="ons-table__cell">Add content just after just before the closing <code>&lt;/body&gt;</code> element</td>
 </tr>
 </tbody></table>
-<h5 id="exploded-view-of-the-base-page-template-block-areas">Exploded view of the base page template block areas</h5>
 
-<h2 id="help-improve-this-layout">Help improve this layout</h2>
+##### Exploded view of the base page template block areas
+
+## Help improve this layout
 <p>Let us know how we could improve this layout or share your user research findings.
-
++++
     <a href="https://github.com/ONSdigital/design-system/discussions/195" class="ons-external-link" target="_blank" rel="noopener">Discuss ‘Base page template’ on GitHub<span class="ons-external-link__icon">&nbsp;<svg id="external-link" class="ons-svg-icon" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
         <path d="M13.5,9H13a.5.5,0,0,0-.5.5v3h-9v-9h3A.5.5,0,0,0,7,3V2.5A.5.5,0,0,0,6.5,2h-4a.5.5,0,0,0-.5.5v11a.5.5,0,0,0,.5.5h11a.5.5,0,0,0,.5-.5v-4A.5.5,0,0,0,13.5,9Z" transform="translate(-2 -1.99)"></path>
         <path d="M8.83,7.88a.51.51,0,0,0,.71,0l2.31-2.32,1.28,1.28A.51.51,0,0,0,14,6.49v-4a.52.52,0,0,0-.5-.5h-4A.51.51,0,0,0,9,2.52a.58.58,0,0,0,.14.33l1.28,1.28L8.12,6.46a.51.51,0,0,0,0,.71Z" transform="translate(-2 -1.99)"></path>
