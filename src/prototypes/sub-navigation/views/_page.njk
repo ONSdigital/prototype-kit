@@ -16,21 +16,24 @@
                         {{ pageInfo.title }}
                     </h1>
                     {% if pageInfo.anchorLinks %}
-                        {% for item in helpers.subNavigationHelper({
+                        {% set items = [] %}
+                        {% set groups = helpers.subNavigationHelper({
                             pageInfo: pageInfo,
                             anchorLinks: pageInfo.anchorLinks
                         }) %}
-                            {{
-                                onsTableOfContents({
-                                    "title": 'Contents',
-                                    "skipLink": {
-                                        "url": "#0",
-                                        "text": 'Skip to guide content'
-                                    },
-                                    "itemsList": items
-                                })
-                            }}
+                        {% for group in groups %}
+                            {% set items = group.items %}
                         {% endfor %}
+                        {{
+                            onsTableOfContents({
+                                "title": 'Contents',
+                                "skipLink": {
+                                    "url": "#0",
+                                    "text": 'Skip to guide content'
+                                },
+                                "itemsList": items[1].anchors
+                            })
+                        }}
                     {% endif %}
                     {% block mainContent %}{% endblock %}
                 </main>
