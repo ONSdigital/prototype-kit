@@ -10,35 +10,37 @@
 
         <div class="ons-grid ons-grid--reverse">
             <div class="ons-grid__col ons-col-9@m">
-                <main class="ons-page__main ons-u-mb-m" id="main-content" role="main">
+                <main class="ons-page__main ons-u-mb-l" id="main-content" role="main">
                     <h1 class="ons-u-fs-xxl ons-u-mt-l">
                         <span class="ons-u-fs-m ons-u-db ons-u-mb-xs ons-u-lighter">{{ pageInfo.group.title }}</span>
                         {{ pageInfo.title }}
                     </h1>
                     {% if pageInfo.anchorLinks %}
-                        {% set items = [] %}
-                        {% set groups = helpers.subNavigationHelper({
-                            pageInfo: pageInfo,
-                            anchorLinks: pageInfo.anchorLinks
-                        }) %}
-                        {% for group in groups %}
-                            {% set items = group.items %}
-                        {% endfor %}
-                        {{
-                            onsTableOfContents({
-                                "title": 'Contents',
-                                "skipLink": {
-                                    "url": "#0",
-                                    "text": 'Skip to guide content'
-                                },
-                                "itemsList": items[1].anchors
-                            })
-                        }}
+                        <div class="ons-u-d-no@m">
+                            {% set items = [] %}
+                            {% set groups = helpers.subNavigationHelper({
+                                pageInfo: pageInfo,
+                                anchorLinks: pageInfo.anchorLinks
+                            }) %}
+                            {% for group in groups %}
+                                {% set items = group.items %}
+                            {% endfor %}
+                            {{
+                                onsTableOfContents({
+                                    "title": 'Contents',
+                                    "skipLink": {
+                                        "url": "#0",
+                                        "text": 'Skip to guide content'
+                                    },
+                                    "itemsList": items[1].anchors
+                                })
+                            }}
+                        </div>
                     {% endif %}
                     {% block mainContent %}{% endblock %}
                 </main>
             </div>
-            <div class="ons-grid__col ons-col-3@m ons-u-mt-xl@m ons-u-mb-l">
+            <div class="ons-grid__col ons-col-3@m ons-u-mt-xl@m ons-u-mb-l{% if pageInfo.depth > 4 %} ons-u-d-no@xxs@m{% endif %}">
                 {% for group in helpers.subNavigationHelper({
                     pageInfo: pageInfo,
                     anchorLinks: pageInfo.anchorLinks

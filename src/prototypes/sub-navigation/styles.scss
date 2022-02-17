@@ -50,3 +50,9 @@ Do not remove. Required for dynamic generation of survey summary page
     }
   }
 }
+
+.ons-toc {
+  &-container {
+    border-bottom: 1px solid $color-grey-35;
+  }
+}
