@@ -41,7 +41,7 @@
                     "ariaListLabel": 'Navigation menu',
                     "siteBasePath": pageInfo.rootPath + '/service-manual/',
                     "currentPath": pageInfo.url,
-                    "currentPage": 'Design system',
+                    "currentPage": pageInfo.parent.parent.title if pageInfo.depth == 5 else pageInfo.parent.title,
                     "itemsList": helpers.navigationHelper({
                         "pages": prototypeListing,
                         "pageInfo": pageInfo,
