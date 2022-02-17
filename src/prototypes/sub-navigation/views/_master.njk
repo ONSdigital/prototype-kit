@@ -31,7 +31,7 @@
         {% include "./partials/_header-main.njk" %}
     {% endblock %}
     {% block headerNav %}
-
+    {% set overiewURL = pageInfo.parent.parent.url if pageInfo.depth == 5 else pageInfo.parent.url %}
         {{
             onsHeaderNavigation({
                 "wide": true,
@@ -54,6 +54,7 @@
                     "ariaLabel": 'Main menu',
                     "ariaListLabel": 'Navigation menu',
                     "currentPath": pageInfo.url,
+                    "overiewURL": overiewURL,
                     "itemsList": helpers.navigationHelper({
                         "pages": prototypeListing,
                         "pageInfo": pageInfo,
