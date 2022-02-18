@@ -56,3 +56,29 @@ Do not remove. Required for dynamic generation of survey summary page
     border-bottom: 1px solid $color-grey-35;
   }
 }
+
+.ons-page__main {
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-top: 2rem;
+  }
+
+  .example {
+    padding: 16px 16px 0 16px;
+    border: 1px solid $color-borders;
+    margin: 3rem 0 2rem 0;
+    position: relative;
+
+    &::before {
+      content: 'Example';
+      color: #222;
+      font-weight: bold;
+      position: absolute;
+      top: -2rem;
+      left: 0;
+    }
+  }
+}
