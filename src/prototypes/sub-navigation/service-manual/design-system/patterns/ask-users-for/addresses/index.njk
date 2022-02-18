@@ -5,5 +5,23 @@ version: 45.2.2
 layout: sub-navigation/views/_page
 ---
 {% block mainContent %}
+
+How to ask users for an address.
+
+## When to use this pattern
+Use this pattern when you need to collect an address from a user.
+
+## How to use this pattern
+There are three ways to collect an address from a user using the address input component. Addresses can be:
+
+selected from an address index using the non-editable variant and then confirmed
+selected from an address index and edited using the editable variant
+entered manually
+The non-editable and editable variants appear the same for the user until they select an address.
+
+## Non-editable addresses
+Use the non-editable variant of the address input component if you want the user to select their address from the ONS Address Index API.
+
+The user can enter part of their address to search the address index and select from the results. They will be able to edit the selected address, but the component’s client-side validation will prevent them from continuing.
+
 {% endblock %}
-+++
