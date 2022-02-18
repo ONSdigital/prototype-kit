@@ -104,6 +104,7 @@
     "@ons/design-system/45.2.1": "npm:@ons/design-system@45.2.1",
     "@ons/design-system/45.2.2": "npm:@ons/design-system@45.2.2",
     "add": "^2.0.6",
+    "iframe-resizer": "^4.3.2",
     "yarn": "^1.22.17"
   }
 }

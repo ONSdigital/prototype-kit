@@ -66,12 +66,25 @@ Do not remove. Required for dynamic generation of survey summary page
     margin-top: 2rem;
   }
 
-  .example {
+  .example,
+  .ds-example {
     padding: 16px 16px 0 16px;
     border: 1px solid $color-borders;
     margin: 3rem 0 2rem 0;
     position: relative;
 
+    iframe {
+      width: 100%;
+    }
+  }
+
+  .ds-example {
+    padding: 0;
+    margin-top: 2rem;
+    overflow: auto;
+  }
+
+  .example {
     &::before {
       content: 'Example';
       color: #222;
