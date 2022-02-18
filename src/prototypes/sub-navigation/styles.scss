@@ -74,6 +74,12 @@ Do not remove. Required for dynamic generation of survey summary page
     position: relative;
 
     iframe {
+      display: block;
+      max-width: 100%;
+      min-height: 60px;
+      min-width: 320px;
+      position: relative;
+      resize: both;
       width: 100%;
     }
   }

@@ -4,8 +4,51 @@ subgroup: Design guides
 version: 45.2.2
 layout: sub-navigation/views/_page
 ---
-+++
 {% block mainContent %}
-++++++
-{% endblock %}
+We have a set of default and regular templates in GovDelivery for official corporate emails. All external facing HTML emails should follow ONS branding. 
+
+There are also templates used for internal communications, such as newsletters, which have been adapted from the main ONS template.
+
 +++
+{% call onsPanel({
+    "type": "info",
+    "classes": "ons-u-mb-m"
+  })
+%}
+    Discuss your needs with the External Affairs team (contact details found on the intranet), who can set you up with a GovDelivery account if needed.
+{% endcall %}
++++
+<aside>
+
+</aside>
+
+# Designing HTML emails
+
+Email technology is supported differently across different email clients, and can result in an email displaying one way in Outlook and another in Gmail, for example. For this reason, it is best to keep things simple and not rely too much on images or complex layouts, as they may not look as intended.
+
+## Accessibility
+
+Litmus is a (paid for) tool you can use to test out emails on different clients and browsers. They have written a helpful [blogpost on creating accessible emails](https://www.litmus.com/blog/ultimate-guide-accessible-emails/). 
+
+If you want to read more about email accessibility, this [GitHub repo on email accessibility](https://github.com/wilbertheinen/accessible-email-documentation) has many links you can explore.
+
+## Layout and styling
+
+The main principle is the simpler, the better. Do not try to over-complicate the email design, the most important thing is to have clear content so your message lands with the audience. 
+
+- Keep content to one column ideally, around 600px wide. This makes it more straightforward when displaying on mobile.
+- You can use images to add visual interest, but don't rely on them – as well as not being accessible, they often fail on different email clients and browsers. Avoid using images of text where HTML could be used instead (which can be read by screen readers), and ensure your content still makes sense even if styling images don't display.
+- The ONS logo should be full colour and sit at the top left of the email on a white or very light background. The size should be around a third of the column width, no bigger.
+- We use a coloured bar with white text for the title and date of the email. The default ONS style is [Night blue](https://www.notion.so/Night-blue-15095696b8dc4940b029928234bdfb98), but other [brand colours](https://www.notion.so/Colours-9cd14589e0764e33a3b3c5a6762f37ae) can be used for internal emails or for specific cases, such as census.
+
+## Text
+
+Follow guidance on [accessible text formatting](https://www.notion.so/Accessible-text-formatting-b0e107a83973421aace7b66b3ac3c45b) for advice on how to format your content, such as writing simply, using a heading structure and left-aligning text.
+
+- Use font size 16pt or larger for body text and check it on mobile to ensure the text is large enough. GovDelivery templates are coded to adjust the text on mobile.
+- Ensure there is a way to view the email in a browser. Most email clients will have this option; in GovDelivery you can use the [VIEW_THIS_URL] macro.
+- We predominantly use Open Sans as our [primary typeface](https://www.notion.so/Typography-97f2f60558f040f7899eb28e5f1b932c), but for emails we use the [fallback Arial](https://www.notion.so/Typography-97f2f60558f040f7899eb28e5f1b932c) to avoid issues with it not displaying properly.
+
+# Examples
+<img src="https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fca4e3196-f434-41eb-b2a0-71e89e89dc14%2FEmail_template_generic.png?table=block&id=1404c68d-31a7-47a2-b092-621f5f71ceb3&spaceId=e868544e-408e-4f50-ba09-08d9bbabcb5c&width=2000&userId=8b4da379-b5f4-492b-9fd7-94c0454fd3f2&cache=v2" style="display: block; object-fit: cover; border-radius: 1px; width: 100%; pointer-events: auto;">
+{% endblock %}
