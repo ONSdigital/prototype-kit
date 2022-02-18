@@ -952,6 +952,11 @@
   resolved "https://registry.yarnpkg.com/@ons/design-system/-/design-system-45.2.1.tgz#15bf057224f532f038119f51c70a18fc806352e6"
   integrity sha512-cR1geaUnvgcLs70mc5FvtMva16n0f0VZYeJ7EKU507fm0h0f2kzZyCqe+45YMGb0YH3neCWVyi4v4Cm9H6en5Q==
 
+"@ons/design-system/45.2.2@npm:@ons/design-system@45.2.2":
+  version "45.2.2"
+  resolved "https://registry.yarnpkg.com/@ons/design-system/-/design-system-45.2.2.tgz#f7eb6cc8c6d50a49814fcaa1638b31be37751549"
+  integrity sha512-XNVV1LH0tbIwDqOy2txGSAAHGITJ1W9hqR5StSZW2b79SMMrjrH27KCYkuGBb3n2Pr8Lx2hBNDLOk+k5I/SE8w==
+
 "@ons/design-system@^21.1.0":
   version "21.1.0"
   resolved "https://registry.yarnpkg.com/@ons/design-system/-/design-system-21.1.0.tgz#504cb145b96b09588699a60321a86afe8d896205"
