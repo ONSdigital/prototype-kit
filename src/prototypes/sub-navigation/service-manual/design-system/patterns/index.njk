@@ -5,9 +5,9 @@ version: 45.2.2
 layout: sub-navigation/views/_page
 sortOrder: 4
 ---
-+++
+
 {% block mainContent %}
-+++
+
 
 <p>Patterns are a way to combine different components to help a user carry out a task. The task could be entering information, such as an address or phone number, or helping users download a file or correct an error.</p>
 
@@ -31,6 +31,6 @@ sortOrder: 4
         ]
     })
 }}
-<p>You are welcome to <a href="#0">contribute a new pattern or a change to an existing pattern</a>.</p>
+<p>You are welcome to <a href="{{ pageInfo.parent.url }}/contribute">contribute a new pattern or a change to an existing pattern</a>.</p>
 
 {% endblock %}

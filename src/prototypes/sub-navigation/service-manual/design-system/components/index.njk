@@ -5,17 +5,35 @@ version: 45.2.2
 layout: sub-navigation/views/_page
 sortOrder: 3
 ---
-+++
+
 {% block mainContent %}
-+++
 
-<p>Everything you need to get set up on the design system, and guidance on how to use it.</p>
+<p>Components are the building blocks for any user interface.</p>
 
-<p>Start your set-up by installing with npm to get the most up-to-date version of the design system. Then import the files and assets you need.</p>
+<p>Individual components can be used for various patterns and contexts. For example, the input component can be used to ask for an email address, a date or a name.</p>
 
-<p>The content and design guides will help you write and design for accessibility and consistency. They will also guide you on how to apply ONS house style correctly.</p>
-
-<p>If you need further help, or have any questions, you can email the Design System working group at ons.design.system@ons.gov.uk</p>
-
+<p>Each component has guidance on:</p>
+{{
+    onsList({
+        "itemsList": [
+            {
+                "text": 'when to use it'
+            },
+            {
+                "text": 'how to use it'
+            },
+            {
+                "text": 'variations you can use'
+            },
+            {
+                "text": 'how to check it for errors'
+            },
+            {
+                "text": 'user research done on it'
+            }
+        ]
+    })
+}}
+<p>You are welcome to <a href="{{ pageInfo.parent.url }}/contribute">contribute a new component or a change to an existing component</a>.</p>
 
 {% endblock %}
