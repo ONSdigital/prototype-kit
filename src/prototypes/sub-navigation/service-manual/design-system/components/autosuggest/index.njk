@@ -8,5 +8,73 @@ layout: sub-navigation/views/_page
    
 <p>Autosuggest is used to suggest options to users as they enter something into an input field. A user can select one of the suggestions or enter their own answer.</p>
 
+Autosuggest is used to suggest options to users as they enter something into an input field. A user can select one of the suggestions or enter their own answer.
+
+<div class="ds-example">
+  <iframe class="ons-patternlib-example__iframe ons-patternlib-example__iframe--resize" frameborder="0" src="https://ons-design-system.netlify.app/components/autosuggest/examples/autosuggest-country/" style="background-color: rgb(255, 255, 255); overflow: auto; height: 153px;" id="iFrameResizer0"></iframe>
+</div>
+
+## When to use this component
+Use the autosuggest component to help users select from a list of standard responses, for example, countries, languages or nationalities. You could also create your own list for the user to pick from.
+
+## How to use this component
+
+The list needs to be made available as a `.json` file. To query the list we use a JavaScript library called {{
+        onsExternalLink({
+            "url": "https://fusejs.io",
+            "linkText": "Fuse.js"
+        })
+    }}. You will need to provide the URL where the json file is stored using the `autosuggestData` parameter.
+
+
+### List formatting
+
+This code example shows how your json should be formatted. The `key` should be the language code that matches the `lang` attribute on the `<html>` element of the page.
+
++++
+{% from "components/code-highlight/_macro.njk" import onsCodeHighlight %}
+{{ onsCodeHighlight({
+"code": '[
+  {
+    "en": "England"
+  },
+  {
+    "en": "Wales"
+  },
+  {
+    "en": "Scotland"
+  },
+  {
+    "en": "Northern Ireland"
+  },
+]'
+}) }}
++++
+
+### Multiple suggestions
+
+You can configure the component to allow multiple suggestions by passing in the parameter `allowMultiple: "true"`.
+
+<div class="ds-example">
+  <iframe class="ons-patternlib-example__iframe ons-patternlib-example__iframe--resize" frameborder="0" src="https://ons-design-system.netlify.app/components/autosuggest/examples/autosuggest-country-multiple/" style="background-color: rgb(255, 255, 255); overflow: auto; height: 153px;" id="iFrameResizer1"></iframe>
+</div>
+
+## Research on this component
+The autosuggest component was tested between February and September 2020 during research for Census 2021. The following findings were reported:
+
+- some users would type a few characters and then pick from the drop-down that appeared, some just carried on typing the full name
+- confusion seen if users type the full name of a place which doesn’t appear in the drop-down list – they worry that the word they have typed isn’t valid. This could be a particular issues for job titles.
+- if users are able to type in 2 answers, for example, in Census 2021 they could type in two countries for passports, we needed to be more clear that they need to add a comma between entries, or to provide them with multiple boxes to type multiple answers.
+- users find autosuggest helpful if their spelling is poor
+
+## Help improve this component
+Let us know how we could improve this component or share your user research findings.
+{{
+    onsExternalLink({
+        "url": "https://github.com/ONSdigital/design-system/discussions/894",
+        "linkText": "Discuss the ‘Autosuggest’ component on GitHub"
+    })
+}}
+
 
 {% endblock %}
