@@ -1,0 +1,69 @@
+{% extends "./_master.njk" %}
+
+{% from "../components/header-navigation/_macro.njk" import onsHeaderNavigation %}
+{% from "components/lists/_macro.njk" import onsList %}
+{% from "components/table-of-contents/_macro.njk" import onsTableOfContents %}
+
+{% block pageContent %}
+
+    <div class="ons-page__container ons-container ons-container--wide">
+
+        <div class="ons-grid ons-grid--reverse">
+            <div class="ons-grid__col ons-col-9@m">
+                <main class="ons-page__main ons-u-mb-l" id="main-content" role="main">
+                    <h1 class="ons-u-fs-xxl ons-u-mt-l">
+                        <span class="ons-u-fs-m ons-u-db ons-u-mb-xs ons-u-lighter">{{ pageInfo.group.title }}</span>
+                        {{ pageInfo.title }}
+                    </h1>
+                    {% if pageInfo.anchorLinks %}
+                        <div class="ons-u-d-no@m">
+                            {% set items = [] %}
+                            {% set groups = helpers.subNavigationHelper({
+                                pageInfo: pageInfo,
+                                anchorLinks: pageInfo.anchorLinks
+                            }) %}
+                            {% for group in groups %}
+                                {% set items = group.items %}
+                            {% endfor %}
+                            {{
+                                onsTableOfContents({
+                                    "title": 'Contents',
+                                    "skipLink": {
+                                        "url": "#0",
+                                        "text": 'Skip to guide content'
+                                    },
+                                    "itemsList": items[1].anchors
+                                })
+                            }}
+                        </div>
+                    {% endif %}
+                    {% block mainContent %}{% endblock %}
+                </main>
+            </div>
+            <div class="ons-grid__col ons-col-3@m ons-u-mt-xl@m ons-u-mb-l{% if pageInfo.depth > 4 %} ons-u-d-no@xxs@m{% endif %}">
+                {% for group in helpers.subNavigationHelper({
+                    pageInfo: pageInfo,
+                    anchorLinks: pageInfo.anchorLinks
+                }) %}
+                    {% if group.title is defined and group.title %}
+                        <h3 class="ons-u-fs-r--b ons-u-mb-s">{{ group.title }}</h3>
+                    {% endif %}
+                    <div class="ons-u-mb-l">
+                        {{
+                            onsSectionNavigation({
+                                "variants": "vertical",
+                                "id": "section-navigation",
+                                "ariaLabel": "Sub menu",
+                                "ariaListLabel": "Child menu",
+                                "currentPath": pageInfo.url,
+                                "itemsList": group.items
+                            })
+                        }}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+
+    </div>
+
+{% endblock %}

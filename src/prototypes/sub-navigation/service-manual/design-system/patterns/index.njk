@@ -1,0 +1,36 @@
+---
+title: Patterns
+description: Combine components to help users carry out common tasks
+version: 45.2.2
+layout: sub-navigation/views/_page
+sortOrder: 4
+---
+
+{% block mainContent %}
+
+
+<p>Patterns are a way to combine different components to help a user carry out a task. The task could be entering information, such as an address or phone number, or helping users download a file or correct an error.</p>
+
+<p>Each pattern has guidance on:</p>
+
+{{
+    onsList({
+        "itemsList": [
+            {
+                "text": 'when to use it'
+            },
+            {
+                "text": 'how to use it'
+            },
+            {
+                "text": 'how to check it for errors'
+            },
+            {
+                "text": 'user research done on it'
+            }
+        ]
+    })
+}}
+<p>You are welcome to <a href="{{ pageInfo.parent.url }}/contribute">contribute a new pattern or a change to an existing pattern</a>.</p>
+
+{% endblock %}

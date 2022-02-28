@@ -1,0 +1,39 @@
+---
+title: Components
+description: Select the components you need to build your digital product
+version: 45.2.2
+layout: sub-navigation/views/_page
+sortOrder: 3
+---
+
+{% block mainContent %}
+
+<p>Components are the building blocks for any user interface.</p>
+
+<p>Individual components can be used for various patterns and contexts. For example, the input component can be used to ask for an email address, a date or a name.</p>
+
+<p>Each component has guidance on:</p>
+{{
+    onsList({
+        "itemsList": [
+            {
+                "text": 'when to use it'
+            },
+            {
+                "text": 'how to use it'
+            },
+            {
+                "text": 'variations you can use'
+            },
+            {
+                "text": 'how to check it for errors'
+            },
+            {
+                "text": 'user research done on it'
+            }
+        ]
+    })
+}}
+<p>You are welcome to <a href="{{ pageInfo.parent.url }}/contribute">contribute a new component or a change to an existing component</a>.</p>
+
+{% endblock %}

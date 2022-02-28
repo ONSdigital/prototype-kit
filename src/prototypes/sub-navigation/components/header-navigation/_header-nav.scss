@@ -1,0 +1,120 @@
+.proto-ons-header-nav {
+  position: relative;
+  &--secondary {
+    background: $color-branded-tint;
+    padding-top: 0.5rem;
+  }
+
+  &--secondary-mobile {
+    border-bottom: 4px solid $color-branded-tint;
+  }
+
+  &__list {
+    list-style: none;
+    margin: 0;
+    padding: 0 0 0.5rem;
+    @include mq(m) {
+      padding: 0;
+    }
+  }
+
+  &__item {
+    display: block;
+    margin: 0 0 0.2rem;
+    border-left: 4px solid transparent;
+    &--active {
+      border-color: $color-white;
+    }
+
+    .proto-ons-header-nav--secondary-mobile & {
+      &--active {
+        border-color: $color-branded;
+        li {
+          border: 0;
+        }
+      }
+    }
+
+    @include mq(m) {
+      border-bottom: 4px solid transparent;
+      border-left: 0;
+      display: inline-block;
+      margin: 0 0 0 1rem;
+      padding: 0 0 0.3rem;
+      position: relative;
+      text-align: center;
+
+      &:first-child {
+        margin-left: 0;
+      }
+
+      &:hover,
+      &--active {
+        border-color: $color-white;
+      }
+
+      .proto-ons-header-nav--secondary & {
+        &:hover,
+        &--active {
+          border-color: $color-text-link;
+        }
+      }
+    }
+  }
+
+  &__link {
+    color: $color-white;
+    display: block;
+    margin: 0 0.35rem;
+    padding: 0.1rem 0.65rem;
+    text-decoration: none;
+
+    &--section {
+      margin: 0;
+      padding: 0;
+    }
+
+    &:hover,
+    &:focus {
+      color: $color-white;
+      text-decoration: none;
+    }
+
+    .proto-ons-header-nav--secondary &,
+    .proto-ons-header-nav--secondary-mobile & {
+      color: $color-text-link;
+      &:hover,
+      &:focus {
+        color: $color-text-link;
+      }
+    }
+
+    @include mq(m) {
+      display: inline-block;
+      font-size: 1rem;
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+  &__item--active > &__link {
+    font-weight: 700;
+  }
+}
+
+.ons-header-service-nav {
+  &__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__item {
+    display: inline-block;
+    margin: 0 0 0 1rem;
+
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+}

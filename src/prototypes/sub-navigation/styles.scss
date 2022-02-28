@@ -1,0 +1,103 @@
+/***********************************************************************
+Update the version in the path below to the version being used
+***********************************************************************/
+@import '../../../node_modules/@ons/design-system/45.2.2/scss/vars/_index.scss';
+@import '../../../node_modules/@ons/design-system/45.2.2/scss/helpers/_index.scss';
+@import '../../../node_modules/@ons/design-system/45.2.2/scss/utilities/_index.scss';
+
+/***********************************************************************
+Do not remove. Required for dynamic generation of survey summary page
+***********************************************************************/
+.ons-summary__item:not(:last-child) {
+  border-bottom: 1px solid $color-borders !important;
+}
+
+.js-summary {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+}
+/***********************************************************************/
+/***********************************************************************/
+
+@import 'components/header-navigation/header-nav';
+@import 'components/hero/hero';
+
+.proto-ons-secondary-btn {
+  width: 100%;
+
+  &.active {
+    .ons-btn__inner {
+      background: $color-branded-secondary;
+    }
+  }
+  .ons-btn__inner {
+    color: $color-text-link;
+    background: $color-branded-tint;
+    border-radius: 0;
+    box-shadow: none;
+    border: none;
+    display: block;
+    text-align: left;
+    padding: 0.6rem 1rem;
+    font-weight: normal;
+    font-size: 1rem;
+
+    .ons-svg-icon {
+      fill: $color-text-link;
+      float: right;
+      margin-top: 3px;
+    }
+  }
+}
+
+.ons-toc {
+  &-container {
+    border-bottom: 1px solid $color-grey-35;
+  }
+}
+
+.ons-page__main {
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-top: 2rem;
+  }
+
+  .example,
+  .ds-example {
+    padding: 16px 16px 0 16px;
+    border: 1px solid $color-borders;
+    margin: 3rem 0 2rem 0;
+    position: relative;
+
+    iframe {
+      display: block;
+      max-width: 100%;
+      min-height: 60px;
+      min-width: 320px;
+      position: relative;
+      resize: both;
+      width: 100%;
+    }
+  }
+
+  .ds-example {
+    padding: 0;
+    margin-top: 2rem;
+    overflow: auto;
+  }
+
+  .example {
+    &::before {
+      content: 'Example';
+      color: #222;
+      font-weight: bold;
+      position: absolute;
+      top: -2rem;
+      left: 0;
+    }
+  }
+}

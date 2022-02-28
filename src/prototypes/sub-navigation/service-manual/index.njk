@@ -1,0 +1,45 @@
+---
+version: 45.2.2
+layout: sub-navigation/views/_master
+hideSubnav: true
+---
++++
+{% block pageContent %}
+
+    {% block main %}
+
+        {{
+            onsHero({
+                "wide": true,
+                "title": 'Design and build services for the ONS',
+                "text": 'Our service manual helps you build accessible and consistent services using user-centred research combined from teams across the ONS'
+            })
+        }}
+
+        {% from "components/card/_macro.njk" import onsCard %}
+        <div class="ons-container ons-container--wide">
+
+            <div class="ons-grid ons-grid--column@xxs@s ons-u-mt-l">
+                {% set cards = helpers.navigationHelper({ 
+                    "pages": pageInfo.children
+                }) %}
+                {% for card in cards %}
+                    <div class="ons-grid__col ons-col-4@m ons-u-mb-m@m">
+                        {{ onsCard({
+                            "id": 'title' + loop.index,
+                            "textId": 'text-' + loop.index,
+                            "title": card.title,
+                            "url": card.url,
+                            "text": card.description
+                        }) }}
+                    </div>
+                {% endfor %}
+            </div>
+
+        </div>
+
+    {% endblock %}
+
+
+{% endblock %}
++++

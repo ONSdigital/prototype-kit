@@ -1,0 +1,93 @@
+{% extends "layout/_template.njk" %}
+
+{% from "../components/header-navigation/_macro.njk" import onsHeaderNavigation %}
+{% from "components/lists/_macro.njk" import onsList %}
+{% from "components/input/_macro.njk" import onsInput %}
+{% from "components/button/_macro.njk" import onsButton %}
+{% from "../components/hero/_macro.njk" import onsHero %}
+{% from "components/section-navigation/_macro.njk" import onsSectionNavigation %}
+{% from "components/external-link/_macro.njk" import onsExternalLink %}
+{% from "components/panel/_macro.njk" import onsPanel %}
+
+{% set pageConfig = {
+    "wide": 'true',
+    "footer": {
+        "OGLLink": {
+            "pre": 'All content is available under the',
+            "link": 'Open Government Licence v3.0',
+            "url": 'https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/',
+            "post": ', except where otherwise stated'
+        }
+    }
+} %}
+
+{% set subNavClasses = 'ons-u-d-no' if page.hideSubnav == true %}
+
+{% block head %}
+    <link rel="stylesheet" href="/prototypes/sub-navigation/styles.css" />
+{% endblock %}
+
+{% block header %}
+    {% block headerMain %}
+        {% include "./partials/_header-main.njk" %}
+    {% endblock %}
+    {% block headerNav %}
+    {% set overiewURL = pageInfo.parent.parent.url if pageInfo.depth == 5 else pageInfo.parent.url %}
+        {{
+            onsHeaderNavigation({
+                "wide": true,
+                "navigation": {
+                    "id": 'main-nav',
+                    "ariaLabel": 'Main menu',
+                    "ariaListLabel": 'Navigation menu',
+                    "siteBasePath": pageInfo.rootPath + '/service-manual/',
+                    "currentPath": pageInfo.url,
+                    "currentPage": pageInfo.parent.parent.title if pageInfo.depth == 5 else pageInfo.parent.title,
+                    "itemsList": helpers.navigationHelper({
+                        "pages": prototypeListing,
+                        "pageInfo": pageInfo,
+                        "type": "main"
+                    })
+                },
+                "secondaryNavigation": {
+                    "classes": subNavClasses,
+                    "id": 'main-nav',
+                    "ariaLabel": 'Main menu',
+                    "ariaListLabel": 'Navigation menu',
+                    "currentPath": pageInfo.url,
+                    "overiewURL": overiewURL,
+                    "itemsList": helpers.navigationHelper({
+                        "pages": prototypeListing,
+                        "pageInfo": pageInfo,
+                        "type": "secondary"
+                    })
+                },
+                "autosuggest": {
+                    "label": "Search the service manual",
+                    "instructions": "Use up and down keys to navigate results once you\'ve typed more than two characters. Use the enter key to select a result. Touch device users, explore by touch or with swipe gestures.",
+                    "ariaYouHaveSelected": "You have selected",
+                    "ariaMinChars": "Enter 3 or more characters for results.",
+                    "ariaResultsLabel": "Search results",
+                    "ariaOneResult": "There is one result available.",
+                    "ariaNResults": "There are {n} results available.",
+                    "ariaLimitedResults": "Results have been limited to 10 results. Type more characters to improve your search",
+                    "moreResults": "Continue entering to improve results",
+                    "resultsTitle": "Search results",
+                    "autosuggestData": "/search-index.json",
+                    "noResults": "No results found",
+                    "typeMore": "Continue entering to get results"
+                }
+            })
+        }}
+    {% endblock %}
+{% endblock %}
+
+{% block preMain %}
+{% endblock %}
+
+{% block pageContent %}
+{% endblock %}
+
+{% block bodyEnd %}
+    <script src="/prototypes/sub-navigation/index.js"></script>
+{% endblock %}
