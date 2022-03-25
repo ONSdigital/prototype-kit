@@ -21,15 +21,15 @@ npx -p github:ONSdigital/prototype-kit create-prototype <your-project-name>
 To preview the example prototype:
 
 ```bash
-cd <your-fork-name>
+cd <your-project-name>
 yarn start
 ```
 
 Once a GitHub repository has been created; your local project can be pushed:
 
 ```bash
-cd <your-fork-name>
-git remote set-url origin https://github.com/ONSdigital/<your-fork-name>
+cd <your-project-name>
+git remote set-url origin https://github.com/ONSdigital/<your-project-name>
 git remote add upstream https://github.com/ONSdigital/prototype-kit
 git push origin master
 git push --all
