@@ -10,12 +10,24 @@ You'll need [Git](https://help.github.com/articles/set-up-git/), [Node.js](https
 
 The version of node required is outlined in [.nvmrc](./.nvmrc).
 
-### Forking
+### Creating a prototype kit project
 
-Before using this kit please fork it (from <https://github.com/ONSdigital/prototype-kit>) for your individual team. (Note: GitHub does not allow forking of your own repositories so this is the closest possible way of doing it)
+The prototype kit provides a command to setup a new prototype kit project which can be ran using the `npx` tool that ships with Node.js:
 
 ```bash
-git clone https://github.com/ONSdigital/prototype-kit <your-fork-name>
+npx -p github:ONSdigital/prototype-kit create-prototype <your-project-name>
+```
+
+To preview the example prototype:
+
+```bash
+cd <your-fork-name>
+yarn start
+```
+
+Once a GitHub repository has been created; your local project can be pushed:
+
+```bash
 cd <your-fork-name>
 git remote set-url origin https://github.com/ONSdigital/<your-fork-name>
 git remote add upstream https://github.com/ONSdigital/prototype-kit
@@ -91,7 +103,6 @@ For example:
 
 ```
 ---
-version: 8.0.1
 title: My Prototype
 group: Components
 ---
@@ -99,7 +110,7 @@ group: Components
 
 | Property | Mandatory | Description                                                                                                                                                                                                                      |
 | -------- | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| version  | true      | Defines what version of the design system you would like to use. This needs to be set on every page                                                                                                                              |
+| version  | false     | Defines the specific version of the design system you would like to use.                                                                                                                                                         |
 | title    | true      | The name for your prototype. This will appear in the prototype kit's index page, and if you have not set `page.title` it will set the title in the header of your prototype. This is only mandatory on in your `index.njk` file. |
 | group    | false     | Sets the group your prototype should appear in in the prototype kit's index page. You only need to set this in your `index.njk` file                                                                                             |
 
