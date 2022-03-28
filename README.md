@@ -25,8 +25,9 @@ cd <your-project-name>
 yarn start
 ```
 
-Once a GitHub repository has been created; your local project can be pushed:
+Once you have created an empty GitHub repository with the same project name; your local project can be pushed:
 
+For example:
 ```bash
 cd <your-project-name>
 git remote set-url origin https://github.com/ONSdigital/<your-project-name>
