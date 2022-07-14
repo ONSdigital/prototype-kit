@@ -10,6 +10,14 @@ You'll need [Git](https://help.github.com/articles/set-up-git/), [Node.js](https
 
 The version of node required is outlined in [.nvmrc](./.nvmrc).
 
+### Local git configuration
+
+Make sure your local git configuration is set up to use `main` as the default branch when initialising a new repository.
+
+```bash
+git config --global init.defaultBranch main
+```
+
 ### Creating a prototype kit project
 
 The prototype kit provides a command to setup a new prototype kit project which can be ran using the `npx` tool that ships with Node.js:
@@ -32,7 +40,7 @@ For example:
 cd <your-project-name>
 git remote set-url origin https://github.com/ONSdigital/<your-project-name>
 git remote add upstream https://github.com/ONSdigital/prototype-kit
-git push origin master
+git push origin main
 git push --all
 ```
 
