@@ -1,6 +1,5 @@
 ---
 group: Examples
-version: 45.1.3
 layout: example/views/_master
 ---
 {% from "components/button/_macro.njk" import onsButton %}
@@ -33,8 +32,9 @@ layout: example/views/_master
 
     <p class="ons-u-mt-l">By submitting this study you are confirming that, to the best of your knowledge and belief, the details provided are correct.</p>
 
-    {{ onsButton({
-        "text": 'Submit study'
+    {{
+        onsButton({
+            "text": 'Submit study'
         })
     }}
 {% endblock %}
