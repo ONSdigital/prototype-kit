@@ -22,7 +22,7 @@ git config --global init.defaultBranch main
 
 1. [Create a new repository for your prototypes using the prototype-kit template on GitHub](https://github.com/ONSdigital/prototype-kit-template/generate)
 
-2. Clone your new project locally.
+2. [Clone the code of your new repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository) to a new folder on your device, so you can start building your prototypes.
 
 3. Install the latest version of the [design system](https://ons-design-system.netlify.com/):
 
