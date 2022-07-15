@@ -20,12 +20,13 @@ git config --global init.defaultBranch main
 
 ### Creating a prototype kit project
 
-1. [Create a new prototype-kit project on GitHub](https://github.com/ONSdigital/prototype-kit-template/generate)
+1. [Create a new repository for your prototypes using the prototype-kit template on GitHub](https://github.com/ONSdigital/prototype-kit-template/generate)
 
 2. Clone your new project locally.
 
 3. Install the latest version of the [design system]():
 
+In the terminal:
    ```bash
    yarn add @ons/design-system
    ```
