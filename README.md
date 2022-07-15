@@ -24,7 +24,7 @@ git config --global init.defaultBranch main
 
 2. Clone your new project locally.
 
-3. Install the latest version of the [design system]():
+3. Install the latest version of the [design system](https://ons-design-system.netlify.com/):
 
 In the terminal:
    ```bash
