@@ -12,12 +12,6 @@
     "lint-staged": "lint-staged",
     "dedupe-deps": "npx yarn-deduplicate yarn.lock && yarn"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged",
-      "post-checkout": "yarn check"
-    }
-  },
   "lint-staged": {
     "*.scss": [
       "prettier --print-width 140 --single-quote --parser postcss --write",
@@ -35,15 +29,15 @@
     ]
   },
   "dependencies": {
-    "@rollup/plugin-node-resolve": "^13.1.3",
-    "autoprefixer": "^9.4.7",
-    "babel-eslint": "^10.0.1",
+    "autoprefixer": "^10.4.16",
+    "@babel/core": "^7.14.6",
+    "@babel/eslint-parser": "^7.22.9",
     "babelify": "^10.0.0",
     "browser-sync": "^2.27.7",
-    "cssnano": "^4.1.8",
+    "cssnano": "^6.0.1",
     "express": "^4.17.3",
     "front-matter": "^4.0.2",
-    "glob": "^7.1.3",
+    "glob": "^10.3.10",
     "gulp": "^4.0.2",
     "gulp-dart-sass": "^1.0.2",
     "gulp-if": "^3.0.0",
@@ -55,25 +49,26 @@
     "normalize.css": "^8.0.1",
     "nunjucks": "^3.2.4",
     "postcss": "^8.4.31",
-    "postcss-mq-optimize": "^1.1.0",
-    "postcss-url": "^8.0.0",
+    "postcss-mq-optimize": "^2.0.1",
+    "postcss-url": "^10.1.3",
     "querystring-helpers": "^1.0.2",
-    "rollup": "^2.67.2",
-    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup": "^4.9.0",
+    "@rollup/plugin-commonjs": "^25.0.7",
+    "@rollup/plugin-node-resolve": "^15.2.3",
     "watchify": "^4.0.0"
   },
   "devDependencies": {
-    "eslint": "^5.13.0",
+    "eslint": "^8.0.0",
     "eslint-cli": "^1.1.1",
-    "eslint-config-prettier": "^4.0.0",
-    "eslint-plugin-prettier": "^3.0.1",
-    "husky": "^1.3.1",
-    "lint-staged": "^8.1.3",
-    "prettier": "^1.16.4",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.0.1",
+    "husky": "^8.0.3",
+    "lint-staged": "^15.2.0",
+    "prettier": "^3.1.1",
     "pretty": "^2.0.0",
-    "remark": "^10.0.1",
-    "remark-cli": "^6.0.1",
-    "remark-lint": "^6.0.4",
-    "remark-preset-lint-recommended": "^3.0.2"
+    "remark": "^15.0.1",
+    "remark-cli": "^12.0.0",
+    "remark-lint": "^9.1.2",
+    "remark-preset-lint-recommended": "^6.1.3"
   }
 }

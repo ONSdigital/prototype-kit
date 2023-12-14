@@ -3,3 +3,6 @@ build/
 *.log
 .DS_store
 coverage/
+.husky/pre-push
+.husky/post-commit
+.husky/post-merge
