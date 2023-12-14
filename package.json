@@ -14,18 +14,15 @@
   },
   "lint-staged": {
     "*.scss": [
-      "prettier --print-width 140 --single-quote --parser postcss --write",
-      "git add"
+      "prettier --print-width 140 --single-quote --parser postcss --write"
     ],
     "*.js": [
       "prettier --print-width 140 --single-quote --parser babylon --write",
-      "eslint",
-      "git add"
+      "eslint"
     ],
     "*.md": [
       "prettier --write",
-      "remark",
-      "git add"
+      "remark"
     ]
   },
   "dependencies": {
