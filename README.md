@@ -28,9 +28,9 @@ git config --global init.defaultBranch main
 
    In the terminal:
 
-```bash
-yarn add @ons/design-system
-```
+   ```bash
+   yarn add @ons/design-system
+   ```
 
 4. Review [README](https://github.com/ONSdigital/prototype-kit#readme) for further information on how to use the new prototype-kit project.
 
