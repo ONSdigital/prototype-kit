@@ -25,8 +25,7 @@ git config --global init.defaultBranch main
 2. [Clone the code of your new repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository) to a new folder on your device, so you can start building your prototypes.
 
 3. Install the latest version of the [design system](https://ons-design-system.netlify.com/):
-
-In the terminal:
+   In the terminal:
 
 ```bash
 yarn add @ons/design-system
@@ -57,7 +56,7 @@ yarn install
 
 To make changes available to be used in prototype repos you will need to create a new github tag. To do this in the command line run:
 
-```
+```bash
 git tag <tag-name>
 git push origin --tags
 ```
