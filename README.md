@@ -26,7 +26,8 @@ git config --global init.defaultBranch main
 
 3. Install the latest version of the [design system](https://ons-design-system.netlify.com/):
 
-In the terminal:
+   In the terminal:
+
    ```bash
    yarn add @ons/design-system
    ```
@@ -51,3 +52,14 @@ The nvm listed above is only for Mac/Linux users. A separate version of nvm is a
 ```bash
 yarn install
 ```
+
+### Release Process
+
+To make changes available to be used in prototype repos you will need to create a new github tag. To do this in the command line run:
+
+```bash
+git tag <tag-name>
+git push origin --tags
+```
+
+Then in the repo that uses the prototype kit this will need to be updated to reflect that new tag.
