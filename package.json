@@ -18,7 +18,7 @@
     ],
     "*.js": [
       "prettier --print-width 140 --single-quote --parser babel --write",
-      "eslint"
+      "eslint --fix"
     ],
     "*.md": [
       "prettier --write",
