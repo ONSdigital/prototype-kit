@@ -1,5 +1,5 @@
 import browserSync from 'browser-sync';
-import glob from 'glob';
+import { glob } from 'glob';
 import gulpIf from 'gulp-if';
 import gulpPostCss from 'gulp-postcss';
 import gulpDartSass from 'gulp-dart-sass';
