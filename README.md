@@ -25,6 +25,7 @@ git config --global init.defaultBranch main
 2. [Clone the code of your new repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository) to a new folder on your device, so you can start building your prototypes.
 
 3. Install the latest version of the [design system](https://ons-design-system.netlify.com/):
+
    In the terminal:
 
 ```bash
