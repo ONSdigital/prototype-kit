@@ -1,6 +1,6 @@
 {
   "name": "@ons/prototype-kit",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "type": "module",
   "main": "index.js",
   "license": "MIT",
@@ -17,8 +17,8 @@
       "prettier --print-width 140 --single-quote --parser postcss --write"
     ],
     "*.js": [
-      "prettier --print-width 140 --single-quote --parser babylon --write",
-      "eslint"
+      "prettier --print-width 140 --single-quote --parser babel --write",
+      "eslint --fix"
     ],
     "*.md": [
       "prettier --write",
@@ -33,6 +33,7 @@
     "browser-sync": "^2.27.7",
     "cssnano": "^6.0.1",
     "express": "^4.17.3",
+    "eslint": "^8.0.0",
     "front-matter": "^4.0.2",
     "glob": "^10.3.10",
     "gulp": "^4.0.2",
@@ -55,7 +56,6 @@
     "watchify": "^4.0.0"
   },
   "devDependencies": {
-    "eslint": "^8.0.0",
     "eslint-cli": "^1.1.1",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.0.1",
