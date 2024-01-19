@@ -1,5 +1,4 @@
 import browserSync from 'browser-sync';
-import browserify from 'browserify';
 import glob from 'glob';
 import gulpIf from 'gulp-if';
 import gulpPostCss from 'gulp-postcss';
@@ -10,7 +9,7 @@ import merge from 'merge-stream';
 import path from 'path';
 import * as rollup from 'rollup';
 import { nodeResolve as rollupNodeResolve } from '@rollup/plugin-node-resolve';
-import rollupCommonJS from 'rollup-plugin-commonjs';
+import rollupCommonJS from '@rollup/plugin-commonjs';
 
 import nunjucksRendererPipe from './lib/rendering/nunjucks-renderer-pipe.js';
 import postCssPlugins from './postcss.config.js';
@@ -20,19 +19,13 @@ function setupGulpTasks(gulp) {
   const isProduction = process.env.NODE_ENV === 'production';
   const isDevelopment = !isProduction;
 
-  const terserOptions = {
-    compress: {
-      drop_console: true
-    }
-  };
-
   const sassOptions = {
-    includePaths: ['./node_modules/normalize.css', './node_modules/prismjs/themes']
+    includePaths: ['./node_modules/normalize.css', './node_modules/prismjs/themes'],
   };
 
-  const scripts = glob.sync('./src/prototypes/**/index.js').map(entryPoint => ({
+  const scripts = glob.sync('./src/prototypes/**/index.js').map((entryPoint) => ({
     entryPoint: entryPoint,
-    outputFile: entryPoint.replace(/.*src\//, '')
+    outputFile: entryPoint.replace(/.*src\//, ''),
   }));
 
   gulp.task('prototype-kit:clean', () => {
@@ -47,16 +40,16 @@ function setupGulpTasks(gulp) {
         plugins: [
           rollupNodeResolve(),
           rollupCommonJS({
-            include: /node_modules/
-          })
-        ]
+            include: /node_modules/,
+          }),
+        ],
       });
 
       await bundle.write({
         file: `./build/${outputFile}`,
         format: 'cjs',
         name: path.basename(outputFile),
-        sourcemap: true
+        sourcemap: true,
       });
     });
     return taskName;
@@ -76,18 +69,11 @@ function setupGulpTasks(gulp) {
   });
 
   gulp.task('prototype-kit:build-svg', () => {
-    return gulp
-      .src('./src/**/*.svg')
-      .pipe(gulpSvg(svgConfig))
-      .pipe(gulp.dest('./build'))
-      .pipe(browserSync.stream());
+    return gulp.src('./src/**/*.svg').pipe(gulpSvg(svgConfig)).pipe(gulp.dest('./build')).pipe(browserSync.stream());
   });
 
   gulp.task('prototype-kit:build-pages', () => {
-    return gulp
-      .src(['./src/**/*.njk', '!**/_*/**'])
-      .pipe(nunjucksRendererPipe)
-      .pipe(gulp.dest('./build'));
+    return gulp.src(['./src/**/*.njk', '!**/_*/**']).pipe(nunjucksRendererPipe).pipe(gulp.dest('./build'));
   });
 
   gulp.task('prototype-kit:copy-design-system-files', () => {
@@ -97,7 +83,7 @@ function setupGulpTasks(gulp) {
       gulp.src('./node_modules/@ons/design-system/favicons/**/*').pipe(gulp.dest('./build/favicons')),
       gulp.src('./node_modules/@ons/design-system/fonts/**/*').pipe(gulp.dest('./build/fonts')),
       gulp.src('./node_modules/@ons/design-system/img/**/*').pipe(gulp.dest('./build/img')),
-      gulp.src('./node_modules/@ons/design-system/scripts/**/*').pipe(gulp.dest('./build/scripts'))
+      gulp.src('./node_modules/@ons/design-system/scripts/**/*').pipe(gulp.dest('./build/scripts')),
     ]);
   });
 
@@ -107,7 +93,7 @@ function setupGulpTasks(gulp) {
 
   gulp.task('prototype-kit:watch-and-build', async () => {
     browserSync.init({
-      proxy: 'localhost:3010'
+      proxy: 'localhost:3010',
     });
 
     gulp.watch('./src/**/*.njk').on('change', browserSync.reload);
@@ -126,13 +112,13 @@ function setupGulpTasks(gulp) {
       'prototype-kit:copy-design-system-files',
       'prototype-kit:build-script',
       'prototype-kit:build-styles',
-      'prototype-kit:build-svg'
-    )
+      'prototype-kit:build-svg',
+    ),
   );
 
   gulp.task(
     'prototype-kit:start',
-    gulp.series('prototype-kit:build-assets', 'prototype-kit:watch-and-build', 'prototype-kit:start-dev-server')
+    gulp.series('prototype-kit:build-assets', 'prototype-kit:watch-and-build', 'prototype-kit:start-dev-server'),
   );
   gulp.task('prototype-kit:watch', gulp.series('prototype-kit:watch-and-build', 'prototype-kit:start-dev-server'));
   gulp.task('prototype-kit:build', gulp.series('prototype-kit:build-assets', 'prototype-kit:build-pages'));

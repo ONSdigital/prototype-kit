@@ -1,5 +1,5 @@
 {
-  "parser": "babel-eslint",
+  "parser": "@babel/eslint-parser",
   "plugins": ["prettier"],
   "extends": ["prettier"],
   "env": {
@@ -10,6 +10,9 @@
     "jQuery": true,
     "browser": true,
     "ga": true
+  },
+  "parserOptions": {
+    "requireConfigFile": false
   },
   "rules": {
     "no-unused-vars": [1],

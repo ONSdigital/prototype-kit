@@ -17,7 +17,7 @@
       "prettier --print-width 140 --single-quote --parser postcss --write"
     ],
     "*.js": [
-      "prettier --print-width 140 --single-quote --parser babylon --write",
+      "prettier --print-width 140 --single-quote --parser babel --write",
       "eslint"
     ],
     "*.md": [
