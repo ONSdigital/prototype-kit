@@ -114,7 +114,7 @@ class QuestionManager {
             }
 
             if (abbrElement) {
-              value = input.value + ' ' + label;
+              value = input.value;
             } else {
               switch (input.type) {
                 case 'checkbox':
