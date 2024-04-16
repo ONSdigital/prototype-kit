@@ -73,7 +73,7 @@ export default class SummaryManager {
           }
         }
 
-        if (answers.length > 3 || question.inputs.find(input => input.checked === true)) {
+        if (answers.length > 3 || question.inputs.find(input => input.checked === true) || question.multipleLineAnswer) {
           joinString = '<br>';
         } else {
           joinString = ' ';
