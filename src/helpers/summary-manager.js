@@ -88,8 +88,8 @@ export default class SummaryManager {
         }
 
         const row = {
-          rowTitle: question.title,
-          rowItems: [
+          title: question.title,
+          itemsList: [
             {
               valueList: [value],
               actions: [
@@ -112,13 +112,13 @@ export default class SummaryManager {
       this.html.push(
         '<div class="ons-summary__item">' + 
         '<dt class="ons-summary__item-title">' +
-          `<div class="ons-summary__item--text">${row.rowTitle}</div>` +
+          `<div class="ons-summary__item--text">${row.title}</div>` +
         '</dt>' +
         '<dd class="ons-summary__values">' + 
-          `<span class="ons-summary__text">${row.rowItems[0].valueList[0].text}</span>`+
+          `<span class="ons-summary__text">${row.itemsList[0].valueList[0].text}</span>`+
         '</dd>' +
         '<dd class="ons-summary__actions">' +
-          `<a href="${row.rowItems[0].actions[0].url}" class="ons-summary__button" aria-label="Change answer">Change</a>` +
+          `<a href="${row.itemsList[0].actions[0].url}" class="ons-summary__button" aria-label="Change answer">Change</a>` +
         '</dd>'+
       '</div>'  
       );
