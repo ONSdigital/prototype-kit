@@ -133,7 +133,7 @@ export default class SummaryManager {
     });
 
     const tableHeader =
-     '<div class="ons-summary__item ons-u-vh"> <dt>' + 'Question' + '/dt' + '<dd>Answer given</dd>' + '<dd>Change answer</dd>' + '</div>';
+      '<div class="ons-summary__item ons-u-vh"> <dt>' + 'Question' + '/dt' + '<dd>Answer given</dd>' + '<dd>Change answer</dd>' + '</div>';
 
     this.placeholder.insertAdjacentHTML('afterBegin', tableHeader);
   }
