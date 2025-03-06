@@ -110,7 +110,7 @@ export default class SummaryManager {
   generateHTML() {
     this.config.forEach(row => {
       this.html.push(
-        '<div class="ons-summary__item">' + 
+        '<div class="ons-summary__item">' +
         '<dt class="ons-summary__item-title">' +
           `<div class="ons-summary__item--text">${row.title}</div>` +
         '</dt>' +
