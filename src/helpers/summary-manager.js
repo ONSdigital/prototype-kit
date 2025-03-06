@@ -114,7 +114,7 @@ export default class SummaryManager {
         '<dt class="ons-summary__item-title">' +
           `<div class="ons-summary__item--text">${row.title}</div>` +
         '</dt>' +
-        '<dd class="ons-summary__values">' + 
+        '<dd class="ons-summary__values">' +
           `<span class="ons-summary__text">${row.itemsList[0].valueList[0].text}</span>`+
         '</dd>' +
         '<dd class="ons-summary__actions">' +
