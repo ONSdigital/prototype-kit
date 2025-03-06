@@ -120,7 +120,7 @@ export default class SummaryManager {
         '<dd class="ons-summary__actions">' +
           `<a href="${row.itemsList[0].actions[0].url}" class="ons-summary__button" aria-label="Change answer">Change</a>` +
         '</dd>'+
-      '</div>'  
+      '</div>'
       );
     });
     return this.html;
