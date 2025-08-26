@@ -22,6 +22,7 @@ class QuestionManager {
 
     this.form = document.getElementsByTagName('FORM')[0];
     this.hideFromSummary = this.form.classList.contains('js-question-no-summary');
+    this.multipleLineAnswer = this.form.classList.contains('js-multiple-line-answer');
     this.actionChangingInputs = [...this.form.querySelectorAll('input[data-action-url]')];
 
     const legend = document.querySelector('.ons-fieldset__legend-title ');
@@ -91,7 +92,8 @@ class QuestionManager {
             previousURL: this.previousURL,
             originalPreviousURL: this.originalPreviousURL,
             url: this.url,
-            hideFromSummary: this.hideFromSummary
+            hideFromSummary: this.hideFromSummary,
+            multipleLineAnswer: this.multipleLineAnswer
           };
 
           let action, originalAction;
@@ -112,7 +114,7 @@ class QuestionManager {
             }
 
             if (abbrElement) {
-              value = input.value + ' ' + label;
+              value = input.value;
             } else {
               switch (input.type) {
                 case 'checkbox':
