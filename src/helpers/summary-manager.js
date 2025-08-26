@@ -73,7 +73,7 @@ export default class SummaryManager {
           }
         }
 
-        if (answers.length > 3 || question.inputs.find(input => input.checked === true)) {
+        if (answers.length > 3 || question.inputs.find(input => input.checked === true) || question.multipleLineAnswer) {
           joinString = '<br>';
         } else {
           joinString = ' ';
@@ -88,8 +88,8 @@ export default class SummaryManager {
         }
 
         const row = {
-          rowTitle: question.title,
-          rowItems: [
+          title: question.title,
+          itemsList: [
             {
               valueList: [value],
               actions: [
@@ -110,17 +110,17 @@ export default class SummaryManager {
   generateHTML() {
     this.config.forEach(row => {
       this.html.push(
-        '<tbody class="ons-summary__item">' +
-          '<tr class="ons-summary__row ons-summary__row--has-values">' +
-          '<td class="ons-summary__item-title">' +
-          `<div class="ons-summary__item--text">${row.rowTitle}</div>` +
-          '</td>' +
-          `<td class="ons-summary__values">${row.rowItems[0].valueList[0].text}</td>` +
-          '<td class="ons-summary__actions">' +
-          `<a href="${row.rowItems[0].actions[0].url}" class="ons-summary__button" aria-label="Change answer">Change</a>` +
-          '</td>' +
-          '</tr>' +
-          '</tbody>'
+        '<div class="ons-summary__item">' +
+        '<dt class="ons-summary__item-title">' +
+          `<div class="ons-summary__item--text">${row.title}</div>` +
+        '</dt>' +
+        '<dd class="ons-summary__values">' +
+          `<span class="ons-summary__text">${row.itemsList[0].valueList[0].text}</span>`+
+        '</dd>' +
+        '<dd class="ons-summary__actions">' +
+          `<a href="${row.itemsList[0].actions[0].url}" class="ons-summary__button" aria-label="Change answer">Change</a>` +
+        '</dd>'+
+      '</div>'
       );
     });
     return this.html;
@@ -133,7 +133,7 @@ export default class SummaryManager {
     });
 
     const tableHeader =
-      '<thead class="ons-u-vh">' + '<tr>' + '<th>Question</th>' + '<th>Answer given</th>' + '<th>Change answer</th>' + '</tr>' + '</thead>';
+      '<div class="ons-summary__item ons-u-vh"> <dt>' + 'Question' + '/dt' + '<dd>Answer given</dd>' + '<dd>Change answer</dd>' + '</div>';
 
     this.placeholder.insertAdjacentHTML('afterBegin', tableHeader);
   }
