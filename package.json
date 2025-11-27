@@ -36,7 +36,7 @@
     "eslint": "8.55.0",
     "front-matter": "4.0.2",
     "glob": "10.5.0",
-    "gulp": "4.0.2",
+    "gulp": "5.0.1",
     "gulp-dart-sass": "1.1.0",
     "gulp-if": "3.0.0",
     "gulp-postcss": "9.0.1",
