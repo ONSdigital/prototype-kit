@@ -4,7 +4,6 @@ import gulpIf from 'gulp-if';
 import gulpPostCss from 'gulp-postcss';
 import gulpDartSass from 'gulp-dart-sass';
 import gulpSourcemaps from 'gulp-sourcemaps';
-import gulpSvg from 'gulp-svgo';
 import merge from 'merge-stream';
 import path from 'path';
 import * as rollup from 'rollup';
@@ -13,7 +12,6 @@ import rollupCommonJS from '@rollup/plugin-commonjs';
 
 import nunjucksRendererPipe from './lib/rendering/nunjucks-renderer-pipe.js';
 import postCssPlugins from './postcss.config.js';
-import svgConfig from './svgo-config.js';
 
 function setupGulpTasks(gulp) {
   const isProduction = process.env.NODE_ENV === 'production';
@@ -69,7 +67,7 @@ function setupGulpTasks(gulp) {
   });
 
   gulp.task('prototype-kit:build-svg', () => {
-    return gulp.src('./src/**/*.svg').pipe(gulpSvg(svgConfig)).pipe(gulp.dest('./build')).pipe(browserSync.stream());
+    return gulp.src('./src/**/*.svg').pipe(gulp.dest('./build')).pipe(browserSync.stream());
   });
 
   gulp.task('prototype-kit:build-pages', () => {
