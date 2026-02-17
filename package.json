@@ -33,7 +33,7 @@
     "browser-sync": "3.0.4",
     "cssnano": "6.0.1",
     "express": "4.21.2",
-    "eslint": "8.55.0",
+    "eslint": "9.26.0",
     "front-matter": "4.0.2",
     "glob": "13.0.0",
     "gulp": "5.0.1",
