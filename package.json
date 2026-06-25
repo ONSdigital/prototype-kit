@@ -27,7 +27,7 @@
   },
   "dependencies": {
     "autoprefixer": "10.4.16",
-    "@babel/core": "7.23.6",
+    "@babel/core": "7.29.6",
     "@babel/eslint-parser": "7.23.3",
     "babelify": "10.0.0",
     "browser-sync": "3.0.4",
